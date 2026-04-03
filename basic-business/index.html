@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUSINESS NAME — Tagline Here</title>
+  <meta name="description" content="BUSINESS NAME — short description for Google." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>html { scroll-behavior: smooth; }</style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full bg-white shadow-sm z-50">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+      <span class="text-blue-700 font-bold text-lg">BUSINESS NAME</span>
+      <div class="flex gap-6 text-sm font-medium">
+        <a href="#about" class="hover:text-blue-700">About</a>
+        <a href="#services" class="hover:text-blue-700">Services</a>
+        <a href="#contact" class="hover:text-blue-700">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-28 pb-20 px-4 bg-blue-700 text-white text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4">HEADLINE HERE</h1>
+    <p class="text-lg mb-8 text-blue-100 max-w-xl mx-auto">Sub-headline — one or two sentences about what the business does.</p>
+    <a href="#contact" class="bg-white text-blue-700 font-semibold px-8 py-3 rounded-full hover:bg-blue-50 transition">Contact Us</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-16 px-4 max-w-3xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-6">About Us</h2>
+    <p class="text-gray-600 leading-relaxed">Write a short paragraph about the business — who they are, where they're based, and what makes them different.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-16 px-4 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-4xl mb-4">⭐</div>
+          <h3 class="font-bold text-lg mb-2">Service One</h3>
+          <p class="text-gray-600 text-sm">Short description of this service.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-4xl mb-4">⭐</div>
+          <h3 class="font-bold text-lg mb-2">Service Two</h3>
+          <p class="text-gray-600 text-sm">Short description of this service.</p>
+        </div>
+        <div class="bg-white rounded-xl p-6 text-center shadow-sm">
+          <div class="text-4xl mb-4">⭐</div>
+          <h3 class="font-bold text-lg mb-2">Service Three</h3>
+          <p class="text-gray-600 text-sm">Short description of this service.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-16 px-4 max-w-xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-4">Contact Us</h2>
+    <p class="text-center text-gray-500 mb-10">Get in touch — we'd love to hear from you.</p>
+    <form class="space-y-4" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required
+        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <input type="tel" name="phone" placeholder="Phone / WhatsApp Number" required
+        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+      <textarea name="message" placeholder="Your message..." rows="4" required
+        class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+      <button type="submit"
+        class="w-full bg-blue-700 text-white font-semibold py-3 rounded-lg hover:bg-blue-800 transition">
+        Send Message
+      </button>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-800 text-gray-400 text-center py-6 text-sm">
+    <p>&copy; 2026 BUSINESS NAME. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
