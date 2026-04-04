@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rooms & Suites — HOTEL NAME</title>
+  <meta name="description" content="Browse rooms, suites, and shortlet apartments at HOTEL NAME in AREA, Lagos." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 shadow-sm" style="background:#1c1917;">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="font-extrabold text-xl tracking-widest text-white uppercase">HOTEL NAME</a>
+      <div class="flex gap-6 text-sm font-medium text-stone-400">
+        <a href="index.html" class="hover:text-yellow-500">Home</a>
+        <a href="rooms.html" style="color:#d97706;" class="font-bold">Rooms</a>
+        <a href="amenities.html" class="hover:text-yellow-500">Amenities</a>
+        <a href="about.html" class="hover:text-yellow-500">About</a>
+        <a href="contact.html" class="hover:text-yellow-500">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="pt-28 pb-12 px-4 text-white text-center" style="background:#1c1917;">
+    <p class="uppercase tracking-widest text-xs mb-3" style="color:#d97706;">Every Room, Every Budget</p>
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4">Rooms & Suites</h1>
+    <p class="text-stone-400 max-w-xl mx-auto">From comfortable standard rooms to fully furnished shortlet apartments — we have the right space for your stay.</p>
+  </section>
+
+  <!-- BOOKING NOTE -->
+  <div class="bg-amber-50 border-b border-amber-200 py-3 px-4 text-center text-sm">
+    <span class="text-amber-800">All bookings are made via WhatsApp. &nbsp;</span>
+    <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20check%20room%20availability%20at%20HOTEL%20NAME."
+      target="_blank" rel="noopener noreferrer" class="font-bold underline" style="color:#d97706;">
+      Check availability now →
+    </a>
+  </div>
+
+  <!-- STANDARD ROOM -->
+  <section class="py-16 px-4 max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <img src="https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=700&h=450&fit=crop" alt="Standard Room" class="rounded-2xl shadow-md w-full object-cover" />
+      <div>
+        <p class="uppercase text-xs tracking-widest mb-2" style="color:#d97706;">Room Type 1</p>
+        <h2 class="text-3xl font-bold mb-2">Standard Room</h2>
+        <p class="text-2xl font-extrabold mb-4" style="color:#d97706;">₦XX,000 <span class="text-base font-normal text-gray-400">/ night</span></p>
+        <p class="text-gray-600 mb-5">Our well-appointed Standard Room is perfect for solo travellers and business guests. Comfortable, clean, and fully equipped for a restful stay.</p>
+        <ul class="space-y-2 text-sm text-gray-600 mb-6">
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Queen-size bed with quality mattress and linens</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Air conditioning (split unit)</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> En-suite bathroom with hot water</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> 43" flat-screen TV with DSTV</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Free high-speed WiFi</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Daily housekeeping</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Breakfast included</li>
+        </ul>
+        <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20book%20a%20Standard%20Room%20at%20HOTEL%20NAME."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-full text-sm"
+          style="background:#25D366; color:white;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book This Room
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELUXE SUITE -->
+  <section class="py-16 px-4" style="background:#fafaf9;">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="inline-block text-xs font-bold px-3 py-1 rounded-full mb-3" style="background:#d97706; color:white;">Most Popular</div>
+        <p class="uppercase text-xs tracking-widest mb-2" style="color:#d97706;">Room Type 2</p>
+        <h2 class="text-3xl font-bold mb-2">Deluxe Suite</h2>
+        <p class="text-2xl font-extrabold mb-4" style="color:#d97706;">₦XX,000 <span class="text-base font-normal text-gray-400">/ night</span></p>
+        <p class="text-gray-600 mb-5">Our flagship Deluxe Suite offers a premium hotel experience with a separate lounge, upgraded bathroom, and executive-level amenities. Ideal for couples and discerning guests.</p>
+        <ul class="space-y-2 text-sm text-gray-600 mb-6">
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> King-size bed with premium linens</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Separate lounge / sitting area</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Premium bathroom with bathtub and walk-in shower</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Mini bar (stocked on request)</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> 55" flat-screen TV with DSTV Premium</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> City or garden view</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Complimentary breakfast for 2</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Late checkout on request</li>
+        </ul>
+        <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Deluxe%20Suite%20at%20HOTEL%20NAME."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-full text-sm"
+          style="background:#25D366; color:white;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book This Suite
+        </a>
+      </div>
+      <img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=700&h=450&fit=crop" alt="Deluxe Suite" class="rounded-2xl shadow-md w-full object-cover" />
+    </div>
+  </section>
+
+  <!-- SHORTLET APARTMENT -->
+  <section class="py-16 px-4 max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=700&h=450&fit=crop" alt="Shortlet" class="rounded-2xl shadow-md w-full object-cover" />
+      <div>
+        <p class="uppercase text-xs tracking-widest mb-2" style="color:#d97706;">Room Type 3</p>
+        <h2 class="text-3xl font-bold mb-2">Shortlet Apartment</h2>
+        <p class="text-2xl font-extrabold mb-1" style="color:#d97706;">1 Bedroom: ₦XX,000 <span class="text-base font-normal text-gray-400">/ night</span></p>
+        <p class="text-2xl font-extrabold mb-4" style="color:#d97706;">2 Bedroom: ₦XX,000 <span class="text-base font-normal text-gray-400">/ night</span></p>
+        <p class="text-gray-600 mb-5">Our shortlet apartments are perfect for families, corporate relocations, and guests planning extended stays. Fully furnished — move in with just your bag.</p>
+        <ul class="space-y-2 text-sm text-gray-600 mb-6">
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Fully furnished living room and bedrooms</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Fully equipped kitchen (cooker, fridge, microwave)</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Washing machine in apartment</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Air conditioning in all rooms</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Free WiFi + DSTV</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Dedicated parking space</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Weekly cleaning included</li>
+          <li class="flex gap-2"><span style="color:#d97706;" class="font-bold">✓</span> Weekly stay discounts available</li>
+        </ul>
+        <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27m%20interested%20in%20a%20shortlet%20apartment%20at%20HOTEL%20NAME."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-full text-sm"
+          style="background:#25D366; color:white;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Enquire About Shortlet
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SUMMARY TABLE -->
+  <section class="py-16 px-4" style="background:#fafaf9;">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-center uppercase text-xs tracking-widest mb-2" style="color:#d97706;">At a Glance</p>
+      <h2 class="text-3xl font-bold text-center mb-10">Room Rates Summary</h2>
+      <div class="overflow-x-auto rounded-2xl border border-stone-200 shadow-sm">
+        <table class="w-full text-sm">
+          <thead>
+            <tr style="background:#1c1917; color:white;">
+              <th class="text-left px-6 py-4">Room Type</th>
+              <th class="text-left px-6 py-4">Per Night</th>
+              <th class="text-left px-6 py-4">Weekly Rate</th>
+              <th class="text-left px-6 py-4">Breakfast</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-stone-100">
+              <td class="px-6 py-4 font-medium">Standard Room</td>
+              <td class="px-6 py-4 font-bold" style="color:#d97706;">₦XX,000</td>
+              <td class="px-6 py-4 text-gray-500">₦XX,000</td>
+              <td class="px-6 py-4 text-gray-500">Included</td>
+            </tr>
+            <tr class="border-b border-stone-100 bg-amber-50">
+              <td class="px-6 py-4 font-medium">Deluxe Suite</td>
+              <td class="px-6 py-4 font-bold" style="color:#d97706;">₦XX,000</td>
+              <td class="px-6 py-4 text-gray-500">₦XX,000</td>
+              <td class="px-6 py-4 text-gray-500">Included (×2)</td>
+            </tr>
+            <tr class="border-b border-stone-100">
+              <td class="px-6 py-4 font-medium">Shortlet — 1 Bed</td>
+              <td class="px-6 py-4 font-bold" style="color:#d97706;">₦XX,000</td>
+              <td class="px-6 py-4 text-gray-500">₦XX,000</td>
+              <td class="px-6 py-4 text-gray-500">Self-catering</td>
+            </tr>
+            <tr>
+              <td class="px-6 py-4 font-medium">Shortlet — 2 Bed</td>
+              <td class="px-6 py-4 font-bold" style="color:#d97706;">₦XX,000</td>
+              <td class="px-6 py-4 text-gray-500">₦XX,000</td>
+              <td class="px-6 py-4 text-gray-500">Self-catering</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-center text-gray-400 text-xs mt-4">* Rates subject to change on public holidays. WhatsApp us for group and long-stay rates.</p>
+    </div>
+  </section>
+
+  <!-- BOOKING CTA -->
+  <section class="py-16 px-4 text-white text-center" style="background:#1c1917;">
+    <h2 class="text-2xl font-bold mb-3">Book Your Room Today</h2>
+    <p class="text-stone-400 mb-6 max-w-md mx-auto">Send us your preferred dates and room type on WhatsApp — we'll confirm availability and secure your reservation immediately.</p>
+    <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20book%20a%20room%20at%20HOTEL%20NAME.%20Please%20share%20availability."
+      target="_blank" rel="noopener noreferrer"
+      class="inline-flex items-center gap-3 font-semibold px-8 py-3 rounded-full"
+      style="background:#25D366; color:white;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Check Availability on WhatsApp
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-stone-500 text-center py-6 text-sm">
+    <p>&copy; 2026 HOTEL NAME. Website by <a href="https://ebukas-websites.netlify.app" class="text-yellow-500 hover:underline">Ebuka's Websites</a>.</p>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20enquire%20about%20HOTEL%20NAME." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <div class="rounded-full w-14 h-14 flex items-center justify-center shadow-xl" style="background:#25D366;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </a>
+</body>
+</html>
