@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog – Lagos Prime Realty</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulse-ring {
+      0% { transform: scale(1); opacity: 0.8; }
+      70% { transform: scale(1.5); opacity: 0; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+    .whatsapp-pulse::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      background: #25D366;
+      animation: pulse-ring 2s ease-out infinite;
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold" style="color:#0a2a5e;">Lagos Prime Realty</a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
+        <a href="index.html" class="hover:text-yellow-500 transition">Home</a>
+        <a href="about.html" class="hover:text-yellow-500 transition">About</a>
+        <a href="for-sale.html" class="hover:text-yellow-500 transition">For Sale</a>
+        <a href="for-rent.html" class="hover:text-yellow-500 transition">For Rent</a>
+        <a href="services.html" class="hover:text-yellow-500 transition">Services</a>
+        <a href="team.html" class="hover:text-yellow-500 transition">Team</a>
+        <a href="testimonials.html" class="hover:text-yellow-500 transition">Testimonials</a>
+        <a href="blog.html" class="active hover:text-yellow-500 transition" style="color:#f0c96a;">Blog</a>
+        <a href="faq.html" class="hover:text-yellow-500 transition">FAQ</a>
+        <a href="contact.html" class="hover:text-yellow-500 transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="pt-28 pb-10 text-white text-center" style="background: linear-gradient(135deg, #0a2a5e, #1a4a9e);">
+    <h1 class="text-4xl font-bold mb-3">Real Estate Insights</h1>
+    <p class="text-lg opacity-80">Expert tips, market updates, and guides for Nigerian property buyers and investors</p>
+  </section>
+
+  <!-- BLOG CARDS -->
+  <section class="max-w-7xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Post 1 -->
+      <div class="bg-white rounded-2xl shadow overflow-hidden flex flex-col">
+        <img src="https://images.pexels.com/photos/2255938/pexels-photo-2255938.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Blog post" class="h-40 w-full object-cover" />
+        <div class="p-6 flex flex-col flex-1">
+          <div class="text-xs text-gray-400 mb-2">March 15, 2026</div>
+          <h3 class="font-bold text-lg mb-2 leading-snug" style="color:#0a2a5e;">Lagos Real Estate Market Trends to Watch in 2026</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-1">From rising demand in the Ibeju-Lekki corridor to the impact of infrastructure projects on property values, we break down the key trends shaping the Lagos market this year and what they mean for buyers and investors.</p>
+          <a href="#" class="mt-4 inline-block text-sm font-semibold hover:underline" style="color:#0a2a5e;">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Post 2 -->
+      <div class="bg-white rounded-2xl shadow overflow-hidden flex flex-col">
+        <img src="https://images.pexels.com/photos/1626859/pexels-photo-1626859.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Blog post" class="h-40 w-full object-cover" />
+        <div class="p-6 flex flex-col flex-1">
+          <div class="text-xs text-gray-400 mb-2">February 28, 2026</div>
+          <h3 class="font-bold text-lg mb-2 leading-snug" style="color:#0a2a5e;">How to Buy Land Safely in Nigeria: The Complete Guide</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-1">Land fraud is rampant in Nigeria, but it doesn't have to happen to you. This guide covers title verification, government acquisition searches, what documents to demand from sellers, and the red flags to watch for before paying a single kobo.</p>
+          <a href="#" class="mt-4 inline-block text-sm font-semibold hover:underline" style="color:#0a2a5e;">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Post 3 -->
+      <div class="bg-white rounded-2xl shadow overflow-hidden flex flex-col">
+        <img src="https://images.pexels.com/photos/3997060/pexels-photo-3997060.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Blog post" class="h-40 w-full object-cover" />
+        <div class="p-6 flex flex-col flex-1">
+          <div class="text-xs text-gray-400 mb-2">February 10, 2026</div>
+          <h3 class="font-bold text-lg mb-2 leading-snug" style="color:#0a2a5e;">The Diaspora Guide to Buying Property in Lagos Remotely</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-1">Living abroad but want to invest back home? We walk you through how Nigerians in the UK, US, Canada, and Europe can safely purchase property in Lagos — from remote viewings and power of attorney to forex considerations and documentation by proxy.</p>
+          <a href="#" class="mt-4 inline-block text-sm font-semibold hover:underline" style="color:#0a2a5e;">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Post 4 -->
+      <div class="bg-white rounded-2xl shadow overflow-hidden flex flex-col">
+        <img src="https://images.pexels.com/photos/7587880/pexels-photo-7587880.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Blog post" class="h-40 w-full object-cover" />
+        <div class="p-6 flex flex-col flex-1">
+          <div class="text-xs text-gray-400 mb-2">January 22, 2026</div>
+          <h3 class="font-bold text-lg mb-2 leading-snug" style="color:#0a2a5e;">10 Smart Tips for Renters in Lagos to Protect Yourself</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-1">Renting in Lagos can be tricky — from agency fee disputes to landlords who disappear after collecting rent. These 10 practical tips will help you protect your money, understand your tenancy rights, and avoid the most common pitfalls renters face.</p>
+          <a href="#" class="mt-4 inline-block text-sm font-semibold hover:underline" style="color:#0a2a5e;">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Post 5 -->
+      <div class="bg-white rounded-2xl shadow overflow-hidden flex flex-col">
+        <img src="https://images.pexels.com/photos/6035357/pexels-photo-6035357.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Blog post" class="h-40 w-full object-cover" />
+        <div class="p-6 flex flex-col flex-1">
+          <div class="text-xs text-gray-400 mb-2">January 5, 2026</div>
+          <h3 class="font-bold text-lg mb-2 leading-snug" style="color:#0a2a5e;">Certificate of Occupancy Explained: What Every Lagos Property Buyer Must Know</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-1">The C of O is the gold standard of Nigerian property title — but many buyers don't understand how it works or what other documents are acceptable. We explain C of O, Governor's Consent, Deed of Assignment, and which one you really need.</p>
+          <a href="#" class="mt-4 inline-block text-sm font-semibold hover:underline" style="color:#0a2a5e;">Read More →</a>
+        </div>
+      </div>
+
+      <!-- Post 6 -->
+      <div class="bg-white rounded-2xl shadow overflow-hidden flex flex-col">
+        <img src="https://images.pexels.com/photos/1635811/pexels-photo-1635811.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Blog post" class="h-40 w-full object-cover" />
+        <div class="p-6 flex flex-col flex-1">
+          <div class="text-xs text-gray-400 mb-2">December 18, 2025</div>
+          <h3 class="font-bold text-lg mb-2 leading-snug" style="color:#0a2a5e;">Lekki vs Victoria Island: Which Is the Better Property Investment in 2026?</h3>
+          <p class="text-gray-500 text-sm leading-relaxed flex-1">Two of Lagos's most prestigious addresses — but which offers better value, higher ROI, and more growth potential? We compare infrastructure, property prices, rental yields, lifestyle factors, and long-term appreciation to help you decide where to put your money.</p>
+          <a href="#" class="mt-4 inline-block text-sm font-semibold hover:underline" style="color:#0a2a5e;">Read More →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 text-center py-6 text-sm">
+    &copy; 2026 Lagos Prime Realty. Website by <a href="https://ebukas-websites.netlify.app" class="text-blue-400 hover:underline">Ebuka's Websites</a>.
+  </footer>
+
+  <!-- WHATSAPP FLOATING BUTTON -->
+  <a href="https://wa.me/2341234567890?text=Hi%20Lagos%20Prime%20Realty%2C%20I%27m%20interested%20in%20a%20property."
+     target="_blank"
+     class="whatsapp-pulse fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg"
+     style="background:#25D366; position:fixed;">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white" fill="white" viewBox="0 0 24 24">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+</body>
+</html>

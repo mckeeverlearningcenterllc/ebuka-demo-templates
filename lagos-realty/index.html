@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lagos Prime Realty — Buy, Sell & Rent Property in Nigeria</title>
+  <meta name="description" content="Lagos Prime Realty — trusted real estate agency helping Nigerians buy, sell, and rent property in Lagos and across Nigeria." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .prop-card:hover { transform: translateY(-4px); transition: transform 0.2s; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 bg-white shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div>
+        <span class="font-extrabold text-xl" style="color:#0a2a5e;">Lagos Prime</span>
+        <span class="font-light text-xl text-gray-400"> Realty</span>
+      </div>
+      <div class="hidden md:flex gap-6 text-sm font-medium text-gray-600">
+        <a href="#about" class="hover:text-blue-800">About</a>
+        <a href="#for-sale" class="hover:text-blue-800">For Sale</a>
+        <a href="#for-rent" class="hover:text-blue-800">For Rent</a>
+        <a href="#services" class="hover:text-blue-800">Services</a>
+        <a href="#team" class="hover:text-blue-800">Team</a>
+        <a href="#testimonials" class="hover:text-blue-800">Reviews</a>
+        <a href="#blog" class="hover:text-blue-800">Blog</a>
+        <a href="#faq" class="hover:text-blue-800">FAQ</a>
+        <a href="#contact" class="hover:text-blue-800">Contact</a>
+      </div>
+      <a href="https://wa.me/2341234567890?text=Hi%20Lagos%20Prime%20Realty%2C%20I%27m%20interested%20in%20a%20property."
+        target="_blank" rel="noopener noreferrer"
+        class="text-sm font-semibold text-white px-4 py-2 rounded-full hidden md:block"
+        style="background:#0a2a5e;">
+        Contact Us
+      </a>
+    </div>
+  </nav>
+
+  <!-- 1. HERO -->
+  <section class="pt-28 pb-24 px-4 text-white text-center" style="background-image: url('https://images.pexels.com/photos/1626859/pexels-photo-1626859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); background-size:cover; background-position:center; position:relative;">
+    <div style="position:absolute;inset:0;background:rgba(10,42,94,0.80);"></div>
+    <div style="position:relative;z-index:10;">
+    <p class="uppercase text-xs tracking-widest mb-3" style="color:#f0c96a;">Trusted Real Estate Experts</p>
+    <h1 class="text-4xl md:text-6xl font-extrabold mb-4">Find Your Dream<br/>Property in Nigeria</h1>
+    <p class="text-blue-200 text-lg max-w-xl mx-auto mb-10">Buying, selling, or renting? Lagos Prime Realty connects you with verified properties across Lagos and beyond.</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#for-sale" class="font-semibold px-8 py-3 rounded-full transition" style="background:#f0c96a; color:#0a2a5e;">View Properties</a>
+      <a href="https://wa.me/2341234567890?text=Hi%20Lagos%20Prime%20Realty%2C%20I%20need%20help%20finding%20a%20property."
+        target="_blank" rel="noopener noreferrer"
+        class="font-semibold px-8 py-3 rounded-full border-2 border-white text-white hover:bg-white hover:text-blue-900 transition">
+        Speak to an Agent
+      </a>
+    </div>
+    <!-- Stats -->
+    <div class="mt-14 grid grid-cols-3 max-w-lg mx-auto gap-6">
+      <div><p class="text-3xl font-extrabold" style="color:#f0c96a;">500+</p><p class="text-blue-200 text-sm">Properties Listed</p></div>
+      <div><p class="text-3xl font-extrabold" style="color:#f0c96a;">12yrs</p><p class="text-blue-200 text-sm">Experience</p></div>
+      <div><p class="text-3xl font-extrabold" style="color:#f0c96a;">98%</p><p class="text-blue-200 text-sm">Client Satisfaction</p></div>
+    </div>
+    </div>
+  </section>
+
+  <!-- 2. ABOUT -->
+  <section id="about" class="py-16 px-4" style="background:#f8f9ff;">
+    <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
+      <img src="https://images.pexels.com/photos/8933650/pexels-photo-8933650.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Lagos Prime Realty office" class="w-full md:w-1/2 rounded-2xl object-cover h-64" />
+      <div class="w-full md:w-1/2">
+        <p class="uppercase text-xs tracking-widest mb-3" style="color:#f0c96a; background:#0a2a5e; display:inline-block; padding: 2px 10px; border-radius:999px;">About Us</p>
+        <h2 class="text-3xl font-bold mt-3 mb-4">Nigeria's Most Trusted Property Agency</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">Founded in 2013, Lagos Prime Realty has helped over 1,200 families and businesses find the right property. We specialize in residential and commercial property across Lagos Island, Lekki, Victoria Island, Ikoyi, and Abuja.</p>
+        <p class="text-gray-600 leading-relaxed">We are registered with the Estate Surveyors and Valuers Registration Board of Nigeria (ESVARBON) and committed to transparent, stress-free transactions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PROPERTIES FOR SALE -->
+  <section id="for-sale" class="py-16 px-4">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-center uppercase text-xs tracking-widest mb-2 font-semibold" style="color:#0a2a5e;">Real Estate</p>
+      <h2 class="text-3xl font-bold text-center mb-12">Properties For Sale</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="prop-card rounded-2xl overflow-hidden shadow-md border border-gray-100">
+          <div class="h-48 flex items-center justify-center text-white font-semibold" style="background: linear-gradient(135deg, #0a2a5e, #2a5aae);">
+            <div class="text-center"><p class="text-2xl mb-1">🏠</p><p>4-Bedroom Duplex</p></div>
+          </div>
+          <div class="p-4">
+            <p class="font-bold text-lg">4-Bed Duplex — Lekki Phase 1</p>
+            <p class="text-gray-500 text-sm mt-1">Fully detached, 3 bathrooms, BQ, 24hr security, gated estate.</p>
+            <p class="font-extrabold mt-3" style="color:#0a2a5e;">₦85,000,000</p>
+            <a href="https://wa.me/2341234567890?text=Hi%2C%20I%27m%20interested%20in%20the%204-bed%20duplex%20in%20Lekki."
+              target="_blank" class="mt-3 block text-center text-sm font-semibold py-2 rounded-full text-white" style="background:#0a2a5e;">Enquire Now</a>
+          </div>
+        </div>
+        <div class="prop-card rounded-2xl overflow-hidden shadow-md border border-gray-100">
+          <div class="h-48 flex items-center justify-center text-white font-semibold" style="background: linear-gradient(135deg, #1a4070, #2a6aae);">
+            <div class="text-center"><p class="text-2xl mb-1">🏢</p><p>3-Bedroom Flat</p></div>
+          </div>
+          <div class="p-4">
+            <p class="font-bold text-lg">3-Bed Flat — Victoria Island</p>
+            <p class="text-gray-500 text-sm mt-1">Serviced apartment, gym, swimming pool, parking, backup power.</p>
+            <p class="font-extrabold mt-3" style="color:#0a2a5e;">₦55,000,000</p>
+            <a href="https://wa.me/2341234567890?text=Hi%2C%20I%27m%20interested%20in%20the%203-bed%20flat%20in%20Victoria%20Island."
+              target="_blank" class="mt-3 block text-center text-sm font-semibold py-2 rounded-full text-white" style="background:#0a2a5e;">Enquire Now</a>
+          </div>
+        </div>
+        <div class="prop-card rounded-2xl overflow-hidden shadow-md border border-gray-100">
+          <div class="h-48 flex items-center justify-center text-white font-semibold" style="background: linear-gradient(135deg, #2a1a5e, #5a3aae);">
+            <div class="text-center"><p class="text-2xl mb-1">🏗️</p><p>Land — Ibeju Lekki</p></div>
+          </div>
+          <div class="p-4">
+            <p class="font-bold text-lg">600sqm Land — Ibeju Lekki</p>
+            <p class="text-gray-500 text-sm mt-1">Dry land, C of O, close to Dangote Refinery corridor. Fast appreciating.</p>
+            <p class="font-extrabold mt-3" style="color:#0a2a5e;">₦18,000,000</p>
+            <a href="https://wa.me/2341234567890?text=Hi%2C%20I%27m%20interested%20in%20the%20land%20in%20Ibeju%20Lekki."
+              target="_blank" class="mt-3 block text-center text-sm font-semibold py-2 rounded-full text-white" style="background:#0a2a5e;">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. PROPERTIES FOR RENT -->
+  <section id="for-rent" class="py-16 px-4" style="background:#f8f9ff;">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Properties For Rent</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="prop-card bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
+          <div class="h-48 flex items-center justify-center text-white font-semibold" style="background: linear-gradient(135deg, #0a4a2e, #1a8a5e);">
+            <div class="text-center"><p class="text-2xl mb-1">🏠</p><p>2-Bedroom Flat</p></div>
+          </div>
+          <div class="p-4">
+            <p class="font-bold text-lg">2-Bed Flat — Ajah</p>
+            <p class="text-gray-500 text-sm mt-1">Modern finishing, tiled floors, estate with gen. 1 year rent.</p>
+            <p class="font-extrabold mt-3" style="color:#0a2a5e;">₦1,200,000 / yr</p>
+            <a href="https://wa.me/2341234567890?text=Hi%2C%20I%27m%20interested%20in%20renting%20the%202-bed%20flat%20in%20Ajah."
+              target="_blank" class="mt-3 block text-center text-sm font-semibold py-2 rounded-full text-white" style="background:#0a2a5e;">Enquire Now</a>
+          </div>
+        </div>
+        <div class="prop-card bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
+          <div class="h-48 flex items-center justify-center text-white font-semibold" style="background: linear-gradient(135deg, #4a2800, #9a6a00);">
+            <div class="text-center"><p class="text-2xl mb-1">🏢</p><p>Office Space</p></div>
+          </div>
+          <div class="p-4">
+            <p class="font-bold text-lg">Office Space — Ikeja GRA</p>
+            <p class="text-gray-500 text-sm mt-1">Open plan, 200sqm, central AC, 24hr power, parking for 10 cars.</p>
+            <p class="font-extrabold mt-3" style="color:#0a2a5e;">₦4,500,000 / yr</p>
+            <a href="https://wa.me/2341234567890?text=Hi%2C%20I%27m%20interested%20in%20the%20office%20space%20in%20Ikeja%20GRA."
+              target="_blank" class="mt-3 block text-center text-sm font-semibold py-2 rounded-full text-white" style="background:#0a2a5e;">Enquire Now</a>
+          </div>
+        </div>
+        <div class="prop-card bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100">
+          <div class="h-48 flex items-center justify-center text-white font-semibold" style="background: linear-gradient(135deg, #3a0a2e, #8a2a6e);">
+            <div class="text-center"><p class="text-2xl mb-1">🏠</p><p>Mini Flat</p></div>
+          </div>
+          <div class="p-4">
+            <p class="font-bold text-lg">Mini Flat — Yaba</p>
+            <p class="text-gray-500 text-sm mt-1">Self-contained, tiled, secure compound. Close to UNILAG and tech hub.</p>
+            <p class="font-extrabold mt-3" style="color:#0a2a5e;">₦500,000 / yr</p>
+            <a href="https://wa.me/2341234567890?text=Hi%2C%20I%27m%20interested%20in%20the%20mini%20flat%20in%20Yaba."
+              target="_blank" class="mt-3 block text-center text-sm font-semibold py-2 rounded-full text-white" style="background:#0a2a5e;">Enquire Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SERVICES -->
+  <section id="services" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Our Services</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl text-center border border-gray-100 shadow-sm">
+          <div class="text-4xl mb-3">🏡</div><h3 class="font-bold text-lg mb-2">Property Sales</h3>
+          <p class="text-gray-500 text-sm">Buy or sell residential and commercial property with full legal support.</p>
+        </div>
+        <div class="p-6 rounded-2xl text-center border border-gray-100 shadow-sm">
+          <div class="text-4xl mb-3">🔑</div><h3 class="font-bold text-lg mb-2">Property Letting</h3>
+          <p class="text-gray-500 text-sm">Find verified tenants or the perfect rental for your needs.</p>
+        </div>
+        <div class="p-6 rounded-2xl text-center border border-gray-100 shadow-sm">
+          <div class="text-4xl mb-3">📋</div><h3 class="font-bold text-lg mb-2">Property Management</h3>
+          <p class="text-gray-500 text-sm">We manage your property — rent collection, maintenance, and tenant relations.</p>
+        </div>
+        <div class="p-6 rounded-2xl text-center border border-gray-100 shadow-sm">
+          <div class="text-4xl mb-3">📄</div><h3 class="font-bold text-lg mb-2">Documentation</h3>
+          <p class="text-gray-500 text-sm">C of O, Survey Plans, Deed of Assignment — we handle all paperwork.</p>
+        </div>
+        <div class="p-6 rounded-2xl text-center border border-gray-100 shadow-sm">
+          <div class="text-4xl mb-3">🏗️</div><h3 class="font-bold text-lg mb-2">Land Sales</h3>
+          <p class="text-gray-500 text-sm">Verified plots across Lagos and Ogun State with full documentation.</p>
+        </div>
+        <div class="p-6 rounded-2xl text-center border border-gray-100 shadow-sm">
+          <div class="text-4xl mb-3">💰</div><h3 class="font-bold text-lg mb-2">Property Valuation</h3>
+          <p class="text-gray-500 text-sm">Accurate market valuations for insurance, mortgage, or resale purposes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. TEAM -->
+  <section id="team" class="py-16 px-4" style="background:#f8f9ff;">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Meet Our Team</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl" style="background:#0a2a5e;">AO</div>
+          <h3 class="font-bold text-lg">Adebayo Okafor</h3>
+          <p class="text-gray-500 text-sm">CEO & Lead Agent</p>
+        </div>
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl" style="background:#0a2a5e;">CN</div>
+          <h3 class="font-bold text-lg">Chisom Nwosu</h3>
+          <p class="text-gray-500 text-sm">Property Consultant</p>
+        </div>
+        <div class="text-center">
+          <div class="w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center text-white font-bold text-2xl" style="background:#0a2a5e;">YB</div>
+          <h3 class="font-bold text-lg">Yetunde Balogun</h3>
+          <p class="text-gray-500 text-sm">Legal & Documentation</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. TESTIMONIALS -->
+  <section id="testimonials" class="py-16 px-4">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl shadow-sm border border-gray-100">
+          <p class="text-yellow-400 text-lg mb-3">★★★★★</p>
+          <p class="text-gray-600 text-sm italic mb-4">"Lagos Prime found us our dream home in Lekki within 3 weeks. No stress, no hidden fees. Very professional."</p>
+          <p class="font-bold text-sm">Emeka & Ngozi A.</p>
+          <p class="text-gray-400 text-xs">Lekki Phase 1</p>
+        </div>
+        <div class="p-6 rounded-2xl shadow-sm border border-gray-100">
+          <p class="text-yellow-400 text-lg mb-3">★★★★★</p>
+          <p class="text-gray-600 text-sm italic mb-4">"I sold my Victoria Island apartment through them. Got the best price and all documentation was handled perfectly."</p>
+          <p class="font-bold text-sm">Mr. Tunde Fashola</p>
+          <p class="text-gray-400 text-xs">Victoria Island</p>
+        </div>
+        <div class="p-6 rounded-2xl shadow-sm border border-gray-100">
+          <p class="text-yellow-400 text-lg mb-3">★★★★★</p>
+          <p class="text-gray-600 text-sm italic mb-4">"Their property management service is excellent. My tenants are happy and rent is always paid on time. Highly recommend."</p>
+          <p class="font-bold text-sm">Mrs. Amara Obi</p>
+          <p class="text-gray-400 text-xs">Property Investor, Ajah</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. BLOG -->
+  <section id="blog" class="py-16 px-4" style="background:#f8f9ff;">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Property Tips & News</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-40 flex items-center justify-center text-white font-semibold text-sm" style="background: linear-gradient(135deg, #0a2a5e, #1a4a9e);">Market Trends 2026</div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 mb-1">March 2026</p>
+            <h3 class="font-bold mb-2">Lagos Property Market: What to Expect in 2026</h3>
+            <p class="text-gray-500 text-sm">Key areas to watch and investment opportunities this year.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-40 flex items-center justify-center text-white font-semibold text-sm" style="background: linear-gradient(135deg, #1a4a9e, #2a6aae);">Buying Guide</div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 mb-1">February 2026</p>
+            <h3 class="font-bold mb-2">5 Things to Check Before Buying Land in Lagos</h3>
+            <p class="text-gray-500 text-sm">Avoid fraud — verify these documents before paying.</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl overflow-hidden shadow-sm">
+          <div class="h-40 flex items-center justify-center text-white font-semibold text-sm" style="background: linear-gradient(135deg, #0a4a2e, #1a8a5e);">Diaspora Guide</div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 mb-1">January 2026</p>
+            <h3 class="font-bold mb-2">How Nigerians in the Diaspora Can Buy Property Safely</h3>
+            <p class="text-gray-500 text-sm">Step-by-step guide for buying from abroad without being scammed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. FAQ -->
+  <section id="faq" class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <details class="border border-gray-200 rounded-xl p-5 cursor-pointer">
+          <summary class="font-bold">How do I know a property is genuine and not a scam?</summary>
+          <p class="text-gray-500 text-sm mt-3">All our listings are verified. We confirm C of O, Survey Plans, and ownership documents before listing. We also accompany you for physical inspection.</p>
+        </details>
+        <details class="border border-gray-200 rounded-xl p-5 cursor-pointer">
+          <summary class="font-bold">Do you work with buyers in the diaspora?</summary>
+          <p class="text-gray-500 text-sm mt-3">Yes. We work with Nigerians in the UK, US, Canada, and Europe. All communication is done via WhatsApp/email and we handle physical inspections on your behalf.</p>
+        </details>
+        <details class="border border-gray-200 rounded-xl p-5 cursor-pointer">
+          <summary class="font-bold">What is your agency fee?</summary>
+          <p class="text-gray-500 text-sm mt-3">Our standard agency fee is 5% of the property value for sales, and 10% of annual rent for lettings. Fees are only paid after a successful transaction.</p>
+        </details>
+        <details class="border border-gray-200 rounded-xl p-5 cursor-pointer">
+          <summary class="font-bold">Can you help with mortgage or financing?</summary>
+          <p class="text-gray-500 text-sm mt-3">Yes. We partner with leading Nigerian banks and mortgage institutions and can guide you through the process of obtaining a mortgage.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. CONTACT -->
+  <section id="contact" class="py-16 px-4 text-white text-center" style="background: linear-gradient(135deg, #0a2a5e, #1a4a9e);">
+    <h2 class="text-3xl font-bold mb-3">Talk to an Agent Today</h2>
+    <p class="text-blue-200 mb-8 max-w-md mx-auto">Whether you're buying, selling, or renting — we're ready to help. Fast replies guaranteed.</p>
+    <a href="https://wa.me/2341234567890?text=Hi%20Lagos%20Prime%20Realty%2C%20I%27m%20interested%20in%20a%20property."
+      target="_blank" rel="noopener noreferrer"
+      class="inline-flex items-center gap-3 font-semibold px-8 py-4 rounded-full text-lg shadow-lg mb-6"
+      style="background:#25D366; color:white;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Chat on WhatsApp
+    </a>
+    <div class="text-blue-200 text-sm mt-4 space-y-1">
+      <p>📍 14 Adeola Odeku Street, Victoria Island, Lagos</p>
+      <p>🕐 Monday – Friday: 8am – 6pm | Saturday: 9am – 3pm</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-900 text-gray-400 text-center py-6 text-sm">
+    <p>&copy; 2026 Lagos Prime Realty. All rights reserved. Website by <a href="https://ebukas-websites.netlify.app" class="text-blue-400 hover:underline">Ebuka's Websites</a>.</p>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/2341234567890?text=Hi%20Lagos%20Prime%20Realty%2C%20I%27m%20interested%20in%20a%20property."
+    target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat on WhatsApp">
+    <div class="rounded-full w-14 h-14 flex items-center justify-center shadow-xl" style="background:#25D366;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.08-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </a>
+
+</body>
+</html>

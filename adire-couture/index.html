@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adire Couture — Bespoke Nigerian Fashion</title>
+  <meta name="description" content="Bespoke Ankara, Adire, and contemporary fashion for men and women in Nigeria." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    nav a.active { color: #c9922a; font-weight: 700; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50" style="background:#0a0a0a;">
+    <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+      <a href="index.html" class="font-bold text-xl tracking-widest" style="color:#c9922a;">ADIRE COUTURE</a>
+      <div class="flex gap-5 text-sm font-medium text-gray-400">
+        <a href="index.html" class="active hover:text-yellow-400">Home</a>
+        <a href="about.html" class="hover:text-yellow-400">About</a>
+        <a href="collections.html" class="hover:text-yellow-400">Collections</a>
+        <a href="process.html" class="hover:text-yellow-400">How It Works</a>
+        <a href="order.html" class="hover:text-yellow-400">Order Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-28 pb-24 px-4 text-center" style="background-image: url('https://images.pexels.com/photos/31826913/pexels-photo-31826913.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); background-size:cover; background-position:center; position:relative;">
+    <div style="position:absolute;inset:0;background:rgba(10,10,10,0.75);"></div>
+    <div style="position:relative;z-index:10;">
+      <p class="uppercase tracking-widest text-xs mb-4" style="color:#c9922a;">Bespoke Nigerian Fashion</p>
+      <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">Wear Your<br/><span style="color:#c9922a;">Heritage.</span></h1>
+      <p class="text-gray-400 text-lg max-w-lg mx-auto mb-10">Custom Ankara, Adire, and contemporary outfits made to measure. For weddings, events, and everyday royalty.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="collections.html" class="font-semibold px-8 py-3 rounded-full transition" style="background:#c9922a; color:#0a0a0a;">View Collections</a>
+        <a href="order.html" class="font-semibold px-8 py-3 rounded-full border border-gray-600 text-white hover:border-yellow-400 transition">Order Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREVIEW COLLECTIONS -->
+  <section class="py-16 px-4" style="background:#111;">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold text-white text-center mb-10">Featured Collections</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="rounded-2xl overflow-hidden">
+          <img src="https://images.pexels.com/photos/32258516/pexels-photo-32258516.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Ankara Collection" class="h-48 w-full object-cover" />
+          <div class="p-4" style="background:#1a1a1a;"><p class="text-gray-300 text-sm">Bold prints for owambe, church, and corporate events.</p></div>
+        </div>
+        <div class="rounded-2xl overflow-hidden">
+          <img src="https://images.pexels.com/photos/28988337/pexels-photo-28988337.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Adire Collection" class="h-48 w-full object-cover" />
+          <div class="p-4" style="background:#1a1a1a;"><p class="text-gray-300 text-sm">Hand-dyed Adire fabric, uniquely Nigerian and timeless.</p></div>
+        </div>
+        <div class="rounded-2xl overflow-hidden">
+          <img src="https://images.pexels.com/photos/29046521/pexels-photo-29046521.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Bridal &amp; Events" class="h-48 w-full object-cover" />
+          <div class="p-4" style="background:#1a1a1a;"><p class="text-gray-300 text-sm">Custom wedding attire, aso-ebi, and complete bridal looks.</p></div>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a href="collections.html" class="inline-block font-semibold px-8 py-3 rounded-full text-black" style="background:#c9922a;">See All Collections →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-gray-400 text-center py-6 text-sm" style="background:#0a0a0a;">
+    <p>&copy; 2026 Adire Couture, Ibadan. Website by <a href="https://ebukas-websites.netlify.app" style="color:#c9922a;" class="hover:underline">Ebuka's Websites</a>.</p>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/2341234567890?text=Hi%2C%20I%27d%20like%20to%20order%20from%20Adire%20Couture." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <div class="rounded-full w-14 h-14 flex items-center justify-center shadow-xl" style="background:#25D366;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </a>
+</body>
+</html>
