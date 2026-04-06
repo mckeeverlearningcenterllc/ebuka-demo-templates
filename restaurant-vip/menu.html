@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu — RESTAURANT NAME</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #0a0502; color: #c8b896; }
+    h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .menu-item { border-bottom: 1px solid rgba(180,130,60,0.15); padding: 20px 0; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+    .tab-btn { padding: 10px 24px; font-size: 12px; letter-spacing: 0.2em; font-weight: 600; cursor: pointer; transition: all 0.2s; border: 1px solid rgba(180,130,60,0.3); }
+    .tab-btn.active { background: #b4823c; color: white; border-color: #b4823c; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50" style="background:rgba(10,5,2,0.95); border-bottom:1px solid rgba(180,130,60,0.2);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="serif font-bold text-2xl tracking-widest" style="color:#b4823c;">RESTAURANT NAME</a>
+      <div class="flex gap-8 text-sm font-medium tracking-wider" style="color:#a8956e;">
+        <a href="index.html" class="hover:text-amber-400">HOME</a>
+        <a href="menu.html" style="color:#b4823c;">MENU</a>
+        <a href="chef.html" class="hover:text-amber-400">CHEF</a>
+        <a href="gallery.html" class="hover:text-amber-400">GALLERY</a>
+        <a href="events.html" class="hover:text-amber-400">EVENTS</a>
+        <a href="reservations.html" class="hover:text-amber-400">RESERVATIONS</a>
+        <a href="contact.html" class="hover:text-amber-400">CONTACT</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="pt-36 pb-16 px-6 text-center">
+    <p class="uppercase tracking-[0.4em] text-xs mb-4" style="color:#b4823c;">Crafted with Intent</p>
+    <h1 class="serif text-5xl md:text-6xl font-black mb-6" style="color:#f5e6c8;">The Menu</h1>
+    <p class="font-light max-w-xl mx-auto" style="color:#a8956e;">Our menu changes seasonally to reflect the finest Nigerian produce available. All dishes are prepared à la minute — please allow 25–40 minutes per course.</p>
+  </section>
+
+  <!-- TAB NAVIGATION -->
+  <section class="px-6 max-w-4xl mx-auto">
+    <div class="flex flex-wrap gap-2 justify-center mb-14">
+      <button class="tab-btn active" onclick="showTab('tasting')">TASTING MENU</button>
+      <button class="tab-btn" onclick="showTab('starters')">STARTERS</button>
+      <button class="tab-btn" onclick="showTab('mains')">MAINS</button>
+      <button class="tab-btn" onclick="showTab('desserts')">DESSERTS</button>
+      <button class="tab-btn" onclick="showTab('drinks')">DRINKS</button>
+    </div>
+
+    <!-- TASTING MENU -->
+    <div id="tab-tasting" class="tab-panel active pb-20">
+      <div class="text-center mb-12">
+        <h2 class="serif text-3xl font-bold mb-3" style="color:#f5e6c8;">7-Course Tasting Menu</h2>
+        <p style="color:#a8956e;" class="font-light mb-4">A curated journey through Nigerian flavour. Available for the full table only.</p>
+        <p class="text-2xl font-bold" style="color:#b4823c;">₦XX,XXX per person</p>
+        <p class="text-xs mt-2" style="color:#7a6a52;">Wine pairing available: +₦XX,XXX per person</p>
+      </div>
+      <div class="space-y-0">
+        <div class="menu-item"><div><p class="text-xs tracking-widest mb-1" style="color:#b4823c;">COURSE 1 — AMUSE BOUCHE</p><p class="serif text-lg font-bold" style="color:#f5e6c8;">Crayfish Velouté</p><p class="text-sm font-light mt-1">Smoked crayfish, coconut cream, crispy garri crumb</p></div></div>
+        <div class="menu-item"><div><p class="text-xs tracking-widest mb-1" style="color:#b4823c;">COURSE 2 — COLD STARTER</p><p class="serif text-lg font-bold" style="color:#f5e6c8;">Tiger Prawn Ceviche</p><p class="text-sm font-light mt-1">Atlantic tiger prawns, ugba oil dressing, garden egg, crispy plantain</p></div></div>
+        <div class="menu-item"><div><p class="text-xs tracking-widest mb-1" style="color:#b4823c;">COURSE 3 — WARM STARTER</p><p class="serif text-lg font-bold" style="color:#f5e6c8;">Asun & Bone Marrow</p><p class="text-sm font-light mt-1">Peppered goat, roasted marrow, atarodo gel, toasted agege bread</p></div></div>
+        <div class="menu-item"><div><p class="text-xs tracking-widest mb-1" style="color:#b4823c;">COURSE 4 — FISH</p><p class="serif text-lg font-bold" style="color:#f5e6c8;">Croaker en Banga</p><p class="text-sm font-light mt-1">Pan-roasted croaker, banga reduction, periwinkle butter, starch gnocchi</p></div></div>
+        <div class="menu-item"><div><p class="text-xs tracking-widest mb-1" style="color:#b4823c;">COURSE 5 — PALATE CLEANSER</p><p class="serif text-lg font-bold" style="color:#f5e6c8;">Zobo Granita</p><p class="text-sm font-light mt-1">Hibiscus sorbet, fresh ginger, mint oil</p></div></div>
+        <div class="menu-item"><div><p class="text-xs tracking-widest mb-1" style="color:#b4823c;">COURSE 6 — MAIN</p><p class="serif text-lg font-bold" style="color:#f5e6c8;">Suya-Glazed Wagyu</p><p class="text-sm font-light mt-1">A5 Wagyu, house suya rub, caramelised plantain purée, smoked tomato jus</p></div></div>
+        <div class="menu-item border-0"><div><p class="text-xs tracking-widest mb-1" style="color:#b4823c;">COURSE 7 — DESSERT</p><p class="serif text-lg font-bold" style="color:#f5e6c8;">Akara Soufflé</p><p class="text-sm font-light mt-1">Black-eyed bean soufflé, honey ice cream, caramelised groundnut praline</p></div></div>
+      </div>
+    </div>
+
+    <!-- STARTERS -->
+    <div id="tab-starters" class="tab-panel pb-20">
+      <h2 class="serif text-3xl font-bold mb-10" style="color:#f5e6c8;">Starters</h2>
+      <div class="space-y-0">
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Tiger Prawn Ceviche</p><p class="text-sm font-light mt-1">Atlantic tiger prawns, ugba oil, garden egg, crispy plantain</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦X,XXX</p></div>
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Asun & Bone Marrow</p><p class="text-sm font-light mt-1">Peppered goat, roasted marrow, atarodo gel, toasted agege bread</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦X,XXX</p></div>
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Moi Moi Terrine</p><p class="text-sm font-light mt-1">Layered bean pudding, smoked fish, quail egg, tomato coulis</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦X,XXX</p></div>
+        <div class="menu-item border-0"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Catfish Pepper Soup</p><p class="text-sm font-light mt-1">Point-and-kill catfish, utazi, uda seed broth — the classic, perfected</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦X,XXX</p></div>
+      </div>
+    </div>
+
+    <!-- MAINS -->
+    <div id="tab-mains" class="tab-panel pb-20">
+      <h2 class="serif text-3xl font-bold mb-10" style="color:#f5e6c8;">Mains</h2>
+      <div class="space-y-0">
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Suya-Glazed Wagyu</p><p class="text-sm font-light mt-1">A5 Wagyu strip loin, house suya rub, plantain purée, smoked tomato jus</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦XX,XXX</p></div>
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Ofe Onugbu Royale</p><p class="text-sm font-light mt-1">Bitter leaf soup deconstructed, oxtail, charred palm kernel oil, pounded yam quenelle</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦XX,XXX</p></div>
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Lagos Bouillabaisse</p><p class="text-sm font-light mt-1">Atlantic lobster, tilapia, crayfish butter broth, saffron eba croquette</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦XX,XXX</p></div>
+        <div class="menu-item border-0"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Jollof Risotto</p><p class="text-sm font-light mt-1">Nigerian-style Arborio, smoked tomato base, aged parmesan, truffle oil, grilled quail</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦XX,XXX</p></div>
+      </div>
+    </div>
+
+    <!-- DESSERTS -->
+    <div id="tab-desserts" class="tab-panel pb-20">
+      <h2 class="serif text-3xl font-bold mb-10" style="color:#f5e6c8;">Desserts</h2>
+      <div class="space-y-0">
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Akara Soufflé</p><p class="text-sm font-light mt-1">Black-eyed bean soufflé, honey ice cream, groundnut praline</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦X,XXX</p></div>
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Puff Puff Doughnuts</p><p class="text-sm font-light mt-1">Cardamom-spiced, dark chocolate ganache, fresh ginger cream</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦X,XXX</p></div>
+        <div class="menu-item border-0"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Zobo & Hibiscus Parfait</p><p class="text-sm font-light mt-1">Layered hibiscus parfait, coconut cream, dehydrated pineapple</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦X,XXX</p></div>
+      </div>
+    </div>
+
+    <!-- DRINKS -->
+    <div id="tab-drinks" class="tab-panel pb-20">
+      <h2 class="serif text-3xl font-bold mb-10" style="color:#f5e6c8;">Drinks</h2>
+      <div class="space-y-0">
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">House Chapman</p><p class="text-sm font-light mt-1">Our elevated take on the classic — passion fruit, Angostura, cucumber, sparkling water</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦X,XXX</p></div>
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Zobo Spritz</p><p class="text-sm font-light mt-1">Fresh-brewed hibiscus, ginger syrup, lime, sparkling water, mint</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦X,XXX</p></div>
+        <div class="menu-item"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Palm Wine Mocktail</p><p class="text-sm font-light mt-1">Fresh coconut water, pineapple, honey, nutmeg — an ode to the tap</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦X,XXX</p></div>
+        <div class="menu-item border-0"><div><p class="serif text-lg font-bold" style="color:#f5e6c8;">Still & Sparkling Water</p><p class="text-sm font-light mt-1">Premium bottled water — Norland or Eva Still / Perrier Sparkling</p></div><p class="font-bold whitespace-nowrap" style="color:#b4823c;">₦XXX</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-6 text-center" style="background:#050302; border-top:1px solid rgba(180,130,60,0.15);">
+    <p class="serif text-3xl font-bold mb-4" style="color:#f5e6c8;">Ready to Dine?</p>
+    <a href="reservations.html" class="inline-block font-semibold px-10 py-4 tracking-wider text-sm mr-4" style="background:#b4823c; color:white; border-radius:2px;">RESERVE A TABLE</a>
+    <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME." target="_blank" rel="noopener noreferrer"
+      class="inline-block font-semibold px-10 py-4 tracking-wider text-sm border" style="border-color:#b4823c; color:#b4823c; border-radius:2px;">
+      WHATSAPP US
+    </a>
+  </section>
+
+  <footer class="py-8 px-6 text-center" style="background:#050302;">
+    <p class="text-xs" style="color:#3a3028;">Website by <a href="https://ebukas-websites.netlify.app" style="color:#b4823c;">Ebuka's Websites</a> &nbsp;·&nbsp; &copy; 2026 RESTAURANT NAME</p>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <div class="rounded-full w-14 h-14 flex items-center justify-center shadow-xl" style="background:#25D366;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </a>
+
+  <script>
+    function showTab(id) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>

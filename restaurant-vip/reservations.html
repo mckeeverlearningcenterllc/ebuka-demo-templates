@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reservations — RESTAURANT NAME</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #0a0502; color: #c8b896; }
+    h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+  </style>
+</head>
+<body>
+
+  <nav class="fixed top-0 w-full z-50" style="background:rgba(10,5,2,0.95); border-bottom:1px solid rgba(180,130,60,0.2);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="serif font-bold text-2xl tracking-widest" style="color:#b4823c;">RESTAURANT NAME</a>
+      <div class="flex gap-8 text-sm font-medium tracking-wider" style="color:#a8956e;">
+        <a href="index.html" class="hover:text-amber-400">HOME</a>
+        <a href="menu.html" class="hover:text-amber-400">MENU</a>
+        <a href="chef.html" class="hover:text-amber-400">CHEF</a>
+        <a href="gallery.html" class="hover:text-amber-400">GALLERY</a>
+        <a href="events.html" class="hover:text-amber-400">EVENTS</a>
+        <a href="reservations.html" style="color:#b4823c;">RESERVATIONS</a>
+        <a href="contact.html" class="hover:text-amber-400">CONTACT</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-36 pb-16 px-6 text-center">
+    <p class="uppercase tracking-[0.4em] text-xs mb-4" style="color:#b4823c;">Secure Your Seat</p>
+    <h1 class="serif text-5xl md:text-6xl font-black mb-4" style="color:#f5e6c8;">Reservations</h1>
+    <p class="font-light max-w-xl mx-auto" style="color:#a8956e;">We offer intimate dining for 40 covers per service. Tables book out quickly — we recommend reserving at least 48 hours in advance.</p>
+  </section>
+
+  <!-- HOW TO RESERVE -->
+  <section class="py-16 px-6 max-w-4xl mx-auto">
+    <p class="text-center uppercase tracking-[0.3em] text-xs mb-10" style="color:#b4823c;">How It Works</p>
+    <div class="grid md:grid-cols-3 gap-6 text-center mb-14">
+      <div class="p-8 border" style="border-color:rgba(180,130,60,0.2);">
+        <p class="serif text-5xl font-black mb-4" style="color:rgba(180,130,60,0.3);">01</p>
+        <h3 class="serif text-xl font-bold mb-3" style="color:#f5e6c8;">WhatsApp Us</h3>
+        <p class="text-sm font-light">Send us your preferred date, time, number of guests, and any dietary requirements via WhatsApp.</p>
+      </div>
+      <div class="p-8 border" style="border-color:rgba(180,130,60,0.4); background:rgba(180,130,60,0.04);">
+        <p class="serif text-5xl font-black mb-4" style="color:rgba(180,130,60,0.5);">02</p>
+        <h3 class="serif text-xl font-bold mb-3" style="color:#f5e6c8;">We Confirm</h3>
+        <p class="text-sm font-light">We'll confirm availability within a few hours and send you your reservation details and a deposit payment link.</p>
+      </div>
+      <div class="p-8 border" style="border-color:rgba(180,130,60,0.2);">
+        <p class="serif text-5xl font-black mb-4" style="color:rgba(180,130,60,0.3);">03</p>
+        <h3 class="serif text-xl font-bold mb-3" style="color:#f5e6c8;">Arrive & Enjoy</h3>
+        <p class="text-sm font-light">Come in, settle down, and let us take care of everything else. Your evening begins the moment you walk through the door.</p>
+      </div>
+    </div>
+
+    <!-- MAIN CTA -->
+    <div class="text-center">
+      <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME.%20My%20preferred%20date%20is%3A%20"
+        target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 font-semibold px-12 py-5 tracking-wider text-lg"
+        style="background:#25D366; color:white; border-radius:2px;">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        RESERVE ON WHATSAPP
+      </a>
+      <p class="mt-4 text-xs tracking-wider" style="color:#4a3f30;">+234 XXXXXXXXXX &nbsp;·&nbsp; We reply within a few hours</p>
+    </div>
+  </section>
+
+  <!-- SERVICE TIMES & POLICIES -->
+  <section class="py-16 px-6" style="background:#050302; border-top:1px solid rgba(180,130,60,0.1);">
+    <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-10">
+      <div>
+        <p class="uppercase tracking-[0.3em] text-xs mb-6" style="color:#b4823c;">Service Times</p>
+        <div class="space-y-4 text-sm font-light">
+          <div class="flex justify-between border-b pb-3" style="border-color:rgba(180,130,60,0.15);">
+            <span style="color:#f5e6c8;">Tuesday – Friday Lunch</span>
+            <span>12:30pm – 2:30pm</span>
+          </div>
+          <div class="flex justify-between border-b pb-3" style="border-color:rgba(180,130,60,0.15);">
+            <span style="color:#f5e6c8;">Tuesday – Sunday Dinner</span>
+            <span>7:00pm – 10:00pm</span>
+          </div>
+          <div class="flex justify-between border-b pb-3" style="border-color:rgba(180,130,60,0.15);">
+            <span style="color:#f5e6c8;">Saturday Lunch (Tasting only)</span>
+            <span>1:00pm – 3:00pm</span>
+          </div>
+          <div class="flex justify-between">
+            <span style="color:#f5e6c8;">Monday</span>
+            <span>Closed</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p class="uppercase tracking-[0.3em] text-xs mb-6" style="color:#b4823c;">Reservation Policies</p>
+        <ul class="space-y-3 text-sm font-light">
+          <li class="flex gap-3"><span style="color:#b4823c;">—</span> A reservation deposit of ₦X,XXX per person is required to confirm your booking.</li>
+          <li class="flex gap-3"><span style="color:#b4823c;">—</span> Deposits are fully deducted from your final bill on the night.</li>
+          <li class="flex gap-3"><span style="color:#b4823c;">—</span> Cancellations with less than 24 hours notice forfeit the deposit.</li>
+          <li class="flex gap-3"><span style="color:#b4823c;">—</span> We can accommodate most dietary requirements with 48 hours notice.</li>
+          <li class="flex gap-3"><span style="color:#b4823c;">—</span> Groups of 8 or more are considered private dining — see our Events page.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-8 px-6 text-center" style="background:#050302; border-top:1px solid rgba(180,130,60,0.1);">
+    <p class="text-xs" style="color:#3a3028;">Website by <a href="https://ebukas-websites.netlify.app" style="color:#b4823c;">Ebuka's Websites</a> &nbsp;·&nbsp; &copy; 2026 RESTAURANT NAME</p>
+  </footer>
+
+  <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <div class="rounded-full w-14 h-14 flex items-center justify-center shadow-xl" style="background:#25D366;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </a>
+</body>
+</html>

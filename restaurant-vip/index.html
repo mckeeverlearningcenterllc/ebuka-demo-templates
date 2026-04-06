@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RESTAURANT NAME — Fine Dining in Lagos</title>
+  <meta name="description" content="RESTAURANT NAME — an elevated dining experience in AREA, Lagos. Reserve your table today." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; }
+    h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    .video-hero { position: relative; height: 100vh; min-height: 640px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .video-hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .video-hero .overlay { position: absolute; inset: 0; background: rgba(10,5,2,0.78); }
+    .video-hero .content { position: relative; z-index: 10; text-align: center; padding: 0 1rem; }
+    .dish-card { position: relative; overflow: hidden; border-radius: 16px; }
+    .dish-card img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s ease; }
+    .dish-card:hover img { transform: scale(1.06); }
+    .dish-card .info { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(10,5,2,0.95), transparent); color: white; }
+  </style>
+</head>
+<body class="bg-black text-white">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50" style="background:rgba(10,5,2,0.92); backdrop-filter:blur(8px); border-bottom:1px solid rgba(180,130,60,0.2);">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="serif font-bold text-2xl tracking-widest" style="color:#b4823c;">RESTAURANT NAME</a>
+      <div class="flex gap-8 text-sm font-medium tracking-wider" style="color:#a8956e;">
+        <a href="index.html" style="color:#b4823c;">HOME</a>
+        <a href="menu.html" class="hover:text-amber-400 transition">MENU</a>
+        <a href="chef.html" class="hover:text-amber-400 transition">CHEF</a>
+        <a href="gallery.html" class="hover:text-amber-400 transition">GALLERY</a>
+        <a href="events.html" class="hover:text-amber-400 transition">EVENTS</a>
+        <a href="reservations.html" class="hover:text-amber-400 transition">RESERVATIONS</a>
+        <a href="contact.html" class="hover:text-amber-400 transition">CONTACT</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- VIDEO HERO -->
+  <div class="video-hero">
+    <!-- VIDEO: replace src with client's MP4 file, or remove <video> and use a background image instead -->
+    <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+      <!-- <source src="restaurant-video.mp4" type="video/mp4"> -->
+      <!-- Fallback: video tag shows poster image if no src is set -->
+    </video>
+    <!-- FALLBACK BACKGROUND if no video file is provided -->
+    <div style="position:absolute;inset:0;background-image:url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');background-size:cover;background-position:center;z-index:0;"></div>
+    <div class="overlay" style="z-index:1;"></div>
+    <div class="content" style="z-index:2;">
+      <p class="uppercase tracking-[0.4em] text-xs mb-6" style="color:#b4823c;">AREA, Lagos · Est. YEAR</p>
+      <h1 class="serif text-6xl md:text-8xl font-black mb-6 leading-tight">
+        Where Every<br/>Meal Becomes<br/><span style="color:#b4823c;">a Memory.</span>
+      </h1>
+      <p class="text-lg mb-10 max-w-xl mx-auto font-light" style="color:#c8b896;">An intimate fine dining experience celebrating the finest Nigerian ingredients — elevated, refined, unforgettable.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="reservations.html"
+          class="font-semibold px-10 py-4 tracking-wider text-sm"
+          style="background:#b4823c; color:white; border-radius:2px;">
+          RESERVE A TABLE
+        </a>
+        <a href="menu.html"
+          class="font-semibold px-10 py-4 tracking-wider text-sm border"
+          style="border-color:#b4823c; color:#b4823c; border-radius:2px;">
+          VIEW MENU
+        </a>
+      </div>
+      <p class="mt-6 text-xs tracking-widest" style="color:#7a6a52;">
+        Or WhatsApp us: <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME." target="_blank" rel="noopener noreferrer" style="color:#b4823c; text-decoration:underline;">+234 XXXXXXXXXX</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- OPENING STATEMENT -->
+  <section class="py-24 px-6 text-center max-w-3xl mx-auto">
+    <p class="uppercase tracking-[0.3em] text-xs mb-6" style="color:#b4823c;">Our Philosophy</p>
+    <h2 class="serif text-4xl md:text-5xl font-bold mb-8 leading-snug" style="color:#f5e6c8;">Nigerian cuisine has always been extraordinary.<br/>We simply give it the stage it deserves.</h2>
+    <p class="font-light leading-relaxed" style="color:#a8956e;">Every dish at RESTAURANT NAME is a love letter to Nigeria's culinary heritage — sourced locally, prepared with French precision, and served with genuine Lagos warmth. We don't chase trends. We chase perfection.</p>
+  </section>
+
+  <!-- SIGNATURE DISHES -->
+  <section class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="flex justify-between items-end mb-12">
+      <div>
+        <p class="uppercase tracking-[0.3em] text-xs mb-3" style="color:#b4823c;">The Kitchen</p>
+        <h2 class="serif text-4xl font-bold" style="color:#f5e6c8;">Signature Dishes</h2>
+      </div>
+      <a href="menu.html" class="text-sm tracking-wider hover:text-amber-400 transition" style="color:#b4823c;">VIEW FULL MENU →</a>
+    </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="dish-card">
+        <img src="https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Dish 1" />
+        <div class="info">
+          <p class="text-xs tracking-widest mb-1" style="color:#b4823c;">SIGNATURE</p>
+          <h3 class="serif text-xl font-bold">Ofe Onugbu Royale</h3>
+          <p class="text-sm font-light mt-1" style="color:#c8b896;">Bitter leaf soup deconstructed — aged ofofo, slow-braised oxtail, charred palm kernel oil</p>
+          <p class="font-bold mt-2" style="color:#b4823c;">₦XX,XXX</p>
+        </div>
+      </div>
+      <div class="dish-card md:mt-8">
+        <img src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Dish 2" />
+        <div class="info">
+          <p class="text-xs tracking-widest mb-1" style="color:#b4823c;">CHEF'S FAVOURITE</p>
+          <h3 class="serif text-xl font-bold">Suya-Glazed Wagyu</h3>
+          <p class="text-sm font-light mt-1" style="color:#c8b896;">A5 Wagyu strip loin, house suya rub, caramelised plantain purée, jus of smoked tomatoes</p>
+          <p class="font-bold mt-2" style="color:#b4823c;">₦XX,XXX</p>
+        </div>
+      </div>
+      <div class="dish-card">
+        <img src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Dish 3" />
+        <div class="info">
+          <p class="text-xs tracking-widest mb-1" style="color:#b4823c;">SEASONAL</p>
+          <h3 class="serif text-xl font-bold">Lagos Bouillabaisse</h3>
+          <p class="text-sm font-light mt-1" style="color:#c8b896;">Atlantic lobster, tilapia, crayfish butter broth, saffron eba croquette</p>
+          <p class="font-bold mt-2" style="color:#b4823c;">₦XX,XXX</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO / YOUTUBE SECTION -->
+  <section class="py-20 px-6" style="background:#0d0a06;">
+    <div class="max-w-4xl mx-auto text-center">
+      <p class="uppercase tracking-[0.3em] text-xs mb-4" style="color:#b4823c;">Behind the Scenes</p>
+      <h2 class="serif text-4xl font-bold mb-4" style="color:#f5e6c8;">Watch Our Kitchen Come Alive</h2>
+      <p class="mb-10 font-light" style="color:#a8956e;">Step inside RESTAURANT NAME — from morning prep to the final garnish on your plate.</p>
+      <!-- YOUTUBE EMBED: Replace VIDEO_ID with the client's real YouTube video ID -->
+      <div class="rounded-lg overflow-hidden shadow-2xl" style="position:relative; padding-bottom:56.25%; height:0; border:1px solid rgba(180,130,60,0.3);">
+        <iframe
+          src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&autoplay=0"
+          title="RESTAURANT NAME — Behind the Scenes"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;">
+        </iframe>
+      </div>
+      <p class="mt-4 text-xs" style="color:#4a3f30;">Replace VIDEO_ID in the code with your YouTube video ID (e.g. dQw4w9WgXcQ)</p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE STRIP -->
+  <section class="py-20 px-6" style="background:#0a0502;">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-4 gap-8 text-center">
+      <div>
+        <p class="serif text-4xl font-black mb-2" style="color:#b4823c;">YEAR+</p>
+        <p class="uppercase tracking-widest text-xs" style="color:#7a6a52;">Years of Excellence</p>
+      </div>
+      <div>
+        <p class="serif text-4xl font-black mb-2" style="color:#b4823c;">★ 4.9</p>
+        <p class="uppercase tracking-widest text-xs" style="color:#7a6a52;">Guest Rating</p>
+      </div>
+      <div>
+        <p class="serif text-4xl font-black mb-2" style="color:#b4823c;">40</p>
+        <p class="uppercase tracking-widest text-xs" style="color:#7a6a52;">Covers Per Service</p>
+      </div>
+      <div>
+        <p class="serif text-4xl font-black mb-2" style="color:#b4823c;">100%</p>
+        <p class="uppercase tracking-widest text-xs" style="color:#7a6a52;">Locally Sourced</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-20 px-6 max-w-5xl mx-auto">
+    <p class="text-center uppercase tracking-[0.3em] text-xs mb-4" style="color:#b4823c;">Guest Voices</p>
+    <h2 class="serif text-4xl font-bold text-center mb-14" style="color:#f5e6c8;">What Our Guests Say</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-8 border" style="border-color:rgba(180,130,60,0.2); border-radius:4px;">
+        <p style="color:#b4823c;" class="text-lg mb-4">❝</p>
+        <p class="font-light leading-relaxed mb-6" style="color:#c8b896;">"I have dined in Paris, London, and New York. The Suya-Glazed Wagyu at RESTAURANT NAME rivals anything I've eaten anywhere in the world. Extraordinary."</p>
+        <p class="font-semibold text-sm" style="color:#f5e6c8;">Chukwuemeka O.</p>
+        <p class="text-xs tracking-widest mt-1" style="color:#7a6a52;">LAGOS · TABLE FOR TWO</p>
+      </div>
+      <div class="p-8 border" style="border-color:rgba(180,130,60,0.4); background:rgba(180,130,60,0.05); border-radius:4px;">
+        <p style="color:#b4823c;" class="text-lg mb-4">❝</p>
+        <p class="font-light leading-relaxed mb-6" style="color:#c8b896;">"We hosted our anniversary dinner here. The tasting menu was flawless — each course told a story. Our guests are still talking about it months later."</p>
+        <p class="font-semibold text-sm" style="color:#f5e6c8;">Adaeze & Emeka N.</p>
+        <p class="text-xs tracking-widest mt-1" style="color:#7a6a52;">ABUJA · PRIVATE DINING</p>
+      </div>
+      <div class="p-8 border" style="border-color:rgba(180,130,60,0.2); border-radius:4px;">
+        <p style="color:#b4823c;" class="text-lg mb-4">❝</p>
+        <p class="font-light leading-relaxed mb-6" style="color:#c8b896;">"Finally — a Lagos restaurant that takes Nigerian cuisine seriously as fine dining. The ambience, the service, the food. Perfect from start to finish."</p>
+        <p class="font-semibold text-sm" style="color:#f5e6c8;">Bisi A.</p>
+        <p class="text-xs tracking-widest mt-1" style="color:#7a6a52;">UK DIASPORA · VISITING LAGOS</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATION CTA -->
+  <section class="py-24 px-6 text-center" style="background-image:url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); background-size:cover; background-position:center; position:relative;">
+    <div style="position:absolute;inset:0;background:rgba(10,5,2,0.88);"></div>
+    <div class="relative z-10">
+      <p class="uppercase tracking-[0.4em] text-xs mb-5" style="color:#b4823c;">An Experience Awaits</p>
+      <h2 class="serif text-5xl font-black mb-6" style="color:#f5e6c8;">Reserve Your Table</h2>
+      <p class="font-light mb-10 max-w-md mx-auto" style="color:#a8956e;">We offer intimate dining for up to 40 covers per service. Tables fill quickly — reserve early to avoid disappointment.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="reservations.html" class="font-semibold px-10 py-4 tracking-wider text-sm" style="background:#b4823c; color:white; border-radius:2px;">MAKE A RESERVATION</a>
+        <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME."
+          target="_blank" rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 font-semibold px-10 py-4 tracking-wider text-sm border"
+          style="border-color:#25D366; color:#25D366; border-radius:2px;">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WHATSAPP US
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 px-6 text-center" style="background:#050302; border-top:1px solid rgba(180,130,60,0.15);">
+    <p class="serif text-2xl mb-2" style="color:#b4823c;">RESTAURANT NAME</p>
+    <p class="text-xs tracking-widest mb-4" style="color:#4a3f30;">STREET ADDRESS, AREA, LAGOS · +234 XXXXXXXXXX</p>
+    <p class="text-xs" style="color:#3a3028;">Website by <a href="https://ebukas-websites.netlify.app" class="hover:text-amber-400 transition" style="color:#b4823c;">Ebuka's Websites</a> &nbsp;·&nbsp; &copy; 2026 RESTAURANT NAME</p>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <div class="rounded-full w-14 h-14 flex items-center justify-center shadow-xl" style="background:#25D366;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </a>
+</body>
+</html>
