@@ -5,223 +5,709 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RESTAURANT NAME — Fine Dining in Lagos</title>
   <meta name="description" content="RESTAURANT NAME — an elevated dining experience in AREA, Lagos. Reserve your table today." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', sans-serif; }
-    h1, h2, h3, .serif { font-family: 'Playfair Display', serif; }
-    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
-    .video-hero { position: relative; height: 100vh; min-height: 640px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-    .video-hero video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .video-hero .overlay { position: absolute; inset: 0; background: rgba(10,5,2,0.78); }
-    .video-hero .content { position: relative; z-index: 10; text-align: center; padding: 0 1rem; }
-    .dish-card { position: relative; overflow: hidden; border-radius: 16px; }
-    .dish-card img { width: 100%; height: 280px; object-fit: cover; transition: transform 0.5s ease; }
-    .dish-card:hover img { transform: scale(1.06); }
-    .dish-card .info { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(10,5,2,0.95), transparent); color: white; }
+    body { font-family: 'Inter', sans-serif; background: #0c0906; color: #f0e8d8; overflow-x: hidden; }
+
+    :root {
+      --ink:        #0c0906;
+      --cream:      #f4efe6;
+      --gold:       #c9853a;
+      --gold-muted: #8a6a3a;
+      --text-light: #f0e8d8;
+      --text-muted: #7a6a52;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 48px;
+      transition: background 0.4s, padding 0.4s;
+    }
+    .nav.scrolled {
+      background: rgba(12,9,6,0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,133,58,0.15);
+      padding: 16px 48px;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.35rem; font-weight: 600; letter-spacing: 0.18em;
+      color: var(--gold); text-decoration: none;
+    }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--text-muted); text-decoration: none; transition: color 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+
+    /* ── HERO — EDITORIAL SPLIT ── */
+    .hero {
+      height: 100vh; min-height: 700px;
+      display: grid; grid-template-columns: 48% 52%;
+    }
+    .hero-text {
+      background: var(--ink);
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding: 0 56px 72px;
+      position: relative; z-index: 2;
+    }
+    .hero-label {
+      font-size: 0.58rem; letter-spacing: 0.38em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 28px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .hero-label::before { content: ''; width: 28px; height: 1px; background: var(--gold); flex-shrink: 0; }
+    .hero-h1 {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(60px, 7.5vw, 116px);
+      font-weight: 300; line-height: 0.95; letter-spacing: -0.02em;
+      color: var(--cream); margin-bottom: 36px;
+    }
+    .hero-h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 0.78rem; font-weight: 300; line-height: 1.9;
+      color: var(--text-muted); max-width: 340px; margin-bottom: 48px;
+    }
+    .hero-ctas { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+
+    .hero-photo { position: relative; overflow: hidden; }
+    .hero-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.82) saturate(1.1);
+    }
+    .hero-photo-caption {
+      position: absolute; bottom: 40px; right: 28px;
+      writing-mode: vertical-rl;
+      font-size: 0.58rem; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(244,239,230,0.35);
+    }
+    /* Gold badge that overlaps the split */
+    .hero-badge {
+      position: absolute; bottom: 96px; left: -1px; z-index: 4;
+      background: var(--gold); padding: 22px 28px; width: 164px;
+    }
+    .hero-badge-num {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 2.8rem; font-weight: 300; line-height: 1; color: #fff; display: block;
+    }
+    .hero-badge-label {
+      font-size: 0.52rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.8); display: block; margin-top: 4px;
+    }
+
+    /* ── BUTTONS ── */
+    .btn-primary {
+      display: inline-block; padding: 15px 40px;
+      background: var(--gold); color: #fff;
+      font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase;
+      font-weight: 500; text-decoration: none; transition: background 0.3s;
+    }
+    .btn-primary:hover { background: #a86e2a; }
+    .btn-ghost {
+      display: inline-block; padding: 14px 40px;
+      border: 1px solid rgba(201,133,58,0.45); color: var(--gold);
+      font-size: 0.62rem; letter-spacing: 0.26em; text-transform: uppercase;
+      text-decoration: none; transition: border-color 0.3s, color 0.3s;
+    }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--cream); }
+
+    /* ── PULL QUOTE ── */
+    .pullquote { background: var(--cream); padding: 110px 48px; }
+    .pullquote-inner {
+      max-width: 1080px; margin: 0 auto;
+      display: grid; grid-template-columns: 60px 1fr; gap: 0 48px; align-items: start;
+    }
+    .pullquote-vert {
+      font-size: 0.56rem; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-muted); writing-mode: vertical-rl; padding-top: 12px;
+    }
+    .pullquote-body { border-left: 2px solid var(--gold); padding-left: 44px; }
+    .pullquote-text {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(30px, 4.5vw, 64px);
+      font-weight: 300; font-style: italic; line-height: 1.25; color: var(--ink);
+    }
+    .pullquote-attr {
+      margin-top: 28px;
+      font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-muted);
+    }
+
+    /* ── DISH EDITORIAL SPREADS ── */
+    .dish-spread { background: var(--ink); }
+    .dish-row {
+      display: grid; grid-template-columns: 55% 45%;
+      min-height: 85vh;
+    }
+    .dish-row.reverse { direction: rtl; }
+    .dish-row.reverse > * { direction: ltr; }
+    .dish-img { position: relative; overflow: hidden; }
+    .dish-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .dish-copy {
+      padding: 72px 64px;
+      display: flex; flex-direction: column; justify-content: center;
+      border-left: 1px solid rgba(201,133,58,0.12);
+    }
+    .dish-row.reverse .dish-copy { border-left: none; border-right: 1px solid rgba(201,133,58,0.12); }
+    .dish-index {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 5rem; font-weight: 300; color: rgba(201,133,58,0.12);
+      line-height: 1; margin-bottom: 4px;
+    }
+    .dish-tag {
+      font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+    }
+    .dish-name {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(30px, 3.8vw, 56px); font-weight: 300; line-height: 1.1;
+      color: var(--cream); margin-bottom: 24px;
+    }
+    .dish-desc {
+      font-size: 0.78rem; line-height: 1.95; color: var(--text-muted); max-width: 380px; margin-bottom: 28px;
+    }
+    .dish-price {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.7rem; font-weight: 300; color: var(--gold); margin-bottom: 44px;
+    }
+    .dish-links { display: flex; gap: 0; }
+    .dish-links a {
+      font-size: 0.58rem; letter-spacing: 0.24em; text-transform: uppercase;
+      color: var(--text-muted); text-decoration: none;
+      padding: 11px 22px; border: 1px solid rgba(201,133,58,0.18);
+      transition: color 0.3s, border-color 0.3s;
+    }
+    .dish-links a:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* Divider between dish rows */
+    .dish-divider { height: 1px; background: rgba(201,133,58,0.1); }
+
+    /* ── STATS ROW ── */
+    .stats { background: var(--cream); padding: 80px 48px; }
+    .stats-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 2px; background: rgba(0,0,0,0.07);
+    }
+    .stat {
+      background: var(--cream); padding: 52px 44px;
+    }
+    .stat-num {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(44px, 5.5vw, 76px); font-weight: 300; line-height: 1; color: var(--ink); display: block; margin-bottom: 10px;
+    }
+    .stat-label {
+      font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-muted);
+    }
+
+    /* ── EXPERIENCE GRID ── */
+    .experience { background: var(--ink); padding: 120px 48px; }
+    .section-header {
+      max-width: 1100px; margin: 0 auto 72px;
+      display: flex; justify-content: space-between; align-items: flex-end;
+    }
+    .section-label {
+      font-size: 0.58rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold);
+      display: flex; align-items: center; gap: 12px; margin-bottom: 16px;
+    }
+    .section-label::before { content: '—'; }
+    .section-title {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(32px, 4.5vw, 60px); font-weight: 300; color: var(--cream); line-height: 1.1;
+    }
+    .exp-grid {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 4px;
+    }
+    .exp-card { position: relative; overflow: hidden; }
+    .exp-card img {
+      width: 100%; height: 420px; object-fit: cover; display: block;
+      filter: brightness(0.55); transition: transform 0.65s ease, filter 0.4s;
+    }
+    .exp-card:hover img { transform: scale(1.05); filter: brightness(0.42); }
+    .exp-card-text {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: 40px;
+      background: linear-gradient(to top, rgba(12,9,6,0.92) 0%, transparent 100%);
+    }
+    .exp-num {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 0.9rem; color: rgba(201,133,58,0.55); margin-bottom: 8px; display: block;
+    }
+    .exp-title {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.75rem; font-weight: 400; color: var(--cream); margin-bottom: 8px;
+    }
+    .exp-desc { font-size: 0.74rem; color: var(--text-muted); line-height: 1.7; }
+
+    /* ── TESTIMONIALS — MAGAZINE ── */
+    .testimonials { background: var(--cream); padding: 120px 48px; }
+    .testimonials .section-label { color: var(--gold-muted); }
+    .testimonials .section-title { color: var(--ink); }
+    .testi-grid {
+      max-width: 1100px; margin: 72px auto 0;
+      display: grid; grid-template-columns: 1.6fr 1fr;
+      gap: 2px; background: rgba(0,0,0,0.06);
+    }
+    .testi-feature { background: var(--ink); padding: 60px; }
+    .q-mark {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 5rem; font-weight: 300; color: var(--gold); line-height: 0.6; margin-bottom: 32px;
+    }
+    .q-text {
+      font-family: 'Cormorant Garant', serif;
+      font-size: clamp(17px, 2.2vw, 26px); font-weight: 300; font-style: italic;
+      color: var(--cream); line-height: 1.65; margin-bottom: 40px;
+    }
+    .q-author { font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+    .q-loc { font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
+    .testi-side { display: flex; flex-direction: column; gap: 2px; }
+    .testi-small { background: #f9f5ee; padding: 44px; flex: 1; }
+    .testi-small .q-mark { font-size: 2.5rem; margin-bottom: 16px; }
+    .testi-small .q-text { color: var(--ink); font-size: 0.88rem; margin-bottom: 20px; }
+    .testi-small .q-author { color: var(--gold-muted); }
+
+    /* ── RESERVATION ── */
+    .reservation {
+      position: relative; min-height: 580px;
+      display: flex; align-items: center; overflow: hidden;
+    }
+    .res-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+      background-size: cover; background-position: center;
+      filter: brightness(0.28) saturate(0.7);
+    }
+    .res-content { position: relative; z-index: 2; padding: 100px 48px; max-width: 680px; }
+    .res-content .section-label { margin-bottom: 20px; }
+    .res-content .section-title { color: var(--cream); margin-bottom: 24px; }
+    .res-body {
+      font-size: 0.82rem; font-weight: 300; line-height: 1.85;
+      color: var(--text-muted); max-width: 440px; margin-bottom: 48px;
+    }
+    .res-ctas { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #060402; padding: 60px 48px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end;
+      border-top: 1px solid rgba(201,133,58,0.1);
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garant', serif;
+      font-size: 1.7rem; font-weight: 300; color: var(--gold);
+      letter-spacing: 0.12em; display: block; margin-bottom: 12px;
+    }
+    .footer-info { font-size: 0.68rem; color: var(--text-muted); line-height: 2; }
+    .footer-right { text-align: right; }
+    .footer-right p { font-size: 0.64rem; color: var(--text-muted); line-height: 2.1; }
+    .footer-right a { color: var(--gold); text-decoration: none; }
+
+    /* ── FLOATING WHATSAPP ── */
+    .whatsapp-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 1000;
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+    .wa-btn {
+      width: 56px; height: 56px; border-radius: 50%; background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.75s ease, transform 0.75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.12s; }
+    .delay-2 { transition-delay: 0.24s; }
+    .delay-3 { transition-delay: 0.38s; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav { padding: 16px 20px; }
+      .nav.scrolled { padding: 14px 20px; }
+      .nav-links { display: none; }
+
+      .hero { grid-template-columns: 1fr; height: auto; }
+      .hero-text { padding: 130px 24px 64px; min-height: 100svh; }
+      .hero-photo { height: 55vw; }
+      .hero-badge { display: none; }
+
+      .pullquote { padding: 72px 24px; }
+      .pullquote-inner { grid-template-columns: 1fr; }
+      .pullquote-vert { display: none; }
+      .pullquote-body { padding-left: 24px; }
+
+      .dish-row { grid-template-columns: 1fr; direction: ltr !important; }
+      .dish-img img { height: 56vw; }
+      .dish-copy { padding: 48px 24px; border: none !important; }
+
+      .stats { padding: 64px 24px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+
+      .experience { padding: 80px 24px; }
+      .section-header { flex-direction: column; align-items: flex-start; gap: 24px; }
+      .exp-grid { grid-template-columns: 1fr; }
+
+      .testimonials { padding: 80px 24px; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .testi-feature { padding: 40px; }
+
+      .res-content { padding: 80px 24px; }
+
+      footer { grid-template-columns: 1fr; padding: 48px 24px; }
+      .footer-right { text-align: left; }
+    }
   </style>
 </head>
-<body class="bg-black text-white">
+<body>
 
   <!-- NAV -->
-  <nav class="fixed top-0 w-full z-50" style="background:rgba(10,5,2,0.92); backdrop-filter:blur(8px); border-bottom:1px solid rgba(180,130,60,0.2);">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="index.html" class="serif font-bold text-2xl tracking-widest" style="color:#b4823c;">RESTAURANT NAME</a>
-      <div class="flex gap-8 text-sm font-medium tracking-wider" style="color:#a8956e;">
-        <a href="index.html" style="color:#b4823c;">HOME</a>
-        <a href="menu.html" class="hover:text-amber-400 transition">MENU</a>
-        <a href="chef.html" class="hover:text-amber-400 transition">CHEF</a>
-        <a href="gallery.html" class="hover:text-amber-400 transition">GALLERY</a>
-        <a href="events.html" class="hover:text-amber-400 transition">EVENTS</a>
-        <a href="reservations.html" class="hover:text-amber-400 transition">RESERVATIONS</a>
-        <a href="contact.html" class="hover:text-amber-400 transition">CONTACT</a>
-      </div>
+  <nav class="nav" id="mainNav">
+    <a href="index.html" class="nav-logo">RESTAURANT NAME</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="chef.html">Chef</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="events.html">Events</a>
+      <a href="reservations.html">Reservations</a>
+      <a href="contact.html">Contact</a>
     </div>
   </nav>
 
-  <!-- VIDEO HERO -->
-  <div class="video-hero">
-    <!-- VIDEO: replace src with client's MP4 file, or remove <video> and use a background image instead -->
-    <video autoplay muted loop playsinline poster="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
-      <!-- <source src="restaurant-video.mp4" type="video/mp4"> -->
-      <!-- Fallback: video tag shows poster image if no src is set -->
-    </video>
-    <!-- FALLBACK BACKGROUND if no video file is provided -->
-    <div style="position:absolute;inset:0;background-image:url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');background-size:cover;background-position:center;z-index:0;"></div>
-    <div class="overlay" style="z-index:1;"></div>
-    <div class="content" style="z-index:2;">
-      <p class="uppercase tracking-[0.4em] text-xs mb-6" style="color:#b4823c;">AREA, Lagos · Est. YEAR</p>
-      <h1 class="serif text-6xl md:text-8xl font-black mb-6 leading-tight">
-        Where Every<br/>Meal Becomes<br/><span style="color:#b4823c;">a Memory.</span>
+  <!-- ═══════════════════════════════════════════
+       HERO — EDITORIAL SPLIT SCREEN
+  ═══════════════════════════════════════════ -->
+  <section class="hero">
+
+    <!-- LEFT: Text panel -->
+    <div class="hero-text">
+      <p class="hero-label">AREA, Lagos &nbsp;·&nbsp; Est. YEAR</p>
+      <h1 class="hero-h1">
+        The Art<br/>of <em>Nigerian</em><br/>Fine Dining.
       </h1>
-      <p class="text-lg mb-10 max-w-xl mx-auto font-light" style="color:#c8b896;">An intimate fine dining experience celebrating the finest Nigerian ingredients — elevated, refined, unforgettable.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="reservations.html"
-          class="font-semibold px-10 py-4 tracking-wider text-sm"
-          style="background:#b4823c; color:white; border-radius:2px;">
-          RESERVE A TABLE
-        </a>
-        <a href="menu.html"
-          class="font-semibold px-10 py-4 tracking-wider text-sm border"
-          style="border-color:#b4823c; color:#b4823c; border-radius:2px;">
-          VIEW MENU
+      <p class="hero-sub">
+        An intimate experience for those who understand that the finest Nigerian ingredients,
+        prepared with precision, need no justification.
+      </p>
+      <div class="hero-ctas">
+        <a href="reservations.html" class="btn-primary">Reserve a Table</a>
+        <a href="menu.html" class="btn-ghost">View the Menu</a>
+      </div>
+    </div>
+
+    <!-- RIGHT: Photo panel -->
+    <div class="hero-photo" style="position:relative;">
+      <!-- Free stock video: Mixkit License — free for commercial use (mixkit.co) -->
+      <!-- To use client's own footage: replace src with their MP4 file -->
+      <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;display:block;">
+        <source src="https://assets.mixkit.co/videos/4672/4672-1080.mp4" type="video/mp4">
+        <!-- Fallback image if video fails to load -->
+        <img src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Fine dining at RESTAURANT NAME" />
+      </video>
+      <span class="hero-photo-caption">RESTAURANT NAME · Lagos, Nigeria</span>
+      <!-- Gold overlap badge — sits on the seam between panels -->
+      <div class="hero-badge">
+        <span class="hero-badge-num">40</span>
+        <span class="hero-badge-label">Covers per service</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PULL QUOTE
+  ═══════════════════════════════════════════ -->
+  <section class="pullquote reveal">
+    <div class="pullquote-inner">
+      <span class="pullquote-vert">Philosophy</span>
+      <div class="pullquote-body">
+        <p class="pullquote-text">
+          "Nigerian cuisine has always been extraordinary.
+          We simply give it the stage it deserves."
+        </p>
+        <p class="pullquote-attr">— Chef NAME &nbsp;·&nbsp; Executive Chef &amp; Founder</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EDITORIAL DISH SPREADS
+  ═══════════════════════════════════════════ -->
+  <section class="dish-spread">
+
+    <!-- DISH 01 — image left, text right -->
+    <div class="dish-row">
+      <div class="dish-img">
+        <img
+          src="https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop"
+          alt="Ofe Onugbu Royale"
+        />
+      </div>
+      <div class="dish-copy reveal">
+        <span class="dish-index">01</span>
+        <p class="dish-tag">Signature Dish</p>
+        <h2 class="dish-name">Ofe Onugbu<br/>Royale</h2>
+        <p class="dish-desc">
+          Bitter leaf soup deconstructed — aged ofofo, slow-braised oxtail, charred palm kernel oil,
+          served alongside a pounded yam quenelle. Each element prepared with classical precision.
+        </p>
+        <p class="dish-price">₦XX,XXX</p>
+        <div class="dish-links">
+          <a href="menu.html">Full Menu</a>
+          <a href="reservations.html">Reserve Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-divider"></div>
+
+    <!-- DISH 02 — image right, text left (reversed) -->
+    <div class="dish-row reverse">
+      <div class="dish-img">
+        <img
+          src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop"
+          alt="Suya-Glazed Wagyu"
+        />
+      </div>
+      <div class="dish-copy reveal">
+        <span class="dish-index">02</span>
+        <p class="dish-tag">Chef's Favourite</p>
+        <h2 class="dish-name">Suya-Glazed<br/>Wagyu</h2>
+        <p class="dish-desc">
+          A5 Wagyu strip loin, our house suya rub applied twice over open flame, caramelised
+          plantain purée, jus of smoked vine tomatoes and Negro Pepper. An unapologetic celebration
+          of two culinary traditions.
+        </p>
+        <p class="dish-price">₦XX,XXX</p>
+        <div class="dish-links">
+          <a href="menu.html">Full Menu</a>
+          <a href="reservations.html">Reserve Now</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dish-divider"></div>
+
+    <!-- DISH 03 — image left, text right -->
+    <div class="dish-row">
+      <div class="dish-img">
+        <img
+          src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=900&h=1100&fit=crop"
+          alt="Lagos Bouillabaisse"
+        />
+      </div>
+      <div class="dish-copy reveal">
+        <span class="dish-index">03</span>
+        <p class="dish-tag">Seasonal</p>
+        <h2 class="dish-name">Lagos<br/>Bouillabaisse</h2>
+        <p class="dish-desc">
+          Atlantic lobster, fresh tilapia, crayfish butter broth, saffron eba croquette.
+          Our homage to the sea and the richness of Nigeria's coastal flavours.
+        </p>
+        <p class="dish-price">₦XX,XXX</p>
+        <div class="dish-links">
+          <a href="menu.html">Full Menu</a>
+          <a href="reservations.html">Reserve Now</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       STATS ROW — cream background
+  ═══════════════════════════════════════════ -->
+  <section class="stats reveal">
+    <div class="stats-grid">
+      <div class="stat">
+        <span class="stat-num">YEAR+</span>
+        <span class="stat-label">Years of Excellence</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">★ 4.9</span>
+        <span class="stat-label">Guest Rating</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">40</span>
+        <span class="stat-label">Covers per Service</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">100%</span>
+        <span class="stat-label">Locally Sourced</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EXPERIENCE EDITORIAL GRID
+  ═══════════════════════════════════════════ -->
+  <section class="experience">
+    <div class="section-header reveal">
+      <div>
+        <p class="section-label">The Full Experience</p>
+        <h2 class="section-title">More Than<br/>a Meal</h2>
+      </div>
+      <a href="gallery.html" class="btn-ghost" style="font-size:0.6rem; white-space:nowrap;">View Gallery</a>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-card reveal">
+        <img
+          src="https://images.pexels.com/photos/941861/pexels-photo-941861.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+          alt="The Dining Room"
+        />
+        <div class="exp-card-text">
+          <span class="exp-num">01 /</span>
+          <h3 class="exp-title">The Dining Room</h3>
+          <p class="exp-desc">An intimate space designed for conversation. Forty covers, each with intention.</p>
+        </div>
+      </div>
+      <div class="exp-card reveal delay-1">
+        <img
+          src="https://images.pexels.com/photos/3184183/pexels-photo-3184183.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+          alt="Private Dining"
+        />
+        <div class="exp-card-text">
+          <span class="exp-num">02 /</span>
+          <h3 class="exp-title">Private Dining</h3>
+          <p class="exp-desc">For celebrations, corporate entertaining, and moments that deserve a room of their own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       TESTIMONIALS — MAGAZINE LAYOUT
+  ═══════════════════════════════════════════ -->
+  <section class="testimonials">
+    <div style="max-width:1100px; margin:0 auto;">
+
+      <div class="section-header reveal" style="margin-bottom:0;">
+        <div>
+          <p class="section-label">Guest Voices</p>
+          <h2 class="section-title" style="color:var(--ink);">What Our<br/>Guests Say</h2>
+        </div>
+      </div>
+
+      <div class="testi-grid">
+
+        <!-- Featured large testimonial -->
+        <div class="testi-feature reveal">
+          <div class="q-mark">"</div>
+          <p class="q-text">
+            I have dined in Paris, London, and New York.
+            The Suya-Glazed Wagyu at RESTAURANT NAME rivals anything I have eaten anywhere in the world.
+            Extraordinary.
+          </p>
+          <p class="q-author">Chukwuemeka O.</p>
+          <p class="q-loc">Lagos &nbsp;·&nbsp; Table for Two</p>
+        </div>
+
+        <!-- Two smaller testimonials stacked -->
+        <div class="testi-side">
+          <div class="testi-small reveal delay-1">
+            <div class="q-mark">"</div>
+            <p class="q-text">
+              "We hosted our anniversary dinner here. The tasting menu was flawless — each course told a story.
+              Our guests are still talking about it months later."
+            </p>
+            <p class="q-author">Adaeze &amp; Emeka N.</p>
+            <p class="q-loc">Abuja &nbsp;·&nbsp; Private Dining</p>
+          </div>
+          <div class="testi-small reveal delay-2">
+            <div class="q-mark">"</div>
+            <p class="q-text">
+              "Finally — a Lagos restaurant that takes Nigerian cuisine seriously as fine dining.
+              The ambience, the service, the food. Perfect from start to finish."
+            </p>
+            <p class="q-author">Bisi A.</p>
+            <p class="q-loc">UK Diaspora &nbsp;·&nbsp; Visiting Lagos</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       RESERVATION CTA
+  ═══════════════════════════════════════════ -->
+  <section class="reservation">
+    <div class="res-bg"></div>
+    <div class="res-content">
+      <p class="section-label reveal">An Experience Awaits</p>
+      <h2 class="section-title reveal">Reserve<br/>Your Table.</h2>
+      <p class="res-body reveal">
+        We offer intimate dining for up to forty covers per service.
+        Tables fill quickly — we recommend reserving at least one week in advance.
+      </p>
+      <div class="res-ctas reveal">
+        <a href="reservations.html" class="btn-primary">Make a Reservation</a>
+        <a
+          href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME."
+          target="_blank" rel="noopener noreferrer"
+          class="btn-ghost"
+          style="display:inline-flex; align-items:center; gap:8px;"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" style="width:13px;height:13px;fill:var(--gold);" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          WhatsApp Us
         </a>
       </div>
-      <p class="mt-6 text-xs tracking-widest" style="color:#7a6a52;">
-        Or WhatsApp us: <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME." target="_blank" rel="noopener noreferrer" style="color:#b4823c; text-decoration:underline;">+234 XXXXXXXXXX</a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <div>
+      <span class="footer-logo">RESTAURANT NAME</span>
+      <p class="footer-info">
+        STREET ADDRESS, AREA, LAGOS<br/>
+        Open Tuesday – Sunday &nbsp;·&nbsp; Dinner from 7 pm
       </p>
     </div>
-  </div>
-
-  <!-- OPENING STATEMENT -->
-  <section class="py-24 px-6 text-center max-w-3xl mx-auto">
-    <p class="uppercase tracking-[0.3em] text-xs mb-6" style="color:#b4823c;">Our Philosophy</p>
-    <h2 class="serif text-4xl md:text-5xl font-bold mb-8 leading-snug" style="color:#f5e6c8;">Nigerian cuisine has always been extraordinary.<br/>We simply give it the stage it deserves.</h2>
-    <p class="font-light leading-relaxed" style="color:#a8956e;">Every dish at RESTAURANT NAME is a love letter to Nigeria's culinary heritage — sourced locally, prepared with French precision, and served with genuine Lagos warmth. We don't chase trends. We chase perfection.</p>
-  </section>
-
-  <!-- SIGNATURE DISHES -->
-  <section class="py-16 px-6 max-w-6xl mx-auto">
-    <div class="flex justify-between items-end mb-12">
-      <div>
-        <p class="uppercase tracking-[0.3em] text-xs mb-3" style="color:#b4823c;">The Kitchen</p>
-        <h2 class="serif text-4xl font-bold" style="color:#f5e6c8;">Signature Dishes</h2>
-      </div>
-      <a href="menu.html" class="text-sm tracking-wider hover:text-amber-400 transition" style="color:#b4823c;">VIEW FULL MENU →</a>
+    <div class="footer-right">
+      <p>
+        +234 XXXXXXXXXX<br/>
+        reservations@restaurantname.com<br/><br/>
+        Website by <a href="https://ebukas-websites.netlify.app">Ebuka's Websites</a><br/>
+        &copy; 2026 RESTAURANT NAME
+      </p>
     </div>
-    <div class="grid md:grid-cols-3 gap-4">
-      <div class="dish-card">
-        <img src="https://images.pexels.com/photos/2338407/pexels-photo-2338407.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Dish 1" />
-        <div class="info">
-          <p class="text-xs tracking-widest mb-1" style="color:#b4823c;">SIGNATURE</p>
-          <h3 class="serif text-xl font-bold">Ofe Onugbu Royale</h3>
-          <p class="text-sm font-light mt-1" style="color:#c8b896;">Bitter leaf soup deconstructed — aged ofofo, slow-braised oxtail, charred palm kernel oil</p>
-          <p class="font-bold mt-2" style="color:#b4823c;">₦XX,XXX</p>
-        </div>
-      </div>
-      <div class="dish-card md:mt-8">
-        <img src="https://images.pexels.com/photos/1640772/pexels-photo-1640772.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Dish 2" />
-        <div class="info">
-          <p class="text-xs tracking-widest mb-1" style="color:#b4823c;">CHEF'S FAVOURITE</p>
-          <h3 class="serif text-xl font-bold">Suya-Glazed Wagyu</h3>
-          <p class="text-sm font-light mt-1" style="color:#c8b896;">A5 Wagyu strip loin, house suya rub, caramelised plantain purée, jus of smoked tomatoes</p>
-          <p class="font-bold mt-2" style="color:#b4823c;">₦XX,XXX</p>
-        </div>
-      </div>
-      <div class="dish-card">
-        <img src="https://images.pexels.com/photos/699953/pexels-photo-699953.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop" alt="Dish 3" />
-        <div class="info">
-          <p class="text-xs tracking-widest mb-1" style="color:#b4823c;">SEASONAL</p>
-          <h3 class="serif text-xl font-bold">Lagos Bouillabaisse</h3>
-          <p class="text-sm font-light mt-1" style="color:#c8b896;">Atlantic lobster, tilapia, crayfish butter broth, saffron eba croquette</p>
-          <p class="font-bold mt-2" style="color:#b4823c;">₦XX,XXX</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VIDEO / YOUTUBE SECTION -->
-  <section class="py-20 px-6" style="background:#0d0a06;">
-    <div class="max-w-4xl mx-auto text-center">
-      <p class="uppercase tracking-[0.3em] text-xs mb-4" style="color:#b4823c;">Behind the Scenes</p>
-      <h2 class="serif text-4xl font-bold mb-4" style="color:#f5e6c8;">Watch Our Kitchen Come Alive</h2>
-      <p class="mb-10 font-light" style="color:#a8956e;">Step inside RESTAURANT NAME — from morning prep to the final garnish on your plate.</p>
-      <!-- YOUTUBE EMBED: Replace VIDEO_ID with the client's real YouTube video ID -->
-      <div class="rounded-lg overflow-hidden shadow-2xl" style="position:relative; padding-bottom:56.25%; height:0; border:1px solid rgba(180,130,60,0.3);">
-        <iframe
-          src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&autoplay=0"
-          title="RESTAURANT NAME — Behind the Scenes"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;">
-        </iframe>
-      </div>
-      <p class="mt-4 text-xs" style="color:#4a3f30;">Replace VIDEO_ID in the code with your YouTube video ID (e.g. dQw4w9WgXcQ)</p>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE STRIP -->
-  <section class="py-20 px-6" style="background:#0a0502;">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-4 gap-8 text-center">
-      <div>
-        <p class="serif text-4xl font-black mb-2" style="color:#b4823c;">YEAR+</p>
-        <p class="uppercase tracking-widest text-xs" style="color:#7a6a52;">Years of Excellence</p>
-      </div>
-      <div>
-        <p class="serif text-4xl font-black mb-2" style="color:#b4823c;">★ 4.9</p>
-        <p class="uppercase tracking-widest text-xs" style="color:#7a6a52;">Guest Rating</p>
-      </div>
-      <div>
-        <p class="serif text-4xl font-black mb-2" style="color:#b4823c;">40</p>
-        <p class="uppercase tracking-widest text-xs" style="color:#7a6a52;">Covers Per Service</p>
-      </div>
-      <div>
-        <p class="serif text-4xl font-black mb-2" style="color:#b4823c;">100%</p>
-        <p class="uppercase tracking-widest text-xs" style="color:#7a6a52;">Locally Sourced</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="py-20 px-6 max-w-5xl mx-auto">
-    <p class="text-center uppercase tracking-[0.3em] text-xs mb-4" style="color:#b4823c;">Guest Voices</p>
-    <h2 class="serif text-4xl font-bold text-center mb-14" style="color:#f5e6c8;">What Our Guests Say</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="p-8 border" style="border-color:rgba(180,130,60,0.2); border-radius:4px;">
-        <p style="color:#b4823c;" class="text-lg mb-4">❝</p>
-        <p class="font-light leading-relaxed mb-6" style="color:#c8b896;">"I have dined in Paris, London, and New York. The Suya-Glazed Wagyu at RESTAURANT NAME rivals anything I've eaten anywhere in the world. Extraordinary."</p>
-        <p class="font-semibold text-sm" style="color:#f5e6c8;">Chukwuemeka O.</p>
-        <p class="text-xs tracking-widest mt-1" style="color:#7a6a52;">LAGOS · TABLE FOR TWO</p>
-      </div>
-      <div class="p-8 border" style="border-color:rgba(180,130,60,0.4); background:rgba(180,130,60,0.05); border-radius:4px;">
-        <p style="color:#b4823c;" class="text-lg mb-4">❝</p>
-        <p class="font-light leading-relaxed mb-6" style="color:#c8b896;">"We hosted our anniversary dinner here. The tasting menu was flawless — each course told a story. Our guests are still talking about it months later."</p>
-        <p class="font-semibold text-sm" style="color:#f5e6c8;">Adaeze & Emeka N.</p>
-        <p class="text-xs tracking-widest mt-1" style="color:#7a6a52;">ABUJA · PRIVATE DINING</p>
-      </div>
-      <div class="p-8 border" style="border-color:rgba(180,130,60,0.2); border-radius:4px;">
-        <p style="color:#b4823c;" class="text-lg mb-4">❝</p>
-        <p class="font-light leading-relaxed mb-6" style="color:#c8b896;">"Finally — a Lagos restaurant that takes Nigerian cuisine seriously as fine dining. The ambience, the service, the food. Perfect from start to finish."</p>
-        <p class="font-semibold text-sm" style="color:#f5e6c8;">Bisi A.</p>
-        <p class="text-xs tracking-widest mt-1" style="color:#7a6a52;">UK DIASPORA · VISITING LAGOS</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- RESERVATION CTA -->
-  <section class="py-24 px-6 text-center" style="background-image:url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); background-size:cover; background-position:center; position:relative;">
-    <div style="position:absolute;inset:0;background:rgba(10,5,2,0.88);"></div>
-    <div class="relative z-10">
-      <p class="uppercase tracking-[0.4em] text-xs mb-5" style="color:#b4823c;">An Experience Awaits</p>
-      <h2 class="serif text-5xl font-black mb-6" style="color:#f5e6c8;">Reserve Your Table</h2>
-      <p class="font-light mb-10 max-w-md mx-auto" style="color:#a8956e;">We offer intimate dining for up to 40 covers per service. Tables fill quickly — reserve early to avoid disappointment.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="reservations.html" class="font-semibold px-10 py-4 tracking-wider text-sm" style="background:#b4823c; color:white; border-radius:2px;">MAKE A RESERVATION</a>
-        <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME."
-          target="_blank" rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 font-semibold px-10 py-4 tracking-wider text-sm border"
-          style="border-color:#25D366; color:#25D366; border-radius:2px;">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WHATSAPP US
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-10 px-6 text-center" style="background:#050302; border-top:1px solid rgba(180,130,60,0.15);">
-    <p class="serif text-2xl mb-2" style="color:#b4823c;">RESTAURANT NAME</p>
-    <p class="text-xs tracking-widest mb-4" style="color:#4a3f30;">STREET ADDRESS, AREA, LAGOS · +234 XXXXXXXXXX</p>
-    <p class="text-xs" style="color:#3a3028;">Website by <a href="https://ebukas-websites.netlify.app" class="hover:text-amber-400 transition" style="color:#b4823c;">Ebuka's Websites</a> &nbsp;·&nbsp; &copy; 2026 RESTAURANT NAME</p>
   </footer>
 
   <!-- FLOATING WHATSAPP -->
-  <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
-    <div class="rounded-full w-14 h-14 flex items-center justify-center shadow-xl" style="background:#25D366;">
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <a
+    href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20to%20make%20a%20reservation%20at%20RESTAURANT%20NAME."
+    target="_blank" rel="noopener noreferrer"
+    class="whatsapp-float"
+  >
+    <div class="wa-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" style="width:28px;height:28px;fill:white;" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+      </svg>
     </div>
   </a>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Scroll-reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
