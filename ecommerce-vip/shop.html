@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — STORE NAME</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Space Grotesk', sans-serif; }
+    :root { --coral: #e85d2f; --dark: #0f172a; }
+    .btn-coral { background: var(--coral); color: white; transition: opacity 0.2s; }
+    .btn-coral:hover { opacity: 0.88; }
+    .product-card:hover .product-img { transform: scale(1.05); }
+    .product-img { transition: transform 0.4s ease; }
+    .filter-btn { border: 1px solid #e2e8f0; border-radius: 99px; padding: 6px 16px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; }
+    .filter-btn.active, .filter-btn:hover { background: var(--coral); color: white; border-color: var(--coral); }
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+    #cart-badge { display: none; }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 bg-white border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="font-bold text-xl tracking-tight" style="color:var(--dark);">STORE NAME</a>
+      <div class="flex gap-8 text-sm font-medium text-slate-500">
+        <a href="shop.html" class="font-bold" style="color:var(--coral);">Shop</a>
+        <a href="about.html" class="hover:text-slate-900">About</a>
+        <a href="contact.html" class="hover:text-slate-900">Contact</a>
+      </div>
+      <a href="cart.html" class="relative flex items-center gap-1 text-slate-700 hover:text-slate-900">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span id="cart-badge" class="absolute -top-2 -right-2 w-5 h-5 rounded-full text-white text-xs font-bold items-center justify-center" style="background:var(--coral);">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <section class="pt-28 pb-10 px-6 text-center">
+    <h1 class="text-4xl font-bold mb-2">All Products</h1>
+    <p class="text-slate-500 text-sm" id="result-count">Loading...</p>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="pb-8 px-6 max-w-6xl mx-auto">
+    <div class="flex flex-wrap gap-2 justify-center mb-8">
+      <button class="filter-btn active" data-cat="All" onclick="filterProducts('All')">All</button>
+      <button class="filter-btn" data-cat="Dresses" onclick="filterProducts('Dresses')">Dresses</button>
+      <button class="filter-btn" data-cat="Co-ords" onclick="filterProducts('Co-ords')">Co-ords</button>
+      <button class="filter-btn" data-cat="Tops" onclick="filterProducts('Tops')">Tops</button>
+      <button class="filter-btn" data-cat="Bottoms" onclick="filterProducts('Bottoms')">Bottoms</button>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div id="product-grid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"></div>
+  </section>
+
+  <footer class="py-10 px-6 mt-8" style="background:#0f172a;">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-bold text-white">STORE NAME</p>
+      <div class="flex gap-6 text-sm text-slate-400">
+        <a href="shop.html" class="hover:text-white">Shop</a>
+        <a href="about.html" class="hover:text-white">About</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
+        <a href="cart.html" class="hover:text-white">Cart</a>
+      </div>
+      <p class="text-slate-500 text-xs">Website by <a href="https://ebukas-websites.netlify.app" style="color:var(--coral);">Ebuka's Websites</a> &nbsp;·&nbsp; &copy; 2026 STORE NAME</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20help%20with%20an%20order%20at%20STORE%20NAME." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <div class="rounded-full w-14 h-14 flex items-center justify-center shadow-xl" style="background:#25D366;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </a>
+
+  <script src="cart.js"></script>
+  <script>
+    let currentFilter = 'All';
+
+    // Read URL param for initial category
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('cat')) {
+      currentFilter = params.get('cat');
+    }
+
+    function renderProducts(cat) {
+      const filtered = cat === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.category === cat);
+      const grid = document.getElementById('product-grid');
+      const count = document.getElementById('result-count');
+      count.textContent = `${filtered.length} item${filtered.length !== 1 ? 's' : ''}`;
+      grid.innerHTML = filtered.map(p => `
+        <div class="product-card group">
+          <a href="product.html?id=${p.id}" class="block overflow-hidden rounded-xl mb-3 relative" style="height:300px;">
+            <img class="product-img w-full h-full object-cover" src="${p.image}" alt="${p.name}" />
+          </a>
+          <p class="text-xs font-medium text-slate-400 uppercase tracking-wider mb-1">${p.category}</p>
+          <a href="product.html?id=${p.id}" class="font-semibold text-sm hover:underline block mb-1">${p.name}</a>
+          <div class="flex items-center justify-between">
+            <p class="font-bold text-sm" style="color:var(--coral);">${formatNaira(p.price)}</p>
+            <a href="product.html?id=${p.id}" class="text-xs font-semibold text-slate-500 hover:text-slate-900 underline underline-offset-2">View</a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function filterProducts(cat) {
+      currentFilter = cat;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.cat === cat);
+      });
+      renderProducts(cat);
+    }
+
+    // Init
+    renderProducts(currentFilter);
+    // Activate correct filter button
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.cat === currentFilter);
+    });
+  </script>
+</body>
+</html>

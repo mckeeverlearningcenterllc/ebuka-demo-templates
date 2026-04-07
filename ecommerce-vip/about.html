@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — STORE NAME</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Space Grotesk', sans-serif; }
+    :root { --coral: #e85d2f; --dark: #0f172a; }
+    .btn-coral { background: var(--coral); color: white; transition: opacity 0.2s; }
+    .btn-coral:hover { opacity: 0.88; }
+    .whatsapp-float { position: fixed; bottom: 24px; right: 24px; z-index: 1000; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.07); } }
+    #cart-badge { display: none; }
+  </style>
+</head>
+<body class="bg-white text-slate-900">
+
+  <!-- NAV -->
+  <nav class="fixed top-0 w-full z-50 bg-white border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="index.html" class="font-bold text-xl tracking-tight" style="color:var(--dark);">STORE NAME</a>
+      <div class="flex gap-8 text-sm font-medium text-slate-500">
+        <a href="shop.html" class="hover:text-slate-900">Shop</a>
+        <a href="about.html" class="font-bold" style="color:var(--coral);">About</a>
+        <a href="contact.html" class="hover:text-slate-900">Contact</a>
+      </div>
+      <a href="cart.html" class="relative flex items-center gap-1 text-slate-700 hover:text-slate-900">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
+        <span id="cart-badge" class="absolute -top-2 -right-2 w-5 h-5 rounded-full text-white text-xs font-bold items-center justify-center" style="background:var(--coral);">0</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pt-20 relative overflow-hidden" style="height:480px;">
+    <img src="https://images.pexels.com/photos/3622613/pexels-photo-3622613.jpeg?auto=compress&cs=tinysrgb&w=1260&h=600&fit=crop" alt="Our story" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 flex flex-col justify-end p-12" style="background:linear-gradient(to top, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.2) 60%);">
+      <p class="text-xs font-semibold tracking-[0.3em] uppercase mb-3" style="color:var(--coral);">Who We Are</p>
+      <h1 class="text-5xl font-bold text-white">Our Story</h1>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="py-20 px-6 max-w-4xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div>
+        <p class="text-slate-600 leading-relaxed mb-6">STORE NAME was founded in Lagos with a simple belief: Nigerian women deserve fashion that's beautiful, quality, and actually affordable.</p>
+        <p class="text-slate-600 leading-relaxed mb-6">We started in YEAR selling from our living room. Word spread. The orders grew. Today, we deliver premium fashion to customers across Nigeria — and we've never compromised on quality.</p>
+        <p class="text-slate-600 leading-relaxed">Every piece in our collection is handpicked and quality-checked before it ever reaches your door. We only stock what we'd wear ourselves.</p>
+      </div>
+      <div class="overflow-hidden rounded-2xl" style="height:400px;">
+        <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=600&h=700&fit=crop" alt="Fashion" class="w-full h-full object-cover" />
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="py-16 px-6" style="background:#0f172a;">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-xs font-semibold tracking-[0.3em] uppercase text-center mb-3" style="color:var(--coral);">What We Stand For</p>
+      <h2 class="text-3xl font-bold text-center text-white mb-14">Our Values</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-8 rounded-xl border border-slate-700">
+          <p class="font-bold text-white mb-3">Quality First</p>
+          <p class="text-slate-400 text-sm leading-relaxed">We don't stock anything we wouldn't be proud to wear. Every item is inspected before dispatch.</p>
+        </div>
+        <div class="p-8 rounded-xl" style="border:1px solid var(--coral);">
+          <p class="font-bold text-white mb-3">Customer First</p>
+          <p class="text-slate-400 text-sm leading-relaxed">Your satisfaction matters more than the sale. Easy returns, responsive support, no runaround.</p>
+        </div>
+        <div class="p-8 rounded-xl border border-slate-700">
+          <p class="font-bold text-white mb-3">Honest Pricing</p>
+          <p class="text-slate-400 text-sm leading-relaxed">No fake "before" prices, no hidden fees. What you see is what you pay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="py-16 px-6" style="background:var(--coral);">
+    <div class="max-w-4xl mx-auto grid grid-cols-3 gap-8 text-center text-white">
+      <div>
+        <p class="text-4xl font-bold mb-1">2,000+</p>
+        <p class="text-sm font-light opacity-80">Happy Customers</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold mb-1">500+</p>
+        <p class="text-sm font-light opacity-80">Products Sold Monthly</p>
+      </div>
+      <div>
+        <p class="text-4xl font-bold mb-1">4.9</p>
+        <p class="text-sm font-light opacity-80">Average Rating</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-6 text-center">
+    <h2 class="text-3xl font-bold mb-4">Ready to Shop?</h2>
+    <p class="text-slate-500 text-sm mb-8">Browse our latest collection and find something you'll love.</p>
+    <a href="shop.html" class="btn-coral inline-block px-10 py-4 font-bold text-sm rounded-xl tracking-wide">SHOP NOW</a>
+  </section>
+
+  <footer class="py-10 px-6" style="background:#0f172a;">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="font-bold text-white">STORE NAME</p>
+      <div class="flex gap-6 text-sm text-slate-400">
+        <a href="shop.html" class="hover:text-white">Shop</a>
+        <a href="about.html" class="hover:text-white">About</a>
+        <a href="contact.html" class="hover:text-white">Contact</a>
+        <a href="cart.html" class="hover:text-white">Cart</a>
+      </div>
+      <p class="text-slate-500 text-xs">Website by <a href="https://ebukas-websites.netlify.app" style="color:var(--coral);">Ebuka's Websites</a> &nbsp;·&nbsp; &copy; 2026 STORE NAME</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/234XXXXXXXXXX?text=Hi%2C%20I%27d%20like%20help%20with%20an%20order%20at%20STORE%20NAME." target="_blank" rel="noopener noreferrer" class="whatsapp-float">
+    <div class="rounded-full w-14 h-14 flex items-center justify-center shadow-xl" style="background:#25D366;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 fill-white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+  </a>
+
+  <script src="cart.js"></script>
+</body>
+</html>
