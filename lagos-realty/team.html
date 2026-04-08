@@ -126,5 +126,60 @@
     </svg>
   </a>
 
+
+  <!-- Mobile nav hamburger — injected -->
+  <script>
+  (function() {
+    var nav = document.querySelector('nav');
+    if (!nav) return;
+    // Find the div inside nav that holds the most <a> links
+    var best = null, bestCount = 0;
+    nav.querySelectorAll('div').forEach(function(d) {
+      var n = d.querySelectorAll('a').length;
+      if (n > bestCount) { bestCount = n; best = d; }
+    });
+    if (!best || bestCount < 1) return;
+    // Already patched?
+    if (document.getElementById('_mobileNav')) return;
+    // Inject styles
+    var s = document.createElement('style');
+    s.textContent = [
+      '@media (max-width:767px){',
+      '  #_navLinks{display:none!important;}',
+      '  #_hamburger{display:flex!important;}',
+      '  #_mobileNav{display:block;}',
+      '  #_mobileNav.closed{display:none!important;}',
+      '  #_mobileNav a{display:block;padding:10px 0;border-bottom:1px solid rgba(0,0,0,0.07);}',
+      '  #_mobileNav a:last-child{border-bottom:none;}',
+      '}',
+      '@media (min-width:768px){',
+      '  #_hamburger{display:none!important;}',
+      '  #_mobileNav{display:none!important;}',
+      '}'
+    ].join('');
+    document.head.appendChild(s);
+    // Tag the links div
+    best.id = '_navLinks';
+    // Create hamburger button
+    var btn = document.createElement('button');
+    btn.id = '_hamburger';
+    btn.setAttribute('aria-label','Toggle menu');
+    btn.style.cssText = 'display:none;flex-direction:column;gap:5px;padding:6px;background:none;border:none;cursor:pointer;';
+    btn.innerHTML = '<span style="display:block;width:22px;height:2px;background:currentColor"></span><span style="display:block;width:22px;height:2px;background:currentColor"></span><span style="display:block;width:22px;height:2px;background:currentColor"></span>';
+    best.parentNode.insertBefore(btn, best.nextSibling);
+    // Create mobile menu
+    var mob = document.createElement('div');
+    mob.id = '_mobileNav';
+    mob.className = 'closed';
+    mob.style.cssText = 'padding:0 20px 12px;border-top:1px solid rgba(0,0,0,0.1);font-size:0.9rem;font-weight:500;';
+    mob.innerHTML = best.innerHTML;
+    nav.appendChild(mob);
+    // Toggle
+    btn.addEventListener('click', function() { mob.classList.toggle('closed'); });
+    mob.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { mob.classList.add('closed'); });
+    });
+  })();
+  </script>
 </body>
 </html>
