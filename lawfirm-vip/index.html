@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adeyemi &amp; Partners Legal Chambers — Victoria Island, Lagos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --dark: #111111;
+      --dark-2: #1c1c1c;
+      --gold: #c9a45a;
+      --gold-dark: #a8832e;
+      --cream: #f8f5ef;
+      --cream-2: #f0ece3;
+      --white: #ffffff;
+      --text: #1c1a18;
+      --text-muted: #6b6560;
+      --border: #e0d9ce;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.7; }
+
+    /* NAV */
+    .nav { background: var(--dark); position: sticky; top: 0; z-index: 200; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
+    .brand-name { font-family: 'Cormorant Garant', serif; font-size: 16px; font-weight: 600; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; line-height: 1; }
+    .brand-sub { font-size: 9px; letter-spacing: 2.5px; color: rgba(255,255,255,0.35); text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 12px; letter-spacing: 0.5px; font-weight: 400; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .btn-consult { background: var(--gold) !important; color: var(--dark) !important; padding: 9px 22px !important; border-radius: 2px; font-weight: 600 !important; font-size: 11px !important; letter-spacing: 1.5px !important; text-transform: uppercase; transition: all 0.2s; }
+    .btn-consult:hover { background: var(--gold-dark) !important; color: white !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: rgba(255,255,255,0.7); transition: all 0.3s; }
+    .nav-toggle.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* HERO */
+    .hero { display: grid; grid-template-columns: 55% 45%; min-height: calc(100vh - 72px); }
+    .hero-content { background: var(--dark-2); display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; }
+    .hero-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 20px; }
+    .hero-rule { width: 48px; height: 1px; background: var(--gold); margin-bottom: 32px; }
+    .hero-title { font-family: 'Cormorant Garant', serif; font-size: clamp(52px, 6vw, 84px); font-weight: 300; line-height: 1.0; letter-spacing: 1px; color: white; margin-bottom: 10px; }
+    .hero-title em { font-style: normal; color: var(--gold); }
+    .hero-sub { font-family: 'Cormorant Garant', serif; font-size: 18px; font-weight: 300; font-style: italic; color: rgba(255,255,255,0.45); margin-bottom: 36px; letter-spacing: 2px; }
+    .hero-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.9; max-width: 440px; margin-bottom: 48px; font-weight: 300; }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-primary { background: var(--gold); color: var(--dark); padding: 15px 34px; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; transition: all 0.2s; }
+    .btn-primary:hover { background: var(--gold-dark); color: white; }
+    .btn-ghost { background: transparent; color: rgba(255,255,255,0.65); padding: 15px 34px; text-decoration: none; font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.2); border-radius: 2px; transition: all 0.2s; }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .hero-image { overflow: hidden; }
+    .hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; filter: brightness(0.88); }
+
+    /* STATS STRIP */
+    .stats-strip { background: var(--gold); display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat { padding: 30px 20px; text-align: center; border-right: 1px solid rgba(0,0,0,0.12); }
+    .stat:last-child { border-right: none; }
+    .stat-num { display: block; font-family: 'Cormorant Garant', serif; font-size: 40px; font-weight: 600; color: var(--dark); line-height: 1; }
+    .stat-label { display: block; font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(0,0,0,0.55); margin-top: 4px; font-weight: 500; }
+
+    /* ABOUT */
+    .about { padding: 110px 40px; background: var(--cream); }
+    .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-img { overflow: hidden; height: 560px; position: relative; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .about-img-label { position: absolute; bottom: 0; left: 0; right: 0; background: var(--dark); padding: 16px 24px; font-family: 'Cormorant Garant', serif; font-size: 13px; color: var(--gold); letter-spacing: 1px; }
+    .section-label { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 16px; }
+    .about-text h2 { font-family: 'Cormorant Garant', serif; font-size: 40px; font-weight: 400; line-height: 1.2; color: var(--text); margin-bottom: 28px; }
+    .about-text p { font-size: 14px; color: var(--text-muted); margin-bottom: 18px; font-weight: 300; line-height: 1.9; }
+    .link-arrow { display: inline-block; margin-top: 8px; font-size: 12px; font-weight: 600; color: var(--gold-dark); text-decoration: none; letter-spacing: 1px; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: all 0.2s; }
+    .link-arrow:hover { color: var(--dark); border-color: var(--dark); }
+
+    /* PRACTICE AREAS */
+    .practices { padding: 110px 40px; background: var(--white); }
+    .practices-inner { max-width: 1100px; margin: 0 auto; }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header h2 { font-family: 'Cormorant Garant', serif; font-size: 44px; font-weight: 400; color: var(--text); margin-top: 10px; }
+    .practice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .practice-card { background: var(--cream); padding: 44px 38px; border-top: 3px solid transparent; transition: border-color 0.25s, background 0.25s; cursor: pointer; }
+    .practice-card:hover { border-color: var(--gold); background: var(--cream-2); }
+    .practice-num { font-family: 'Cormorant Garant', serif; font-size: 52px; font-weight: 300; color: var(--border); line-height: 1; margin-bottom: 20px; }
+    .practice-card h3 { font-family: 'Cormorant Garant', serif; font-size: 22px; font-weight: 600; color: var(--text); margin-bottom: 10px; line-height: 1.2; }
+    .practice-card p { font-size: 13px; color: var(--text-muted); line-height: 1.75; font-weight: 300; }
+    .practices-cta { text-align: center; margin-top: 48px; }
+    .btn-outline { display: inline-block; padding: 13px 34px; border: 1px solid var(--text); color: var(--text); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; font-weight: 500; transition: all 0.2s; }
+    .btn-outline:hover { background: var(--text); color: white; }
+
+    /* APPROACH */
+    .approach { background: var(--dark); padding: 110px 40px; }
+    .approach-inner { max-width: 1100px; margin: 0 auto; }
+    .approach-inner .section-label { color: rgba(255,255,255,0.3); text-align: center; }
+    .approach-inner h2 { font-family: 'Cormorant Garant', serif; font-size: 42px; font-weight: 400; color: white; text-align: center; margin: 10px 0 64px; }
+    .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .approach-card { padding: 44px 36px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .approach-num { font-family: 'Cormorant Garant', serif; font-size: 52px; font-weight: 300; color: var(--gold); opacity: 0.35; line-height: 1; margin-bottom: 24px; }
+    .approach-card h3 { font-family: 'Cormorant Garant', serif; font-size: 24px; font-weight: 600; color: white; margin-bottom: 14px; }
+    .approach-card p { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.85; font-weight: 300; }
+
+    /* TESTIMONIALS */
+    .testimonials { padding: 110px 40px; background: var(--cream); }
+    .testimonials-inner { max-width: 1100px; margin: 0 auto; }
+    .testimonials-inner .section-label { text-align: center; }
+    .testimonials-inner h2 { font-family: 'Cormorant Garant', serif; font-size: 42px; font-weight: 400; color: var(--text); text-align: center; margin: 10px 0 64px; }
+    .testimonial-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .testimonial-card { background: white; padding: 44px; border-left: 3px solid var(--gold); }
+    .testimonial-mark { font-family: 'Cormorant Garant', serif; font-size: 64px; color: var(--gold); opacity: 0.3; line-height: 0.5; margin-bottom: 20px; }
+    .testimonial-quote { font-family: 'Cormorant Garant', serif; font-size: 19px; font-style: italic; color: var(--text); line-height: 1.65; margin-bottom: 28px; }
+    .testimonial-client strong { display: block; font-size: 13px; font-weight: 600; color: var(--text); letter-spacing: 0.5px; }
+    .testimonial-client span { font-size: 12px; color: var(--text-muted); letter-spacing: 0.5px; }
+
+    /* CTA */
+    .cta-section { background: var(--dark-2); padding: 110px 40px; text-align: center; }
+    .cta-inner { max-width: 600px; margin: 0 auto; }
+    .cta-rule { width: 48px; height: 1px; background: var(--gold); margin: 0 auto 36px; }
+    .cta-inner h2 { font-family: 'Cormorant Garant', serif; font-size: 44px; font-weight: 400; color: white; margin-bottom: 18px; }
+    .cta-inner p { font-size: 14px; color: rgba(255,255,255,0.5); margin-bottom: 44px; font-weight: 300; line-height: 1.8; }
+    .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn-whatsapp { background: #25D366; color: white; padding: 15px 34px; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 2px; transition: background 0.2s; }
+    .btn-whatsapp:hover { background: #1aad52; }
+
+    /* FOOTER */
+    .footer { background: var(--dark); padding: 80px 40px 0; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-name { font-family: 'Cormorant Garant', serif; font-size: 18px; font-weight: 600; letter-spacing: 2px; color: var(--gold); margin-bottom: 4px; text-transform: uppercase; }
+    .footer-sub { font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.25); text-transform: uppercase; margin-bottom: 20px; }
+    .footer-desc { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.85; font-weight: 300; }
+    .footer-heading { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .footer-col { display: flex; flex-direction: column; gap: 2px; }
+    .footer-col a { color: rgba(255,255,255,0.42); text-decoration: none; font-size: 13px; padding: 4px 0; font-weight: 300; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-contact-item { font-size: 13px; color: rgba(255,255,255,0.42); margin-bottom: 8px; font-weight: 300; }
+    .footer-wa { display: inline-block; margin-top: 14px; background: #25D366; color: white; padding: 9px 20px; font-size: 11px; font-weight: 600; text-decoration: none; border-radius: 2px; letter-spacing: 1px; }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; }
+    .footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.18); letter-spacing: 0.5px; }
+    .footer-bottom a { font-size: 11px; color: rgba(255,255,255,0.18); text-decoration: none; transition: color 0.2s; }
+    .footer-bottom a:hover { color: var(--gold); }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 72px; left: 0; right: 0; background: var(--dark); padding: 16px 0; box-shadow: 0 8px 24px rgba(0,0,0,0.3); }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 40px; }
+      .btn-consult { margin: 10px 40px; display: inline-block !important; border-radius: 2px; }
+      .nav-toggle { display: flex; }
+      .nav-inner { position: relative; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-image { height: 320px; order: -1; }
+      .hero-content { padding: 60px 32px; }
+      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+      .stat { border-bottom: 1px solid rgba(0,0,0,0.1); }
+      .about-inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-img { height: 320px; }
+      .practice-grid { grid-template-columns: 1fr 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .testimonial-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 600px) {
+      .hero-content { padding: 48px 24px; }
+      .about, .practices, .approach, .testimonials, .cta-section { padding: 72px 24px; }
+      .footer { padding: 60px 24px 0; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-name">Adeyemi &amp; Partners</span>
+      <span class="brand-sub">Legal Chambers</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="practice-areas.html">Practice Areas</a>
+      <a href="attorneys.html">Our Attorneys</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="btn-consult">Book Consultation</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-tag">Established 2004 &nbsp;&middot;&nbsp; Victoria Island, Lagos</div>
+    <div class="hero-rule"></div>
+    <h1 class="hero-title">Adeyemi<br>&amp; <em>Partners</em></h1>
+    <p class="hero-sub">Legal Chambers</p>
+    <p class="hero-desc">Trusted legal counsel for individuals, families, and corporations across Nigeria. We bring experience, integrity, and relentless commitment to every matter we handle.</p>
+    <div class="hero-actions">
+      <a href="contact.html" class="btn-primary">Book a Consultation</a>
+      <a href="practice-areas.html" class="btn-ghost">Our Practice Areas</a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.pexels.com/photos/8867454/pexels-photo-8867454.jpeg?auto=compress&cs=tinysrgb&w=900&h=1200&fit=crop" alt="Legal counsel at Adeyemi and Partners" />
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat">
+    <span class="stat-num">20+</span>
+    <span class="stat-label">Years of Practice</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">500+</span>
+    <span class="stat-label">Cases Resolved</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">200+</span>
+    <span class="stat-label">Corporate Clients</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">6</span>
+    <span class="stat-label">Practice Areas</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-img">
+      <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg?auto=compress&cs=tinysrgb&w=700&h=900&fit=crop" alt="Senior partner at Adeyemi and Partners" />
+      <div class="about-img-label">Chukwuemeka Adeyemi, SAN — Managing Partner</div>
+    </div>
+    <div class="about-text">
+      <div class="section-label">About the Firm</div>
+      <h2>A tradition of excellence in Nigerian law</h2>
+      <p>Founded in 2004 by Chukwuemeka Adeyemi, SAN, our chambers has grown from a boutique corporate practice into one of Lagos' most trusted full-service law firms. We serve clients ranging from multinational corporations to families navigating complex personal matters.</p>
+      <p>We are defined not just by the results we achieve, but by how we achieve them — through clear communication, careful strategy, and an unwavering commitment to our clients' best interests at every stage of their matter.</p>
+      <p>Our team of eight qualified attorneys covers six major practice areas, with a combined track record spanning more than two decades of Nigerian legal practice.</p>
+      <a href="attorneys.html" class="link-arrow">Meet Our Attorneys &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICE AREAS -->
+<section class="practices">
+  <div class="practices-inner">
+    <div class="section-header">
+      <div class="section-label">What We Do</div>
+      <h2>Our Practice Areas</h2>
+    </div>
+    <div class="practice-grid">
+      <div class="practice-card">
+        <div class="practice-num">01</div>
+        <h3>Corporate &amp; Commercial Law</h3>
+        <p>Company formation, mergers and acquisitions, shareholders' agreements, joint ventures, regulatory compliance, and commercial contracts for businesses of all sizes.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-num">02</div>
+        <h3>Real Estate &amp; Property Law</h3>
+        <p>Conveyancing, title verification, land acquisition, property disputes, lease agreements, and mortgage transactions across Lagos and Nigeria's major commercial centres.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-num">03</div>
+        <h3>Litigation &amp; Dispute Resolution</h3>
+        <p>Court representation, arbitration, mediation, and alternative dispute resolution across civil, commercial, and constitutional matters before Nigerian courts at all levels.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-num">04</div>
+        <h3>Family Law &amp; Succession</h3>
+        <p>Matrimonial causes, custody and maintenance, wills and estate planning, probate administration, and succession disputes handled with discretion and care.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-num">05</div>
+        <h3>Immigration Law</h3>
+        <p>Residence permits, work visas, expatriate quotas, CERPAC renewals, citizenship matters, and immigration compliance for individuals and corporate entities.</p>
+      </div>
+      <div class="practice-card">
+        <div class="practice-num">06</div>
+        <h3>Employment &amp; Labour Law</h3>
+        <p>Employment contracts, wrongful dismissal, redundancy, workplace disputes, trade union matters, and HR policy compliance for employers and employees.</p>
+      </div>
+    </div>
+    <div class="practices-cta">
+      <a href="practice-areas.html" class="btn-outline">View All Practice Areas</a>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach">
+  <div class="approach-inner">
+    <div class="section-label">Our Approach</div>
+    <h2>Why clients choose Adeyemi &amp; Partners</h2>
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-num">01</div>
+        <h3>Experienced Counsel</h3>
+        <p>Our team includes two Senior Advocates of Nigeria (SAN) with decades of combined experience across multiple practice areas. When you brief us, you are not passed to a junior — you are handled at the level your matter deserves.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">02</div>
+        <h3>Strategic Thinking</h3>
+        <p>We do not simply advise on the law — we understand your commercial and personal objectives and construct strategies around them. Legal advice should serve your goals, not merely describe your options.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">03</div>
+        <h3>Clear Communication</h3>
+        <p>Legal matters should never feel opaque. We keep you informed at every stage in plain language, without unnecessary jargon. You will always know where your matter stands and what comes next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="section-label">Client Testimonials</div>
+    <h2>What our clients say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p class="testimonial-quote">Adeyemi &amp; Partners handled our company acquisition with exceptional competence. They identified issues our previous lawyers had missed entirely. We could not have asked for a more thorough team.</p>
+        <div class="testimonial-client">
+          <strong>Emeka Oduya</strong>
+          <span>Managing Director, Oduya Group of Companies</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p class="testimonial-quote">They guided me through a very complex property dispute that had been unresolved for years. The result exceeded my expectations, and I was kept informed every step of the way. Highly recommended.</p>
+        <div class="testimonial-client">
+          <strong>Abiodun Fashola</strong>
+          <span>Property Developer, Lagos</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p class="testimonial-quote">When I needed help with my work permit and expatriate quota, Adeyemi &amp; Partners resolved it in weeks when I had been struggling for months. Professional, responsive, and genuinely helpful.</p>
+        <div class="testimonial-client">
+          <strong>Ravi Mehta</strong>
+          <span>Country Director, Afrique Manufacturing Ltd</span>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-mark">&ldquo;</div>
+        <p class="testimonial-quote">Our family succession matter was handled with tremendous sensitivity and discretion. They protected our interests while keeping family relationships intact. That is a rare balance to strike.</p>
+        <div class="testimonial-client">
+          <strong>Mrs. Ngozi Eze</strong>
+          <span>Businesswoman, Abuja</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-inner">
+    <div class="cta-rule"></div>
+    <h2>Ready to speak with a lawyer?</h2>
+    <p>Book a consultation today. Our team will review your matter carefully and advise you on the best course of action — with complete confidentiality.</p>
+    <div class="cta-actions">
+      <a href="contact.html" class="btn-primary">Book a Consultation</a>
+      <a href="https://wa.me/2348036001800" target="_blank" class="btn-whatsapp">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Adeyemi &amp; Partners</div>
+      <div class="footer-sub">Legal Chambers</div>
+      <p class="footer-desc">14 Ozumba Mbadiwe Avenue,<br>Victoria Island, Lagos.<br><br>Trusted Nigerian legal counsel<br>since 2004.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Practice Areas</div>
+      <div class="footer-col">
+        <a href="practice-areas.html">Corporate &amp; Commercial</a>
+        <a href="practice-areas.html">Real Estate &amp; Property</a>
+        <a href="practice-areas.html">Litigation</a>
+        <a href="practice-areas.html">Family Law &amp; Succession</a>
+        <a href="practice-areas.html">Immigration</a>
+        <a href="practice-areas.html">Employment Law</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">The Firm</div>
+      <div class="footer-col">
+        <a href="attorneys.html">Our Attorneys</a>
+        <a href="index.html#about">About the Firm</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="contact.html">Book a Consultation</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <p class="footer-contact-item">+234 01 888 2400</p>
+      <p class="footer-contact-item">+234 803 600 1800</p>
+      <p class="footer-contact-item">enquiries@adeyemipartners.com.ng</p>
+      <a href="https://wa.me/2348036001800" target="_blank" class="footer-wa">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Adeyemi &amp; Partners Legal Chambers. All rights reserved.</p>
+    <a href="contact.html">Book a Consultation</a>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() {
+    navLinks.classList.toggle('open');
+    toggle.classList.toggle('active');
+  });
+</script>
+</body>
+</html>

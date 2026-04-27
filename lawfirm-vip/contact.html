@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Consultations — Adeyemi &amp; Partners Legal Chambers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --dark: #111111;
+      --dark-2: #1c1c1c;
+      --gold: #c9a45a;
+      --gold-dark: #a8832e;
+      --cream: #f8f5ef;
+      --cream-2: #f0ece3;
+      --white: #ffffff;
+      --text: #1c1a18;
+      --text-muted: #6b6560;
+      --border: #e0d9ce;
+    }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.7; }
+
+    /* NAV */
+    .nav { background: var(--dark); position: sticky; top: 0; z-index: 200; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav-brand { text-decoration: none; display: flex; flex-direction: column; gap: 2px; }
+    .brand-name { font-family: 'Cormorant Garant', serif; font-size: 16px; font-weight: 600; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; line-height: 1; }
+    .brand-sub { font-size: 9px; letter-spacing: 2.5px; color: rgba(255,255,255,0.35); text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 36px; }
+    .nav-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 12px; letter-spacing: 0.5px; font-weight: 400; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .btn-consult { background: var(--gold) !important; color: var(--dark) !important; padding: 9px 22px !important; border-radius: 2px; font-weight: 600 !important; font-size: 11px !important; letter-spacing: 1.5px !important; text-transform: uppercase; }
+    .btn-consult:hover { background: var(--gold-dark) !important; color: white !important; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .nav-toggle span { display: block; width: 22px; height: 1.5px; background: rgba(255,255,255,0.7); transition: all 0.3s; }
+    .nav-toggle.active span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-toggle.active span:nth-child(2) { opacity: 0; }
+    .nav-toggle.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* PAGE HERO */
+    .page-hero { background: var(--dark-2); padding: 80px 40px; text-align: center; }
+    .page-hero .section-label { font-size: 10px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .page-hero h1 { font-family: 'Cormorant Garant', serif; font-size: clamp(40px, 5vw, 64px); font-weight: 400; color: white; margin-bottom: 20px; }
+    .page-hero p { font-size: 15px; color: rgba(255,255,255,0.5); max-width: 560px; margin: 0 auto; font-weight: 300; line-height: 1.85; }
+
+    /* WHATSAPP CTA STRIP */
+    .wa-strip { background: var(--gold); padding: 22px 40px; }
+    .wa-strip-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    .wa-strip p { font-size: 14px; font-weight: 500; color: var(--dark); }
+    .wa-strip p span { font-weight: 300; font-size: 13px; }
+    .btn-wa-dark { background: var(--dark); color: white; padding: 11px 28px; text-decoration: none; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; border-radius: 2px; white-space: nowrap; transition: background 0.2s; }
+    .btn-wa-dark:hover { background: var(--dark-2); }
+
+    /* CONTACT LAYOUT */
+    .contact-main { padding: 100px 40px; background: var(--cream); }
+    .contact-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+
+    /* INFO SIDE */
+    .contact-info h2 { font-family: 'Cormorant Garant', serif; font-size: 36px; font-weight: 400; color: var(--text); margin-bottom: 32px; line-height: 1.2; }
+    .info-block { margin-bottom: 36px; padding-bottom: 36px; border-bottom: 1px solid var(--border); }
+    .info-block:last-child { border-bottom: none; margin-bottom: 0; }
+    .info-label { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-dark); margin-bottom: 12px; }
+    .info-block p { font-size: 14px; color: var(--text-muted); font-weight: 300; line-height: 1.8; }
+    .info-block a { color: var(--text); text-decoration: none; font-weight: 400; }
+    .info-block a:hover { color: var(--gold-dark); }
+    .hours-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; }
+    .hours-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); padding: 4px 0; font-weight: 300; }
+    .hours-row span:first-child { color: var(--text); font-weight: 400; }
+
+    /* FORM SIDE */
+    .contact-form-wrap { background: white; padding: 48px; }
+    .form-heading { font-family: 'Cormorant Garant', serif; font-size: 28px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
+    .form-sub { font-size: 13px; color: var(--text-muted); font-weight: 300; margin-bottom: 36px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 10px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid var(--border); background: var(--cream); font-family: 'Inter', sans-serif; font-size: 13px; color: var(--text); font-weight: 300; border-radius: 2px; outline: none; transition: border-color 0.2s; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); background: white; }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-note { font-size: 12px; color: var(--text-muted); margin-bottom: 24px; line-height: 1.6; font-weight: 300; }
+    .btn-submit { width: 100%; background: var(--gold); color: var(--dark); padding: 15px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border: none; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
+    .btn-submit:hover { background: var(--gold-dark); color: white; }
+
+    /* CONFIDENTIALITY NOTE */
+    .conf-note { background: var(--dark-2); padding: 48px 40px; }
+    .conf-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 60px 1fr; gap: 32px; align-items: start; }
+    .conf-icon { width: 48px; height: 48px; border: 1px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .conf-icon svg { width: 20px; height: 20px; fill: var(--gold); }
+    .conf-text h3 { font-family: 'Cormorant Garant', serif; font-size: 22px; font-weight: 600; color: white; margin-bottom: 10px; }
+    .conf-text p { font-size: 13px; color: rgba(255,255,255,0.45); font-weight: 300; line-height: 1.8; max-width: 720px; }
+
+    /* MAP PLACEHOLDER */
+    .map-section { background: var(--cream-2); }
+    .map-placeholder { width: 100%; height: 300px; background: var(--border); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 10px; }
+    .map-placeholder p { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; }
+    .map-placeholder strong { font-family: 'Cormorant Garant', serif; font-size: 18px; font-weight: 600; color: var(--text); }
+
+    /* FOOTER */
+    .footer { background: var(--dark); padding: 80px 40px 0; }
+    .footer-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 60px; padding-bottom: 60px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .footer-name { font-family: 'Cormorant Garant', serif; font-size: 18px; font-weight: 600; letter-spacing: 2px; color: var(--gold); margin-bottom: 4px; text-transform: uppercase; }
+    .footer-sub { font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.25); text-transform: uppercase; margin-bottom: 20px; }
+    .footer-desc { font-size: 13px; color: rgba(255,255,255,0.38); line-height: 1.85; font-weight: 300; }
+    .footer-heading { font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+    .footer-col { display: flex; flex-direction: column; gap: 2px; }
+    .footer-col a { color: rgba(255,255,255,0.42); text-decoration: none; font-size: 13px; padding: 4px 0; font-weight: 300; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--gold); }
+    .footer-contact-item { font-size: 13px; color: rgba(255,255,255,0.42); margin-bottom: 8px; font-weight: 300; }
+    .footer-wa { display: inline-block; margin-top: 14px; background: #25D366; color: white; padding: 9px 20px; font-size: 11px; font-weight: 600; text-decoration: none; border-radius: 2px; }
+    .footer-bottom { max-width: 1100px; margin: 0 auto; padding: 24px 0; text-align: center; }
+    .footer-bottom p { font-size: 11px; color: rgba(255,255,255,0.18); }
+
+    @media (max-width: 960px) {
+      .nav-links { display: none; flex-direction: column; gap: 0; position: absolute; top: 72px; left: 0; right: 0; background: var(--dark); padding: 16px 0; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 40px; }
+      .btn-consult { margin: 10px 40px; display: inline-block !important; }
+      .nav-toggle { display: flex; }
+      .nav-inner { position: relative; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
+    }
+    @media (max-width: 600px) {
+      .contact-main { padding: 72px 24px; }
+      .contact-form-wrap { padding: 32px 24px; }
+      .page-hero { padding: 60px 24px; }
+      .footer { padding: 60px 24px 0; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .wa-strip { padding: 20px 24px; }
+      .conf-note { padding: 40px 24px; }
+      .conf-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="brand-name">Adeyemi &amp; Partners</span>
+      <span class="brand-sub">Legal Chambers</span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="practice-areas.html">Practice Areas</a>
+      <a href="attorneys.html">Our Attorneys</a>
+      <a href="contact.html" class="active">Contact</a>
+      <a href="contact.html" class="btn-consult">Book Consultation</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="section-label">Get in Touch</div>
+  <h1>Contact &amp; Consultations</h1>
+  <p>Complete the form below or reach us directly on WhatsApp. All enquiries are handled with complete confidentiality.</p>
+</div>
+
+<div class="wa-strip">
+  <div class="wa-strip-inner">
+    <p>Prefer to message us directly? &nbsp;<span>We respond to WhatsApp enquiries within two hours during business hours.</span></p>
+    <a href="https://wa.me/2348036001800" target="_blank" class="btn-wa-dark">Message on WhatsApp</a>
+  </div>
+</div>
+
+<section class="contact-main">
+  <div class="contact-inner">
+
+    <div class="contact-info">
+      <h2>We are here to help you navigate what comes next.</h2>
+
+      <div class="info-block">
+        <div class="info-label">Office Address</div>
+        <p>14 Ozumba Mbadiwe Avenue<br>Victoria Island, Lagos<br>Nigeria</p>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">Telephone</div>
+        <p>
+          <a href="tel:+23401 8882400">+234 01 888 2400</a><br>
+          <a href="tel:+2348036001800">+234 803 600 1800</a>
+        </p>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">Email</div>
+        <p><a href="mailto:enquiries@adeyemipartners.com.ng">enquiries@adeyemipartners.com.ng</a></p>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">Office Hours</div>
+        <div class="hours-grid">
+          <div class="hours-row"><span>Monday</span><span>8:00am – 6:00pm</span></div>
+          <div class="hours-row"><span>Tuesday</span><span>8:00am – 6:00pm</span></div>
+          <div class="hours-row"><span>Wednesday</span><span>8:00am – 6:00pm</span></div>
+          <div class="hours-row"><span>Thursday</span><span>8:00am – 6:00pm</span></div>
+          <div class="hours-row"><span>Friday</span><span>8:00am – 5:00pm</span></div>
+          <div class="hours-row"><span>Saturday</span><span>By appointment only</span></div>
+          <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
+        </div>
+      </div>
+
+      <div class="info-block">
+        <div class="info-label">Consultation Fees</div>
+        <p>Initial consultations are charged at ₦30,000 per hour. For corporate matters, please contact us to discuss engagement terms. Fees paid for consultation are credited against our fees if you subsequently instruct us.</p>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <div class="form-heading">Book a Consultation</div>
+      <p class="form-sub">Tell us about your matter and we will be in touch within one business day to confirm your appointment.</p>
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstName" placeholder="Emeka" required />
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" name="lastName" placeholder="Oduya" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="emeka@company.com.ng" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone / WhatsApp Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="+234 803 XXX XXXX" required />
+        </div>
+        <div class="form-group">
+          <label for="area">Area of Law</label>
+          <select id="area" name="area" required>
+            <option value="" disabled selected>Select the most relevant area</option>
+            <option>Corporate &amp; Commercial Law</option>
+            <option>Real Estate &amp; Property Law</option>
+            <option>Litigation &amp; Dispute Resolution</option>
+            <option>Family Law &amp; Succession</option>
+            <option>Immigration Law</option>
+            <option>Employment &amp; Labour Law</option>
+            <option>Not sure — I need guidance</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Brief Description of Your Matter</label>
+          <textarea id="message" name="message" placeholder="Please describe your legal matter briefly. All information shared is treated in strict confidence." required></textarea>
+        </div>
+        <p class="form-note">By submitting this form, you acknowledge that no lawyer-client relationship is formed until a formal retainer is signed. The information you provide is confidential and will only be used to respond to your enquiry.</p>
+        <button type="submit" class="btn-submit">Submit Enquiry</button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<div class="conf-note">
+  <div class="conf-inner">
+    <div class="conf-icon">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 4a3 3 0 110 6 3 3 0 010-6zm0 14.35c-2.5-.67-4.63-2.53-5.71-5.35H17.71c-1.08 2.82-3.21 4.68-5.71 5.35z"/></svg>
+    </div>
+    <div class="conf-text">
+      <h3>Strict Confidentiality</h3>
+      <p>All communications with Adeyemi &amp; Partners are protected by legal professional privilege. Every matter we handle — from the first enquiry to the final conclusion — is treated with the utmost discretion. Your information is never shared with third parties without your explicit consent.</p>
+    </div>
+  </div>
+</div>
+
+<div class="map-section">
+  <div class="map-placeholder">
+    <strong>14 Ozumba Mbadiwe Avenue, Victoria Island, Lagos</strong>
+    <p>Map — replace with Google Maps embed</p>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Adeyemi &amp; Partners</div>
+      <div class="footer-sub">Legal Chambers</div>
+      <p class="footer-desc">14 Ozumba Mbadiwe Avenue,<br>Victoria Island, Lagos.<br><br>Trusted Nigerian legal counsel<br>since 2004.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Practice Areas</div>
+      <div class="footer-col">
+        <a href="practice-areas.html">Corporate &amp; Commercial</a>
+        <a href="practice-areas.html">Real Estate &amp; Property</a>
+        <a href="practice-areas.html">Litigation</a>
+        <a href="practice-areas.html">Family Law &amp; Succession</a>
+        <a href="practice-areas.html">Immigration</a>
+        <a href="practice-areas.html">Employment Law</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">The Firm</div>
+      <div class="footer-col">
+        <a href="attorneys.html">Our Attorneys</a>
+        <a href="index.html#about">About the Firm</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="contact.html">Book a Consultation</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <p class="footer-contact-item">+234 01 888 2400</p>
+      <p class="footer-contact-item">+234 803 600 1800</p>
+      <p class="footer-contact-item">enquiries@adeyemipartners.com.ng</p>
+      <a href="https://wa.me/2348036001800" target="_blank" class="footer-wa">WhatsApp</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Adeyemi &amp; Partners Legal Chambers. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  toggle.addEventListener('click', function() {
+    navLinks.classList.toggle('open');
+    toggle.classList.toggle('active');
+  });
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.btn-submit');
+    btn.textContent = 'Enquiry Submitted';
+    btn.style.background = '#15803d';
+    btn.style.color = 'white';
+    btn.disabled = true;
+    this.reset();
+  });
+</script>
+</body>
+</html>
