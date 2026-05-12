@@ -1,68 +1,666 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZenithNG Demo</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ZenithNG — Elite Business Consulting · Lagos</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Josefin+Sans:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --obsidian: #080808;
+  --obsidian-2: #0f0f0f;
+  --obsidian-3: #1a1a1a;
+  --gold: #C9A84C;
+  --gold-bright: #F0D080;
+  --gold-dim: #7A6030;
+  --cream: #F5EDD6;
+  --cream-dim: rgba(245,237,214,0.6);
+  --muted: rgba(245,237,214,0.45);
+  --border: rgba(201,168,76,0.18);
+  --grad-hero: linear-gradient(135deg,#0a1a12 0%,#1a3020 50%,#0d2218 100%);
+  --grad-city: linear-gradient(135deg,#1a2535 0%,#0d1a28 50%,#0a1520 100%);
+  --grad-consult: linear-gradient(160deg,#1a2a20 0%,#0d1f18 100%);
+  --grad-strat: linear-gradient(160deg,#1a1a2a 0%,#0f0f20 100%);
+  --grad-team: linear-gradient(160deg,#2a1a10 0%,#1a0f08 100%);
+  --grad-growth: linear-gradient(160deg,#1a2a1a 0%,#0f1f0f 100%);
+  --grad-vi: linear-gradient(160deg,#1a2030 0%,#0d1520 100%);
+}
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'Josefin Sans',sans-serif; background:var(--obsidian); color:var(--cream); overflow-x:hidden; }
+
+/* grain overlay */
+body::before { content:''; position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px; }
+
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--obsidian); }
+::-webkit-scrollbar-thumb { background:var(--gold-dim); border-radius:2px; }
+
+/* ── NAV ── */
+nav { position:fixed; top:0; left:0; right:0; z-index:200; display:flex; align-items:center; justify-content:space-between; padding:0 6%; height:80px; background:rgba(8,8,8,0); backdrop-filter:blur(0px); border-bottom:1px solid rgba(0,0,0,0); transition:background .4s,backdrop-filter .4s,border-color .4s,height .3s; }
+nav.scrolled { background:rgba(8,8,8,.95); backdrop-filter:blur(24px); border-bottom:1px solid var(--border); height:64px; }
+.nav-logo { display:flex; flex-direction:column; line-height:1; }
+.nav-logo-main { font-family:'Cormorant Garamond',serif; font-size:1.7rem; font-weight:600; letter-spacing:.12em; color:var(--gold); }
+.nav-logo-sub { font-size:.55rem; font-weight:700; letter-spacing:.35em; text-transform:uppercase; color:var(--muted); margin-top:2px; }
+.nav-links { display:flex; gap:2.5rem; list-style:none; align-items:center; }
+.nav-links a { color:var(--muted); text-decoration:none; font-size:.72rem; font-weight:600; letter-spacing:.2em; text-transform:uppercase; transition:color .3s; position:relative; }
+.nav-links a::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:1px; background:var(--gold); transform:scaleX(0); transform-origin:center; transition:transform .3s; }
+.nav-links a:hover { color:var(--gold); }
+.nav-links a:hover::after { transform:scaleX(1); }
+.nav-cta { border:1px solid var(--gold)!important; color:var(--gold)!important; padding:.55rem 1.4rem; border-radius:2px; transition:background .3s,color .3s!important; }
+.nav-cta:hover { background:var(--gold)!important; color:var(--obsidian)!important; }
+.nav-cta::after { display:none!important; }
+.hamburger { display:none; flex-direction:column; gap:6px; cursor:pointer; }
+.hamburger span { display:block; width:26px; height:1px; background:var(--gold); }
+
+/* ── HERO ── */
+#home { min-height:100vh; position:relative; display:grid; grid-template-columns:1fr 1fr; align-items:center; padding:120px 6% 80px; overflow:hidden; }
+.hero-video-wrap { position:absolute; inset:0; z-index:0; overflow:hidden; background:var(--grad-hero); }
+.hero-video-wrap video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(.18) saturate(.5); }
+.hero-gradient { position:absolute; inset:0; z-index:1; background:linear-gradient(110deg, rgba(8,8,8,.97) 0%, rgba(8,8,8,.85) 45%, rgba(8,8,8,.4) 75%, transparent 100%); }
+.hero-line { position:absolute; z-index:2; top:0; right:38%; width:1px; height:100%; background:linear-gradient(to bottom, transparent, var(--gold-dim) 30%, var(--gold) 60%, transparent); opacity:.22; }
+.hero-left { z-index:3; }
+.hero-eyebrow { display:flex; align-items:center; gap:1rem; margin-bottom:2rem; animation:revealUp 1s .2s both; }
+.hero-eyebrow-line { width:40px; height:1px; background:var(--gold); }
+.hero-eyebrow-text { font-size:.68rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); }
+.hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(3.5rem,6.5vw,6rem); font-weight:300; line-height:1.05; color:var(--cream); animation:revealUp 1s .35s both; }
+.hero-title strong { font-weight:700; color:var(--gold); font-style:italic; display:block; }
+.hero-sub { font-size:.82rem; line-height:2; letter-spacing:.08em; color:var(--muted); max-width:460px; margin:2rem 0 3rem; animation:revealUp 1s .5s both; }
+.hero-btns { display:flex; gap:1.2rem; flex-wrap:wrap; animation:revealUp 1s .65s both; }
+.btn-gold { background:var(--gold); color:var(--obsidian); padding:1rem 2.2rem; font-family:'Josefin Sans',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.25em; text-transform:uppercase; text-decoration:none; border:none; border-radius:2px; cursor:pointer; transition:background .3s,transform .2s,box-shadow .3s; box-shadow:0 0 30px rgba(201,168,76,.25); }
+.btn-gold:hover { background:var(--gold-bright); transform:translateY(-2px); box-shadow:0 4px 40px rgba(201,168,76,.45); }
+.btn-outline { background:transparent; color:var(--cream-dim); padding:1rem 2.2rem; font-family:'Josefin Sans',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.25em; text-transform:uppercase; text-decoration:none; border:1px solid rgba(245,237,214,.2); border-radius:2px; transition:border-color .3s,color .3s; }
+.btn-outline:hover { border-color:var(--cream-dim); color:var(--cream); }
+.hero-right { z-index:3; display:flex; flex-direction:column; align-items:flex-end; gap:1.5rem; animation:revealUp 1s .5s both; }
+.hero-stat-card { background:rgba(201,168,76,.06); border:1px solid var(--border); border-radius:4px; padding:1.5rem 2rem; text-align:right; width:220px; backdrop-filter:blur(10px); transition:border-color .3s; }
+.hero-stat-card:hover { border-color:rgba(201,168,76,.5); }
+.hero-stat-num { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:600; color:var(--gold); line-height:1; }
+.hero-stat-label { font-size:.6rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-top:.4rem; }
+.scroll-cue { position:absolute; bottom:40px; left:50%; transform:translateX(-50%); z-index:4; display:flex; flex-direction:column; align-items:center; gap:.5rem; animation:revealUp 1s .9s both; }
+.scroll-cue span { font-size:.58rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); }
+.scroll-bar { width:1px; height:50px; background:linear-gradient(to bottom, var(--gold), transparent); animation:scrollAnim 1.8s ease-in-out infinite; }
+@keyframes scrollAnim { 0%{transform:scaleY(0);transform-origin:top} 50%{transform:scaleY(1);transform-origin:top} 51%{transform-origin:bottom} 100%{transform:scaleY(0);transform-origin:bottom} }
+
+/* ── ORNAMENT ── */
+.ornament { display:flex; align-items:center; justify-content:center; gap:1.5rem; padding:40px 6%; }
+.ornament .line { flex:1; height:1px; background:var(--border); }
+.ornament .diamond { width:8px; height:8px; background:var(--gold); transform:rotate(45deg); flex-shrink:0; }
+.ornament .txt { font-size:.6rem; font-weight:700; letter-spacing:.35em; text-transform:uppercase; color:var(--gold); flex-shrink:0; }
+
+/* ── SECTION BASE ── */
+section { padding:120px 6%; }
+.tag { display:inline-flex; align-items:center; gap:.8rem; font-size:.62rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; }
+.tag::before { content:''; width:30px; height:1px; background:var(--gold); }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,5vw,4rem); font-weight:300; line-height:1.1; color:var(--cream); margin-bottom:1.5rem; }
+.section-title em { color:var(--gold); font-style:italic; font-weight:600; }
+.section-body { font-size:.82rem; line-height:2.2; letter-spacing:.06em; color:var(--muted); max-width:500px; }
+
+/* ── ABOUT ── */
+#about { background:var(--obsidian-2); }
+.about-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:100px; align-items:center; max-width:1200px; margin:0 auto; }
+.about-img-outer { border:1px solid var(--border); border-radius:3px; padding:10px; position:relative; }
+.about-img-outer::before { content:''; position:absolute; top:-20px; left:-20px; width:80px; height:80px; border-top:1px solid var(--gold); border-left:1px solid var(--gold); }
+.about-img-outer::after { content:''; position:absolute; bottom:-20px; right:-20px; width:80px; height:80px; border-bottom:1px solid var(--gold); border-right:1px solid var(--gold); }
+.about-img-inner { aspect-ratio:3/4; overflow:hidden; border-radius:2px; position:relative; background:var(--grad-consult); }
+.about-img-inner img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; filter:saturate(.75); transition:filter .5s; }
+.about-img-inner:hover img { filter:saturate(1); }
+.about-img-inner::after { content:''; position:absolute; inset:0; background:linear-gradient(to bottom,transparent 50%,rgba(8,8,8,.7) 100%); pointer-events:none; }
+.about-badge { position:absolute; bottom:-30px; right:-30px; z-index:5; width:110px; height:110px; border-radius:50%; background:var(--gold); display:flex; flex-direction:column; align-items:center; justify-content:center; box-shadow:0 0 40px rgba(201,168,76,.5); }
+.about-badge-num { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:700; color:var(--obsidian); line-height:1; }
+.about-badge-txt { font-size:.52rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--obsidian); text-align:center; line-height:1.4; margin-top:3px; }
+.about-points { margin-top:2.5rem; }
+.about-point { display:flex; gap:1.2rem; align-items:flex-start; padding:1.4rem 0; border-bottom:1px solid var(--border); }
+.about-point:first-child { border-top:1px solid var(--border); }
+.about-point-icon { color:var(--gold); font-size:1rem; flex-shrink:0; margin-top:3px; }
+.about-point-title { font-size:.78rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--cream); margin-bottom:.4rem; }
+.about-point-text { font-size:.78rem; line-height:1.9; color:var(--muted); }
+
+/* ── VIDEO SECTION ── */
+#video-section { background:var(--obsidian); padding:100px 6%; }
+.video-inner { max-width:1200px; margin:0 auto; }
+.video-top { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:end; margin-bottom:4rem; }
+.video-player-outer { position:relative; border-radius:6px; overflow:hidden; border:1px solid var(--border); box-shadow:0 30px 80px rgba(0,0,0,.7); background:#000; }
+.video-player-outer::before { content:''; position:absolute; top:-1px; left:-1px; width:50px; height:50px; border-top:2px solid var(--gold); border-left:2px solid var(--gold); z-index:3; pointer-events:none; }
+.video-player-outer::after { content:''; position:absolute; bottom:-1px; right:-1px; width:50px; height:50px; border-bottom:2px solid var(--gold); border-right:2px solid var(--gold); z-index:3; pointer-events:none; }
+.video-player-outer video { display:block; width:100%; aspect-ratio:16/9; }
+.video-credit { margin-top:.8rem; text-align:right; font-size:.6rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
+.video-credit a { color:var(--gold-dim); text-decoration:none; transition:color .2s; }
+.video-credit a:hover { color:var(--gold); }
+
+/* ── PHOTO STRIP ── */
+.photo-strip { display:grid; grid-template-columns:repeat(4,1fr); height:280px; }
+.strip-cell { position:relative; overflow:hidden; }
+.strip-cell.s1 { background:var(--grad-city); }
+.strip-cell.s2 { background:var(--grad-vi); }
+.strip-cell.s3 { background:var(--grad-strat); }
+.strip-cell.s4 { background:var(--grad-consult); }
+.strip-cell img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(.5) brightness(.65); transition:filter .4s,transform .5s; }
+.strip-cell:hover img { filter:saturate(.9) brightness(.85); transform:scale(1.06); }
+.strip-label { position:absolute; bottom:0; left:0; right:0; padding:.8rem 1rem; background:linear-gradient(to top,rgba(8,8,8,.85),transparent); font-size:.6rem; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-bright); }
+
+/* ── SERVICES ── */
+#services { background:var(--obsidian-2); }
+.services-layout { max-width:1200px; margin:0 auto; }
+.services-top { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:end; margin-bottom:5rem; }
+.services-img-trio { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:8px; height:400px; }
+.trio-main { grid-row:span 2; position:relative; overflow:hidden; border-radius:3px; background:var(--grad-strat); }
+.trio-sm.t2 { position:relative; overflow:hidden; border-radius:3px; background:var(--grad-team); }
+.trio-sm.t3 { position:relative; overflow:hidden; border-radius:3px; background:var(--grad-growth); }
+.trio-main img, .trio-sm img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(.55) brightness(.75); transition:filter .4s,transform .5s; }
+.trio-main:hover img, .trio-sm:hover img { filter:saturate(.9) brightness(.95); transform:scale(1.04); }
+.trio-label { position:absolute; bottom:0; left:0; right:0; padding:.7rem .9rem; background:linear-gradient(to top,rgba(8,8,8,.9),transparent); font-size:.6rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); }
+.services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:4px; overflow:hidden; }
+.service-item { background:var(--obsidian); padding:2.5rem 2rem; transition:background .3s; position:relative; }
+.service-item::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:0; transition:opacity .3s; }
+.service-item:hover { background:rgba(201,168,76,.04); }
+.service-item:hover::before { opacity:1; }
+.service-dot { width:10px; height:10px; border-radius:50%; background:var(--gold); margin-bottom:1.5rem; box-shadow:0 0 10px rgba(201,168,76,.4); }
+.service-title { font-size:.78rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--cream); margin-bottom:.8rem; }
+.service-text { font-size:.76rem; line-height:1.9; color:var(--muted); }
+.service-arrow { display:inline-block; margin-top:1rem; font-size:.65rem; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); opacity:0; transition:opacity .3s; }
+.service-item:hover .service-arrow { opacity:1; }
+
+/* ── TESTIMONIALS ── */
+#testimonials { background:var(--obsidian); position:relative; overflow:hidden; }
+#testimonials::before { content:'\201C'; position:absolute; top:60px; left:4%; font-family:'Cormorant Garamond',serif; font-size:28rem; font-weight:700; color:rgba(201,168,76,.025); line-height:1; pointer-events:none; user-select:none; }
+.testi-layout { max-width:1200px; margin:0 auto; }
+.testi-header { display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:4rem; flex-wrap:wrap; gap:2rem; }
+.testi-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:4px; overflow:hidden; }
+.testi-card { background:var(--obsidian-2); padding:3rem 2rem; transition:background .3s; }
+.testi-card:hover { background:rgba(201,168,76,.03); }
+.testi-mark { font-family:'Cormorant Garamond',serif; font-size:4rem; font-weight:700; color:var(--gold); line-height:.8; margin-bottom:1.5rem; display:block; }
+.testi-text { font-family:'Cormorant Garamond',serif; font-size:1.05rem; font-weight:300; font-style:italic; line-height:1.8; color:var(--cream-dim); margin-bottom:2rem; }
+.testi-divider { width:30px; height:1px; background:var(--gold); margin-bottom:1.5rem; }
+.testi-author { display:flex; align-items:center; gap:1rem; }
+.testi-avatar { width:44px; height:44px; border-radius:50%; object-fit:cover; border:1px solid var(--gold-dim); flex-shrink:0; background:var(--grad-consult); }
+.testi-name { font-size:.72rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--cream); }
+.testi-role { font-size:.65rem; letter-spacing:.08em; color:var(--muted); margin-top:.3rem; }
+
+/* ── CONTACT ── */
+#contact { background:var(--obsidian-2); }
+.contact-layout { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1.3fr; gap:100px; align-items:start; }
+.contact-img-wrap { margin-top:3rem; position:relative; }
+.contact-img-wrap::before { content:''; position:absolute; top:-12px; left:-12px; width:50px; height:50px; border-top:1px solid var(--gold); border-left:1px solid var(--gold); z-index:2; }
+.contact-img-photo { width:100%; height:180px; border-radius:2px; background:var(--grad-vi); position:relative; overflow:hidden; }
+.contact-img-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:saturate(.5) brightness(.7); }
+.contact-info-list { margin-top:3rem; }
+.contact-info-row { display:flex; gap:1.5rem; align-items:flex-start; padding:1.2rem 0; border-bottom:1px solid var(--border); }
+.contact-info-row:first-child { border-top:1px solid var(--border); }
+.info-icon { color:var(--gold); flex-shrink:0; width:20px; margin-top:2px; }
+.info-label { font-size:.6rem; font-weight:700; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); margin-bottom:.3rem; }
+.info-val { font-size:.8rem; letter-spacing:.05em; color:var(--cream-dim); }
+.contact-form { display:flex; flex-direction:column; gap:1.2rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+.form-group { display:flex; flex-direction:column; gap:.5rem; }
+.form-group label { font-size:.6rem; font-weight:700; letter-spacing:.25em; text-transform:uppercase; color:var(--gold); }
+.form-group input, .form-group textarea, .form-group select { background:var(--obsidian-3); border:1px solid var(--border); color:var(--cream); padding:.9rem 1rem; font-family:'Josefin Sans',sans-serif; font-size:.8rem; letter-spacing:.06em; border-radius:2px; outline:none; transition:border-color .3s; }
+.form-group input::placeholder, .form-group textarea::placeholder { color:rgba(245,237,214,.2); }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--gold); }
+.form-group select option { background:var(--obsidian-3); }
+.form-group textarea { resize:vertical; min-height:130px; }
+.form-submit { background:transparent; border:1px solid var(--gold); color:var(--gold); padding:1.1rem 2.5rem; font-family:'Josefin Sans',sans-serif; font-size:.7rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; cursor:pointer; border-radius:2px; transition:background .3s,color .3s,box-shadow .3s; align-self:flex-start; }
+.form-submit:hover { background:var(--gold); color:var(--obsidian); box-shadow:0 0 30px rgba(201,168,76,.3); }
+#formMsg { display:none; font-size:.72rem; letter-spacing:.1em; color:var(--gold); margin-top:.5rem; }
+
+/* ── FOOTER ── */
+footer { background:var(--obsidian); border-top:1px solid var(--border); padding:70px 6% 30px; }
+.footer-top { display:grid; grid-template-columns:1.6fr 1fr 1fr; gap:4rem; max-width:1200px; margin:0 auto; padding-bottom:4rem; border-bottom:1px solid var(--border); }
+.footer-brand-name { font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:600; color:var(--gold); letter-spacing:.1em; margin-bottom:.4rem; }
+.footer-brand-tag { font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--muted); margin-bottom:1.2rem; }
+.footer-desc { font-size:.76rem; line-height:2; color:var(--muted); }
+.footer-col-head { font-size:.6rem; font-weight:700; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:1.5rem; }
+.footer-links { list-style:none; display:flex; flex-direction:column; gap:.9rem; }
+.footer-links a { color:var(--muted); text-decoration:none; font-size:.76rem; letter-spacing:.08em; transition:color .3s; }
+.footer-links a:hover { color:var(--gold); }
+.footer-bottom { max-width:1200px; margin:2rem auto 0; display:flex; justify-content:space-between; align-items:center; font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--muted); flex-wrap:wrap; gap:.5rem; }
+
+/* ── WHATSAPP ── */
+.wa-btn { position:fixed; bottom:30px; right:30px; z-index:999; width:56px; height:56px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 25px rgba(37,211,102,.45); text-decoration:none; transition:transform .25s; animation:glowPulse 3s infinite; }
+.wa-btn:hover { transform:scale(1.1); }
+.wa-btn svg { width:27px; height:27px; fill:white; }
+
+/* ── REVEAL ── */
+.reveal { opacity:0; transform:translateY(38px); transition:opacity .8s ease,transform .8s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+.d1 { transition-delay:.12s; }
+.d2 { transition-delay:.24s; }
+.d3 { transition-delay:.36s; }
+@keyframes revealUp { from{opacity:0;transform:translateY(35px)} to{opacity:1;transform:translateY(0)} }
+@keyframes glowPulse { 0%,100%{box-shadow:0 4px 25px rgba(37,211,102,.4)} 50%{box-shadow:0 4px 40px rgba(37,211,102,.65)} }
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px) {
+  #home { grid-template-columns:1fr; padding-bottom:80px; }
+  .hero-right { display:none; }
+  .about-grid, .contact-layout { grid-template-columns:1fr; gap:3rem; }
+  .services-top, .video-top { grid-template-columns:1fr; gap:2.5rem; }
+  .services-grid, .testi-grid { grid-template-columns:1fr; }
+  .footer-top { grid-template-columns:1fr; gap:2.5rem; }
+  .form-row { grid-template-columns:1fr; }
+  .photo-strip { grid-template-columns:repeat(2,1fr); height:360px; }
+}
+@media(max-width:768px) {
+  .nav-links { display:none; flex-direction:column; position:absolute; top:80px; left:0; right:0; background:rgba(8,8,8,.98); border-bottom:1px solid var(--border); padding:2rem 6%; gap:1.5rem; }
+  .nav-links.open { display:flex; }
+  .hamburger { display:flex; }
+  .photo-strip { grid-template-columns:1fr; height:auto; }
+  .strip-cell { height:180px; }
+  .services-img-trio { height:260px; }
+}
+</style>
 </head>
 <body>
 
-<header class="navbar">
-  <h1>ZenithNG</h1>
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
-  </nav>
-</header>
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <div class="nav-logo-main">ZENITH</div>
+    <div class="nav-logo-sub">Consulting &middot; Lagos</div>
+  </div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#contact" class="nav-cta">Consult</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
 
-<section class="hero">
-  <h2>Banking Made Simple & Secure</h2>
-  <p>Modern financial solutions for individuals and businesses in Nigeria.</p>
-  <button>Open Account</button>
+<!-- ═══════ HERO ═══════ -->
+<section id="home">
+  <div class="hero-video-wrap">
+    <!-- Lagos sunset aerial — Vitalis Nwenyi / Pexels (free commercial use) -->
+    <video autoplay muted loop playsinline preload="auto"
+      poster="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=1800&q=85">
+      <source src="https://videos.pexels.com/video-files/28920104/12517173_2560_1440_30fps.mp4" type="video/mp4"/>
+    </video>
+  </div>
+  <div class="hero-gradient"></div>
+  <div class="hero-line"></div>
+
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <div class="hero-eyebrow-text">Established Lagos &middot; 2018</div>
+    </div>
+    <h1 class="hero-title">
+      Elite Business<br/>
+      <strong>Advisory</strong>
+    </h1>
+    <p class="hero-sub">Precision strategy, financial mastery, and hands-on execution for Nigeria's most ambitious businesses. From Victoria Island to Maitama — we are your unfair advantage.</p>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-gold">Request Consultation</a>
+      <a href="#video-section" class="btn-outline">Watch Our Story &#9654;</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-stat-card">
+      <div class="hero-stat-num">150+</div>
+      <div class="hero-stat-label">Clients Elevated</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hero-stat-num">&#8358;2B+</div>
+      <div class="hero-stat-label">Revenue Generated</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="hero-stat-num">7 yrs</div>
+      <div class="hero-stat-label">Market Dominance</div>
+    </div>
+  </div>
+
+  <div class="scroll-cue"><span>Scroll</span><div class="scroll-bar"></div></div>
 </section>
 
-<section class="services">
-  <h2>Our Services</h2>
+<div class="ornament"><div class="line"></div><div class="diamond"></div><div class="txt">Our Practice</div><div class="diamond"></div><div class="line"></div></div>
 
-  <div class="service-grid">
-    <div class="card">
-      <h3>Personal Banking</h3>
-      <p>Easy savings, transfers, and bill payments.</p>
+<!-- ═══════ ABOUT ═══════ -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="about-img-outer">
+        <div class="about-img-inner">
+          <!-- Consultant portrait — Unsplash free -->
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=85" alt="Executive business consultant" loading="lazy"/>
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">#1</div>
+          <div class="about-badge-txt">Lagos<br/>2024</div>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Business Banking</h3>
-      <p>Tools to grow and manage your business.</p>
-    </div>
-
-    <div class="card">
-      <h3>Loans</h3>
-      <p>Fast and flexible financing options.</p>
+    <div class="reveal d1">
+      <div class="tag">About Zenith</div>
+      <h2 class="section-title">We Are Built for<br/><em>Nigerian Excellence</em></h2>
+      <p class="section-body">Founded in the heart of Lagos, Zenith was crafted for Nigeria's most discerning entrepreneurs and enterprises. We understand the terrain — FX volatility, regulatory complexity, market dynamics — and we've guided over 150 businesses to extraordinary outcomes.</p>
+      <div class="about-points">
+        <div class="about-point">
+          <div class="about-point-icon">&#9670;</div>
+          <div>
+            <div class="about-point-title">Local Mastery, Global Standards</div>
+            <div class="about-point-text">Deep Nigerian market intelligence paired with internationally certified expertise and proven global frameworks.</div>
+          </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-icon">&#9670;</div>
+          <div>
+            <div class="about-point-title">Always Within Reach</div>
+            <div class="about-point-text">Phone, WhatsApp, or email — our team responds within the hour. Your urgency is our priority.</div>
+          </div>
+        </div>
+        <div class="about-point">
+          <div class="about-point-icon">&#9670;</div>
+          <div>
+            <div class="about-point-title">Results, Not Reports</div>
+            <div class="about-point-text">We remain in the trenches until measurable results are achieved — not just slide decks delivered.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="about">
-  <h2>About Us</h2>
-  <p>
-    ZenithNG is a demo financial platform designed to showcase modern banking websites.
-    Secure, fast, and built for the Nigerian market.
-  </p>
+<!-- ═══════ VIDEO ═══════ -->
+<section id="video-section">
+  <div class="video-inner">
+    <div class="video-top">
+      <div class="reveal">
+        <div class="tag">Lagos &middot; Our Home</div>
+        <h2 class="section-title">The City We<br/><em>Call Home</em></h2>
+      </div>
+      <div class="reveal d1">
+        <p class="section-body">Lagos is Africa's most dynamic city — and we've built our practice right at its beating heart. This is the market we know, the streets we walk, and the economy we help businesses win in every single day.</p>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="video-player-outer">
+        <!-- Lagos Cityscape Over Lagoon — Vitalis Nwenyi / Pexels (free commercial use) -->
+        <video controls preload="metadata"
+          poster="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?w=1200&q=80">
+          <source src="https://videos.pexels.com/video-files/29103989/12573473_2560_1440_30fps.mp4" type="video/mp4"/>
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+      <div class="video-credit">
+        Aerial footage: <a href="https://www.pexels.com/@vitalisnwenyi/" target="_blank" rel="noopener">Vitalis Nwenyi</a> via <a href="https://www.pexels.com/license/" target="_blank" rel="noopener">Pexels</a> &middot; Free for commercial use
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="cta">
-  <h2>Start Banking Today</h2>
-  <button>Get Started</button>
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="strip-cell s1">
+    <img src="https://images.unsplash.com/photo-1618477461853-cf6ed80faba5?w=600&q=80" alt="Lagos Island" loading="lazy"/>
+    <div class="strip-label">Lagos Island</div>
+  </div>
+  <div class="strip-cell s2">
+    <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80" alt="Victoria Island" loading="lazy"/>
+    <div class="strip-label">Victoria Island</div>
+  </div>
+  <div class="strip-cell s3">
+    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Business strategy" loading="lazy"/>
+    <div class="strip-label">Strategy</div>
+  </div>
+  <div class="strip-cell s4">
+    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80" alt="Office" loading="lazy"/>
+    <div class="strip-label">Our Offices</div>
+  </div>
+</div>
+
+<div class="ornament"><div class="line"></div><div class="diamond"></div><div class="txt">Services</div><div class="diamond"></div><div class="line"></div></div>
+
+<!-- ═══════ SERVICES ═══════ -->
+<section id="services">
+  <div class="services-layout">
+    <div class="services-top">
+      <div class="reveal">
+        <div class="tag">What We Do</div>
+        <h2 class="section-title">Precision<br/><em>Solutions</em></h2>
+        <p class="section-body">Every engagement is bespoke. We tailor our approach to your distinct challenges — no templates, no shortcuts.</p>
+      </div>
+      <div class="services-img-trio reveal d1">
+        <div class="trio-main">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=700&q=85" alt="Strategy" loading="lazy"/>
+          <div class="trio-label">Strategy &amp; Finance</div>
+        </div>
+        <div class="trio-sm t2">
+          <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=500&q=85" alt="Team" loading="lazy"/>
+          <div class="trio-label">Team &amp; Training</div>
+        </div>
+        <div class="trio-sm t3">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&q=85" alt="Growth" loading="lazy"/>
+          <div class="trio-label">Growth</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="services-grid reveal">
+      <div class="service-item">
+        <div class="service-dot"></div>
+        <div class="service-title">Business Strategy</div>
+        <div class="service-text">Growth roadmaps, market entry analysis, and competitive positioning for Nigerian and West African markets.</div>
+        <div class="service-arrow">Explore &#8594;</div>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"></div>
+        <div class="service-title">Financial Consulting</div>
+        <div class="service-text">Cash flow mastery, investor readiness, FIRS compliance, and capital structuring for ambitious SMEs.</div>
+        <div class="service-arrow">Explore &#8594;</div>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"></div>
+        <div class="service-title">Business Registration</div>
+        <div class="service-text">CAC registration, corporate structuring, and business name filing executed swiftly and correctly.</div>
+        <div class="service-arrow">Explore &#8594;</div>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"></div>
+        <div class="service-title">Digital Presence</div>
+        <div class="service-text">Elite websites, social media strategy, and Google Business optimisation to command your market online.</div>
+        <div class="service-arrow">Explore &#8594;</div>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"></div>
+        <div class="service-title">Import / Export</div>
+        <div class="service-text">Customs navigation, Form M processing, HS classification, and full logistics coordination.</div>
+        <div class="service-arrow">Explore &#8594;</div>
+      </div>
+      <div class="service-item">
+        <div class="service-dot"></div>
+        <div class="service-title">Executive Training</div>
+        <div class="service-text">High-impact workshops and leadership programmes for entrepreneurs and corporate teams across Nigeria.</div>
+        <div class="service-arrow">Explore &#8594;</div>
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- ═══════ TESTIMONIALS ═══════ -->
+<section id="testimonials">
+  <div class="testi-layout">
+    <div class="testi-header reveal">
+      <div>
+        <div class="tag">Client Voices</div>
+        <h2 class="section-title">Trusted by<br/><em>Nigeria's Best</em></h2>
+      </div>
+      <p class="section-body" style="max-width:360px">Our reputation is built on one thing alone — the success of the businesses we serve.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <span class="testi-mark">&ldquo;</span>
+        <p class="testi-text">Zenith helped us restructure our finances and we went from struggling to pay salaries to opening our second branch within 18 months. Extraordinary team.</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=120&q=80" alt="Adaeze" loading="lazy"/>
+          <div>
+            <div class="testi-name">Adaeze Okonkwo</div>
+            <div class="testi-role">CEO, Adaeze Foods Ltd &middot; Enugu</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal d1">
+        <span class="testi-mark">&ldquo;</span>
+        <p class="testi-text">Our CAC registration and full tax setup was completed in under a week. The level of professionalism and speed exceeded every expectation.</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80" alt="Kunle" loading="lazy"/>
+          <div>
+            <div class="testi-name">Kunle Adeyemi</div>
+            <div class="testi-role">Founder, KA Logistics &middot; Lagos</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal d2">
+        <span class="testi-mark">&ldquo;</span>
+        <p class="testi-text">Their import advisory saved us months of confusion at the port. They know the Nigerian system inside and out. An indispensable partner.</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <img class="testi-avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&q=80" alt="Fatima" loading="lazy"/>
+          <div>
+            <div class="testi-name">Fatima Al-Hassan</div>
+            <div class="testi-role">MD, Sahara Trade Co. &middot; Abuja</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament"><div class="line"></div><div class="diamond"></div><div class="txt">Begin Your Journey</div><div class="diamond"></div><div class="line"></div></div>
+
+<!-- ═══════ CONTACT ═══════ -->
+<section id="contact">
+  <div class="contact-layout">
+    <div class="reveal">
+      <div class="tag">Contact</div>
+      <h2 class="section-title">Let Us<br/><em>Elevate You</em></h2>
+      <p class="section-body">Every great business partnership begins with a conversation. Request your complimentary 30-minute strategy session today.</p>
+      <div class="contact-info-list">
+        <div class="contact-info-row">
+          <div class="info-icon">&#9678;</div>
+          <div><div class="info-label">Address</div><div class="info-val">14 Adeola Odeku Street, Victoria Island, Lagos</div></div>
+        </div>
+        <div class="contact-info-row">
+          <div class="info-icon">&#9678;</div>
+          <div><div class="info-label">Phone / WhatsApp</div><div class="info-val">+234 801 234 5678</div></div>
+        </div>
+        <div class="contact-info-row">
+          <div class="info-icon">&#9678;</div>
+          <div><div class="info-label">Email</div><div class="info-val">hello@zenithng.com.ng</div></div>
+        </div>
+        <div class="contact-info-row">
+          <div class="info-icon">&#9678;</div>
+          <div><div class="info-label">Hours</div><div class="info-val">Mon &ndash; Fri &middot; 8am &ndash; 6pm &nbsp;|&nbsp; Sat &middot; 9am &ndash; 2pm</div></div>
+        </div>
+      </div>
+      <div class="contact-img-wrap">
+        <div class="contact-img-photo">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=85" alt="Victoria Island Lagos" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+
+    <form class="contact-form reveal d1" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group"><label>First Name</label><input type="text" placeholder="Emeka"/></div>
+        <div class="form-group"><label>Last Name</label><input type="text" placeholder="Obi"/></div>
+      </div>
+      <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" placeholder="+234 800 000 0000"/></div>
+      <div class="form-group"><label>Email</label><input type="email" placeholder="you@company.com"/></div>
+      <div class="form-group">
+        <label>Area of Interest</label>
+        <select>
+          <option value="">Select a service...</option>
+          <option>Business Strategy</option>
+          <option>Financial Consulting</option>
+          <option>Business Registration (CAC)</option>
+          <option>Digital Presence</option>
+          <option>Import / Export Advisory</option>
+          <option>Executive Training</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Describe your business and what you would like to achieve..."></textarea></div>
+      <button type="submit" class="form-submit">Send Enquiry</button>
+      <div id="formMsg">&#10022; &nbsp;Message received. We will be in touch within 24 hours.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 ZenithNG Demo</p>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">ZENITH</div>
+      <div class="footer-brand-tag">Elite Business Consulting &middot; Nigeria</div>
+      <p class="footer-desc">Elevating Nigerian businesses since 2018. Strategy, finance, and execution delivered to the highest standard.</p>
+    </div>
+    <div>
+      <div class="footer-col-head">Navigation</div>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#testimonials">Clients</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-head">Get In Touch</div>
+      <ul class="footer-links">
+        <li><a href="tel:+2348012345678">+234 801 234 5678</a></li>
+        <li><a href="mailto:hello@zenithng.com.ng">hello@zenithng.com.ng</a></li>
+        <li><a href="https://wa.me/2348012345678">WhatsApp</a></li>
+        <li>Victoria Island, Lagos</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2025 ZenithNG Consulting. All rights reserved.</span>
+    <span>Crafted with excellence in Nigeria &#10022;</span>
+  </div>
 </footer>
 
-<script src="script.js"></script>
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/2348012345678?text=Hello%2C%20I%20found%20you%20on%20your%20website%20and%20would%20like%20to%20know%20more." target="_blank" class="wa-btn" title="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Nav scroll
+window.addEventListener('scroll', () =>
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60));
+
+function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+
+// Active nav highlight
+const secs = document.querySelectorAll('section[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 130) cur = s.id; });
+  navAs.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : ''; });
+});
+
+// Scroll reveal
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Form
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('formMsg').style.display = 'block';
+  e.target.reset();
+}
+</script>
 </body>
 </html>
