@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiences — Aso Dominion</title>
+  <meta name="description" content="Eighteen curated experiences across leisure, wellness, culinary, business, and cultural categories. Available exclusively to Aso Dominion members.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">Aso <span>Dominion</span></a>
+    <div class="nav__links">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="membership.html" class="nav__link">Membership</a>
+      <a href="residences.html" class="nav__link">Residences</a>
+      <a href="experiences.html" class="nav__link">Experiences</a>
+      <a href="dining.html" class="nav__link">Dining</a>
+      <a href="wellness.html" class="nav__link">Wellness</a>
+      <a href="events.html" class="nav__link">Events</a>
+      <a href="contact.html" class="nav__cta">Apply</a>
+    </div>
+    <button class="nav__hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="membership.html" class="nav__link">Membership</a>
+    <a href="residences.html" class="nav__link">Residences</a>
+    <a href="experiences.html" class="nav__link">Experiences</a>
+    <a href="dining.html" class="nav__link">Dining</a>
+    <a href="wellness.html" class="nav__link">Wellness</a>
+    <a href="events.html" class="nav__link">Events</a>
+    <a href="contact.html" class="nav__cta btn btn--outline">Apply for Membership</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero hero--interior">
+    <div class="hero__bg"></div>
+    <div class="hero__watermark">AD</div>
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__eyebrow">
+          <span class="t-label">Experiences</span>
+        </div>
+        <h1 class="hero__headline">
+          Beyond the<br>
+          <em>Ordinary.</em>
+        </h1>
+        <p class="hero__sub">
+          Eighteen curated experiences coordinated through a single concierge. Filter by category below.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter + Grid -->
+  <section class="section" style="background:var(--base);">
+    <div class="container">
+      <div class="reveal">
+        <span class="t-label">The Full Catalogue</span>
+        <span class="rule rule--long" style="margin:1rem 0 0;"></span>
+      </div>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar reveal">
+        <button class="filter-btn active" data-filter="all">All Experiences</button>
+        <button class="filter-btn" data-filter="leisure">Leisure</button>
+        <button class="filter-btn" data-filter="wellness">Wellness</button>
+        <button class="filter-btn" data-filter="culinary">Culinary</button>
+        <button class="filter-btn" data-filter="business">Business</button>
+        <button class="filter-btn" data-filter="cultural">Cultural</button>
+      </div>
+
+      <!-- Experience Cards — rendered from JSON via JS, with static fallback -->
+      <div class="experiences-grid" id="exp-grid">
+        <!-- Leisure -->
+        <div class="exp-card" data-category="leisure">
+          <span class="t-label">Leisure</span>
+          <h3 class="exp-card__title">Private Yacht Charter</h3>
+          <p class="exp-card__desc">A curated fleet of vessels available exclusively to Patron and Member-tier guests. From sunset passages along the Lagos shoreline to multi-day open-water voyages.</p>
+          <span class="exp-card__tier">Member &amp; Patron</span>
+        </div>
+        <div class="exp-card" data-category="leisure">
+          <span class="t-label">Leisure</span>
+          <h3 class="exp-card__title">Rooftop Observatory</h3>
+          <p class="exp-card__desc">The highest privately accessible point in the tower. No crowds. No reservations beyond your member key. Open 24 hours to resident members.</p>
+          <span class="exp-card__tier">All Members</span>
+        </div>
+        <div class="exp-card" data-category="leisure">
+          <span class="t-label">Leisure</span>
+          <h3 class="exp-card__title">Private Cinema Suite</h3>
+          <p class="exp-card__desc">A 22-seat screening room with full concierge service. Request any title from our catalogue. In-suite dining available throughout the screening.</p>
+          <span class="exp-card__tier">All Members</span>
+        </div>
+        <div class="exp-card" data-category="leisure">
+          <span class="t-label">Leisure</span>
+          <h3 class="exp-card__title">Polo &amp; Equestrian</h3>
+          <p class="exp-card__desc">Access to a private equestrian facility 45 minutes from the tower. Lessons, recreational riding, and seasonal polo matches for members and their guests.</p>
+          <span class="exp-card__tier">Member &amp; Patron</span>
+        </div>
+        <!-- Wellness -->
+        <div class="exp-card" data-category="wellness">
+          <span class="t-label">Wellness</span>
+          <h3 class="exp-card__title">Longevity Programme</h3>
+          <p class="exp-card__desc">A 12-week bespoke protocol co-developed with leading longevity physicians. Biomarker profiling, personalised nutrition, structured recovery, and quarterly review.</p>
+          <span class="exp-card__tier">Patron</span>
+        </div>
+        <div class="exp-card" data-category="wellness">
+          <span class="t-label">Wellness</span>
+          <h3 class="exp-card__title">Cryotherapy Suite</h3>
+          <p class="exp-card__desc">Whole-body cryotherapy chambers at -110°C. Routine sessions managed by certified recovery specialists. Walk-in availability for resident members.</p>
+          <span class="exp-card__tier">Member &amp; Patron</span>
+        </div>
+        <div class="exp-card" data-category="wellness">
+          <span class="t-label">Wellness</span>
+          <h3 class="exp-card__title">Restorative Spa</h3>
+          <p class="exp-card__desc">Nine treatment rooms. Ancient therapeutic traditions alongside modern clinical protocols. Available seven days a week, 6am to midnight.</p>
+          <span class="exp-card__tier">All Members</span>
+        </div>
+        <div class="exp-card" data-category="wellness">
+          <span class="t-label">Wellness</span>
+          <h3 class="exp-card__title">IV Therapy &amp; Recovery</h3>
+          <p class="exp-card__desc">Medical-grade intravenous therapy administered in a private suite. Formulations designed for energy restoration, immune support, and performance recovery.</p>
+          <span class="exp-card__tier">Member &amp; Patron</span>
+        </div>
+        <!-- Culinary -->
+        <div class="exp-card" data-category="culinary">
+          <span class="t-label">Culinary</span>
+          <h3 class="exp-card__title">Private Wine Cellar Access</h3>
+          <p class="exp-card__desc">A curated collection spanning over 4,000 bottles across 23 countries. Monthly guided exploration sessions hosted by our resident sommelier.</p>
+          <span class="exp-card__tier">Member &amp; Patron</span>
+        </div>
+        <div class="exp-card" data-category="culinary">
+          <span class="t-label">Culinary</span>
+          <h3 class="exp-card__title">Private Chef Experience</h3>
+          <p class="exp-card__desc">Your residence, your menu. Our culinary team develops a bespoke tasting experience for you and up to 14 guests. Pairing included.</p>
+          <span class="exp-card__tier">Patron</span>
+        </div>
+        <div class="exp-card" data-category="culinary">
+          <span class="t-label">Culinary</span>
+          <h3 class="exp-card__title">Seasonal Tasting Events</h3>
+          <p class="exp-card__desc">Quarterly gatherings centred on a single terroir, producer, or culinary tradition. Invitation-only. Limited to 30 covers per event.</p>
+          <span class="exp-card__tier">All Members</span>
+        </div>
+        <!-- Business -->
+        <div class="exp-card" data-category="business">
+          <span class="t-label">Business</span>
+          <h3 class="exp-card__title">Executive Boardrooms</h3>
+          <p class="exp-card__desc">Five fully equipped private boardrooms with secure high-speed connectivity. Catering, translation, AV, and presentation support available on request.</p>
+          <span class="exp-card__tier">All Members</span>
+        </div>
+        <div class="exp-card" data-category="business">
+          <span class="t-label">Business</span>
+          <h3 class="exp-card__title">Private Jet Coordination</h3>
+          <p class="exp-card__desc">Our concierge desk maintains relationships with three regional charter operators. Scheduling, ground logistics, and in-flight catering coordinated for you.</p>
+          <span class="exp-card__tier">Patron</span>
+        </div>
+        <div class="exp-card" data-category="business">
+          <span class="t-label">Business</span>
+          <h3 class="exp-card__title">Dedicated Relationship Manager</h3>
+          <p class="exp-card__desc">A single point of contact for every aspect of your membership. Available by direct line, seven days a week.</p>
+          <span class="exp-card__tier">Member &amp; Patron</span>
+        </div>
+        <div class="exp-card" data-category="business">
+          <span class="t-label">Business</span>
+          <h3 class="exp-card__title">Executive Protection Detail</h3>
+          <p class="exp-card__desc">Discreet close-protection officers sourced from vetted specialist firms. Available for in-city movements, public appearances, international travel, and residential assignment. All personnel are vetted, plainclothes, and coordinated through your relationship manager.</p>
+          <span class="exp-card__tier">Member &amp; Patron</span>
+        </div>
+        <div class="exp-card" data-category="business">
+          <span class="t-label">Business</span>
+          <h3 class="exp-card__title">Advance Security &amp; Sweep</h3>
+          <p class="exp-card__desc">Pre-event venue assessment, counter-surveillance, and access control planning for high-profile functions. Secure arrival coordination, biometric access protocols, and a dedicated security liaison for the duration of your event.</p>
+          <span class="exp-card__tier">Patron</span>
+        </div>
+        <!-- Cultural -->
+        <div class="exp-card" data-category="cultural">
+          <span class="t-label">Cultural</span>
+          <h3 class="exp-card__title">Art Collection Tours</h3>
+          <p class="exp-card__desc">Private access to one of West Africa's most significant contemporary art collections. Guided tours available by appointment with curatorial commentary.</p>
+          <span class="exp-card__tier">All Members</span>
+        </div>
+        <div class="exp-card" data-category="cultural">
+          <span class="t-label">Cultural</span>
+          <h3 class="exp-card__title">Curated Travel</h3>
+          <p class="exp-card__desc">Beyond Lagos. Our travel desk designs bespoke itineraries to global destinations, with introductions to reciprocal private clubs in 40 cities.</p>
+          <span class="exp-card__tier">Member &amp; Patron</span>
+        </div>
+        <div class="exp-card" data-category="cultural">
+          <span class="t-label">Cultural</span>
+          <h3 class="exp-card__title">Patron Music Evenings</h3>
+          <p class="exp-card__desc">Intimate performances by invited artists in the tower's private salon. Quarterly gatherings for Patron-tier members and approved guests.</p>
+          <span class="exp-card__tier">Patron</span>
+        </div>
+        <div class="exp-card" data-category="cultural">
+          <span class="t-label">Cultural</span>
+          <h3 class="exp-card__title">Literary Society</h3>
+          <p class="exp-card__desc">Monthly evenings with authors, thinkers, and practitioners across disciplines. One of the club's most enduring and intimate traditions.</p>
+          <span class="exp-card__tier">All Members</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Members Lifestyle -->
+  <section class="reveal" style="position:relative;min-height:420px;background-image:url('https://images.unsplash.com/photo-1770998697995-a1be1c994cc5?auto=format&fit=crop&w=1600&q=80');background-size:cover;background-position:center;display:flex;align-items:center;">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,11,20,0.88) 0%,rgba(7,11,20,0.50) 55%,rgba(7,11,20,0.10) 100%);"></div>
+    <div class="container" style="position:relative;z-index:1;padding:4rem 0;">
+      <div style="max-width:520px;">
+        <span class="t-label" style="display:block;margin-bottom:1rem;">The Aso Dominion Experience</span>
+        <span class="rule rule--long" style="margin-bottom:1.5rem;display:block;"></span>
+        <h2 style="font-family:var(--display);font-size:clamp(1.75rem,3.5vw,3rem);font-weight:300;color:var(--cream);line-height:1.2;margin-bottom:1.25rem;">
+          Eighteen experiences.<br><em>One concierge.</em>
+        </h2>
+        <p style="font-size:0.9375rem;color:var(--muted);line-height:1.9;max-width:420px;">
+          Every experience in this catalogue is available exclusively to members of Aso Dominion, regardless of nationality, background, or origin. The only qualification is membership.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background:var(--green);padding:5rem 0;text-align:center;">
+    <div class="container">
+      <p class="t-label reveal" style="margin-bottom:1rem;">Access the Catalogue</p>
+      <h2 style="font-family:var(--display);font-size:clamp(1.75rem,4vw,3rem);font-weight:300;color:var(--cream);margin-bottom:1.5rem;line-height:1.2;" class="reveal">
+        Every experience is coordinated<br>through your concierge.
+      </h2>
+      <a href="contact.html" class="btn btn--gold reveal" style="margin-top:1rem;">Begin Your Application</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <span class="footer__logo">Aso <span>Dominion</span></span>
+        <p class="footer__tagline">A private members club in the heart of Lagos. Where access is the only currency.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links">
+          <li><a href="index.html" class="footer__link">Home</a></li>
+          <li><a href="membership.html" class="footer__link">Membership</a></li>
+          <li><a href="residences.html" class="footer__link">Residences</a></li>
+          <li><a href="experiences.html" class="footer__link">Experiences</a></li>
+          <li><a href="dining.html" class="footer__link">Dining</a></li>
+          <li><a href="wellness.html" class="footer__link">Wellness</a></li>
+          <li><a href="events.html" class="footer__link">Events</a></li>
+          <li><a href="contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Services</p>
+        <ul class="footer__links">
+          <li><a href="residences.html" class="footer__link">Penthouse Residences</a></li>
+          <li><a href="dining.html" class="footer__link">Private Dining</a></li>
+          <li><a href="wellness.html" class="footer__link">Spa &amp; Wellness</a></li>
+          <li><a href="experiences.html" class="footer__link">Yacht Charter</a></li>
+          <li><a href="events.html" class="footer__link">Corporate Events</a></li>
+          <li><a href="experiences.html" class="footer__link">Concierge</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <ul class="footer__links">
+          <li style="font-size:0.875rem;color:var(--muted);line-height:1.7;">1 Aso Tower, Victoria Island<br>Lagos, Nigeria</li>
+          <li style="margin-top:1rem;"><a href="contact.html" class="footer__link">Membership Enquiries</a></li>
+          <li><a href="contact.html" class="footer__link">Event Bookings</a></li>
+          <li style="margin-top:1rem;font-size:0.75rem;color:rgba(240,235,225,0.25);font-family:var(--label);letter-spacing:0.08em;">By appointment only</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Aso Dominion. All rights reserved.</p>
+      <div class="footer__social">
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">X</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

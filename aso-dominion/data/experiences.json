@@ -1,0 +1,128 @@
+[
+  {
+    "id": 1,
+    "category": "leisure",
+    "title": "Private Yacht Charter",
+    "description": "A curated fleet of vessels available exclusively to Patron and Member-tier guests. From sunset passages along the Lagos shoreline to multi-day open-water voyages.",
+    "tier": "Member & Patron"
+  },
+  {
+    "id": 2,
+    "category": "leisure",
+    "title": "Rooftop Observatory",
+    "description": "The highest privately accessible point in the tower. No crowds. No reservations beyond your member key. Open 24 hours to resident members.",
+    "tier": "All Members"
+  },
+  {
+    "id": 3,
+    "category": "leisure",
+    "title": "Private Cinema Suite",
+    "description": "A 22-seat screening room with full concierge service. Request any title from our catalogue. In-suite dining available throughout the screening.",
+    "tier": "All Members"
+  },
+  {
+    "id": 4,
+    "category": "leisure",
+    "title": "Polo & Equestrian",
+    "description": "Access to a private equestrian facility 45 minutes from the tower. Lessons, recreational riding, and seasonal polo matches for members and their guests.",
+    "tier": "Member & Patron"
+  },
+  {
+    "id": 5,
+    "category": "wellness",
+    "title": "Longevity Programme",
+    "description": "A 12-week bespoke protocol co-developed with leading longevity physicians. Biomarker profiling, personalised nutrition, structured recovery, and quarterly review.",
+    "tier": "Patron"
+  },
+  {
+    "id": 6,
+    "category": "wellness",
+    "title": "Cryotherapy Suite",
+    "description": "Whole-body cryotherapy chambers at -110°C. Routine sessions managed by certified recovery specialists. Walk-in availability for resident members.",
+    "tier": "Member & Patron"
+  },
+  {
+    "id": 7,
+    "category": "wellness",
+    "title": "Restorative Spa",
+    "description": "Nine treatment rooms. Ancient therapeutic traditions alongside modern clinical protocols. Available seven days a week, 6am to midnight.",
+    "tier": "All Members"
+  },
+  {
+    "id": 8,
+    "category": "wellness",
+    "title": "IV Therapy & Recovery",
+    "description": "Medical-grade intravenous therapy administered in a private suite. Formulations designed for energy restoration, immune support, and performance recovery.",
+    "tier": "Member & Patron"
+  },
+  {
+    "id": 9,
+    "category": "culinary",
+    "title": "Private Wine Cellar Access",
+    "description": "A curated collection spanning over 4,000 bottles across 23 countries. Monthly guided exploration sessions hosted by our resident sommelier.",
+    "tier": "Member & Patron"
+  },
+  {
+    "id": 10,
+    "category": "culinary",
+    "title": "Private Chef Experience",
+    "description": "Your residence, your menu. Our culinary team develops a bespoke tasting experience for you and up to 14 guests. Pairing included.",
+    "tier": "Patron"
+  },
+  {
+    "id": 11,
+    "category": "culinary",
+    "title": "Seasonal Tasting Events",
+    "description": "Quarterly gatherings centred on a single terroir, producer, or culinary tradition. Invitation-only. Limited to 30 covers per event.",
+    "tier": "All Members"
+  },
+  {
+    "id": 12,
+    "category": "business",
+    "title": "Executive Boardrooms",
+    "description": "Five fully equipped private boardrooms with secure high-speed connectivity. Catering, translation, AV, and presentation support available on request.",
+    "tier": "All Members"
+  },
+  {
+    "id": 13,
+    "category": "business",
+    "title": "Private Jet Coordination",
+    "description": "Our concierge desk maintains relationships with three regional charter operators. Scheduling, ground logistics, and in-flight catering coordinated for you.",
+    "tier": "Patron"
+  },
+  {
+    "id": 14,
+    "category": "business",
+    "title": "Dedicated Relationship Manager",
+    "description": "A single point of contact for every aspect of your membership. Available by direct line, seven days a week.",
+    "tier": "Member & Patron"
+  },
+  {
+    "id": 15,
+    "category": "cultural",
+    "title": "Art Collection Tours",
+    "description": "Private access to one of West Africa's most significant contemporary art collections. Guided tours available by appointment with curatorial commentary.",
+    "tier": "All Members"
+  },
+  {
+    "id": 16,
+    "category": "cultural",
+    "title": "Curated Travel",
+    "description": "Beyond Lagos. Our travel desk designs bespoke itineraries to global destinations, with introductions to reciprocal private clubs in 40 cities.",
+    "tier": "Member & Patron"
+  },
+  {
+    "id": 17,
+    "category": "cultural",
+    "title": "Patron Music Evenings",
+    "description": "Intimate performances by invited artists in the tower's private salon. Quarterly gatherings for Patron-tier members and approved guests.",
+    "tier": "Patron"
+  },
+  {
+    "id": 18,
+    "category": "cultural",
+    "title": "Literary Society",
+    "description": "Monthly evenings with authors, thinkers, and practitioners across disciplines. One of the club's most enduring and intimate traditions.",
+    "tier": "All Members"
+  }
+]

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Apply — Aso Dominion</title>
+  <meta name="description" content="Submit a membership enquiry or event booking request to Aso Dominion. All applications are reviewed by the membership committee. Victoria Island, Lagos.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <nav class="nav">
+    <a href="index.html" class="nav__logo">Aso <span>Dominion</span></a>
+    <div class="nav__links">
+      <a href="index.html" class="nav__link">Home</a>
+      <a href="membership.html" class="nav__link">Membership</a>
+      <a href="residences.html" class="nav__link">Residences</a>
+      <a href="experiences.html" class="nav__link">Experiences</a>
+      <a href="dining.html" class="nav__link">Dining</a>
+      <a href="wellness.html" class="nav__link">Wellness</a>
+      <a href="events.html" class="nav__link">Events</a>
+      <a href="contact.html" class="nav__cta">Apply</a>
+    </div>
+    <button class="nav__hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__mobile">
+    <a href="index.html" class="nav__link">Home</a>
+    <a href="membership.html" class="nav__link">Membership</a>
+    <a href="residences.html" class="nav__link">Residences</a>
+    <a href="experiences.html" class="nav__link">Experiences</a>
+    <a href="dining.html" class="nav__link">Dining</a>
+    <a href="wellness.html" class="nav__link">Wellness</a>
+    <a href="events.html" class="nav__link">Events</a>
+    <a href="contact.html" class="nav__cta btn btn--outline">Apply for Membership</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero hero--interior">
+    <div class="hero__bg"></div>
+    <div class="hero__watermark">AD</div>
+    <div class="container">
+      <div class="hero__content">
+        <div class="hero__eyebrow">
+          <span class="t-label">Enquire</span>
+        </div>
+        <h1 class="hero__headline">
+          Begin the<br>
+          <em>Conversation.</em>
+        </h1>
+        <p class="hero__sub">
+          Membership enquiries, event bookings, and residency applications. All communications are handled with complete discretion.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Split -->
+  <section style="background:var(--base);">
+    <div class="contact-wrap">
+
+      <!-- Info Panel -->
+      <div class="contact-info">
+        <div class="contact-info__top">
+          <div class="reveal">
+            <span class="t-label" style="display:block;margin-bottom:1.5rem;">Aso Dominion</span>
+            <p class="contact-detail__lbl">Address</p>
+            <p class="contact-detail__val">1 Aso Tower<br>Victoria Island<br>Lagos, Nigeria</p>
+          </div>
+          <div class="reveal delay-1">
+            <p class="contact-detail__lbl">Membership Office</p>
+            <p class="contact-detail__val">membership@asodominion.com</p>
+            <p class="contact-detail__note">Enquiries acknowledged within 48 hours</p>
+          </div>
+          <div class="reveal delay-2">
+            <p class="contact-detail__lbl">Events &amp; Venue Hire</p>
+            <p class="contact-detail__val">events@asodominion.com</p>
+            <p class="contact-detail__note">Members only. By appointment.</p>
+          </div>
+          <div class="reveal delay-3">
+            <p class="contact-detail__lbl">Concierge (Members)</p>
+            <p class="contact-detail__val">+234 (0) 1 &nbsp;ADO &nbsp;DOMINION</p>
+            <p class="contact-detail__note">Direct line, 24 hours</p>
+          </div>
+          <div class="reveal delay-3" style="margin-top:1.75rem;">
+            <p class="contact-detail__lbl">Security &amp; Close Protection</p>
+            <p class="contact-detail__val">security@asodominion.com</p>
+            <p class="contact-detail__note">Available 24 hours. All enquiries confidential.</p>
+          </div>
+        </div>
+        <div class="reveal delay-4">
+          <span class="rule"></span>
+          <p style="font-size:0.8125rem;color:var(--muted);line-height:1.9;margin-top:1.25rem;">
+            Aso Dominion does not accept walk-in visits. All enquiries are directed through this form or by direct email to the membership office. The committee meets quarterly.
+          </p>
+        </div>
+      </div>
+
+      <!-- Form Panel -->
+      <div class="contact-form-panel">
+        <div class="reveal" style="margin-bottom:2.5rem;">
+          <span class="t-label" style="display:block;margin-bottom:1rem;">Application &amp; Enquiry Form</span>
+          <span class="rule rule--long"></span>
+          <p style="font-size:0.875rem;color:var(--muted);margin-top:1.25rem;line-height:1.8;">
+            Complete the form below for membership applications, event enquiries, and general correspondence. All fields marked are required.
+          </p>
+        </div>
+
+        <form id="inquiry-form" novalidate>
+          <input type="hidden" name="access_key" value="ada0ca16-dc3a-4424-8b07-f78f33cb62f4">
+          <input type="hidden" name="subject" value="Aso Dominion — New Enquiry">
+          <input type="hidden" name="from_name" value="Aso Dominion Website">
+          <input type="checkbox" name="botcheck" style="display:none;">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="first-name">First Name</label>
+              <input class="form-input" type="text" id="first-name" name="first_name" placeholder="Chidi" required>
+              <span class="form-error">Please enter your first name</span>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="last-name">Last Name</label>
+              <input class="form-input" type="text" id="last-name" name="last_name" placeholder="Okonkwo" required>
+              <span class="form-error">Please enter your last name</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">Email Address</label>
+            <input class="form-input" type="email" id="email" name="email" placeholder="chidi@example.com" required>
+            <span class="form-error">Please enter a valid email address</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="phone">Phone Number</label>
+            <input class="form-input" type="tel" id="phone" name="phone" placeholder="+234 (0) 800 000 0000">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="enquiry-type">Nature of Enquiry</label>
+            <select class="form-select" id="enquiry-type" name="enquiry_type" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="membership-associate">Membership — Associate Tier</option>
+              <option value="membership-member">Membership — Member Tier</option>
+              <option value="membership-patron">Membership — Patron Tier</option>
+              <option value="event-venue">Event &amp; Venue Hire</option>
+              <option value="residence">Residence Enquiry</option>
+              <option value="wellness">Wellness Programme</option>
+              <option value="security-detail">Security Detail &amp; Close Protection</option>
+              <option value="general">General Correspondence</option>
+            </select>
+            <span class="form-error">Please select an enquiry type</span>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="sponsor">Membership Sponsor (if applicable)</label>
+            <input class="form-input" type="text" id="sponsor" name="sponsor" placeholder="Name of existing member (optional)">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">Your Message</label>
+            <textarea class="form-textarea" id="message" name="message" placeholder="Please describe your enquiry, or introduce yourself briefly if this is a membership application." required></textarea>
+            <span class="form-error">Please include a message</span>
+          </div>
+
+          <div class="form-group" style="display:flex;align-items:flex-start;gap:0.875rem;margin-top:0.5rem;">
+            <input type="checkbox" id="privacy" name="privacy_consent" value="agreed" required style="margin-top:3px;accent-color:var(--gold);flex-shrink:0;cursor:none;">
+            <label for="privacy" style="font-size:0.8125rem;color:var(--muted);line-height:1.7;">
+              I understand that this enquiry will be reviewed by the Aso Dominion membership committee and that all information shared is held in the strictest confidence.
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn--gold" style="margin-top:2rem;width:100%;justify-content:center;">
+            Submit Enquiry
+          </button>
+        </form>
+
+        <!-- Success State -->
+        <div id="form-success">
+          <div class="form-success__icon">&mdash;</div>
+          <h3 class="form-success__title">Received.</h3>
+          <p class="form-success__text">
+            Your enquiry has been submitted to the Aso Dominion membership office. All enquiries are acknowledged within 48 hours. The committee will be in touch.
+          </p>
+          <span class="rule rule--center rule--long" style="margin:2rem auto;"></span>
+          <p style="font-size:0.75rem;color:var(--muted);font-family:var(--label);letter-spacing:0.12em;text-transform:uppercase;">
+            Discretion Assured
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <span class="footer__logo">Aso <span>Dominion</span></span>
+        <p class="footer__tagline">A private members club in the heart of Lagos. Where access is the only currency.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Navigate</p>
+        <ul class="footer__links">
+          <li><a href="index.html" class="footer__link">Home</a></li>
+          <li><a href="membership.html" class="footer__link">Membership</a></li>
+          <li><a href="residences.html" class="footer__link">Residences</a></li>
+          <li><a href="experiences.html" class="footer__link">Experiences</a></li>
+          <li><a href="dining.html" class="footer__link">Dining</a></li>
+          <li><a href="wellness.html" class="footer__link">Wellness</a></li>
+          <li><a href="events.html" class="footer__link">Events</a></li>
+          <li><a href="contact.html" class="footer__link">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Services</p>
+        <ul class="footer__links">
+          <li><a href="residences.html" class="footer__link">Penthouse Residences</a></li>
+          <li><a href="dining.html" class="footer__link">Private Dining</a></li>
+          <li><a href="wellness.html" class="footer__link">Spa &amp; Wellness</a></li>
+          <li><a href="experiences.html" class="footer__link">Yacht Charter</a></li>
+          <li><a href="events.html" class="footer__link">Corporate Events</a></li>
+          <li><a href="experiences.html" class="footer__link">Concierge</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Contact</p>
+        <ul class="footer__links">
+          <li style="font-size:0.875rem;color:var(--muted);line-height:1.7;">1 Aso Tower, Victoria Island<br>Lagos, Nigeria</li>
+          <li style="margin-top:1rem;"><a href="contact.html" class="footer__link">Membership Enquiries</a></li>
+          <li><a href="contact.html" class="footer__link">Event Bookings</a></li>
+          <li style="margin-top:1rem;font-size:0.75rem;color:rgba(240,235,225,0.25);font-family:var(--label);letter-spacing:0.08em;">By appointment only</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p class="footer__copy">&copy; 2025 Aso Dominion. All rights reserved.</p>
+      <div class="footer__social">
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">X</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
