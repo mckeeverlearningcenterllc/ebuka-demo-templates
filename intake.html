@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Website Request — Ebuka's Websites</title>
+  <meta name="description" content="Fill in this short form to get started on your new website with Ebuka's Websites." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #f4f7f4; color: #1a2e1a; min-height: 100vh; }
+
+    :root {
+      --green:       #16a34a;
+      --green-dark:  #15803d;
+      --green-light: #f0faf3;
+      --green-faint: #e8f5ec;
+      --ink:         #111b11;
+      --muted:       #5a7a5a;
+      --border:      #d4e4d4;
+      --white:       #ffffff;
+    }
+
+    /* HEADER */
+    .header {
+      background: var(--green);
+      padding: 20px 48px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .header-logo { font-size: 1.1rem; font-weight: 600; color: #fff; text-decoration: none; letter-spacing: 0.02em; }
+    .header-tagline { font-size: 0.72rem; color: rgba(255,255,255,0.75); font-weight: 300; }
+
+    /* HERO */
+    .hero { background: var(--green); padding: 60px 48px 80px; }
+    .hero-inner { max-width: 640px; }
+    .hero-label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 600; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+    .hero p { font-size: 0.9rem; font-weight: 300; line-height: 1.8; color: rgba(255,255,255,0.8); max-width: 520px; }
+
+    /* FORM CARD */
+    .form-wrap { max-width: 720px; margin: 0 auto; padding: 0 24px 80px; }
+    .form-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; padding: 48px;
+      margin-top: -32px; position: relative; z-index: 2;
+      box-shadow: 0 4px 24px rgba(22,163,74,0.07);
+    }
+
+    /* SECTIONS */
+    .form-section { margin-bottom: 36px; }
+    .form-section-title {
+      font-size: 0.65rem; font-weight: 600; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--green);
+      padding-bottom: 10px; border-bottom: 1px solid var(--green-faint);
+      margin-bottom: 24px;
+    }
+
+    /* FIELDS */
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group:last-child { margin-bottom: 0; }
+    label { display: block; font-size: 0.72rem; font-weight: 500; color: var(--ink); margin-bottom: 6px; }
+    label .req { color: var(--green); margin-left: 2px; }
+    label .hint { font-weight: 300; color: var(--muted); margin-left: 4px; font-size: 0.68rem; }
+
+    input[type="text"], input[type="email"], input[type="tel"], select, textarea {
+      width: 100%; padding: 11px 14px;
+      border: 1px solid var(--border); border-radius: 6px;
+      font-family: 'Inter', sans-serif; font-size: 0.85rem;
+      color: var(--ink); background: #fff; outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s; appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(22,163,74,0.1);
+    }
+    input::placeholder, textarea::placeholder { color: #9aaa9a; }
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a7a5a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+      padding-right: 36px; cursor: pointer;
+    }
+    textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+
+    /* COLOUR SWATCHES */
+    .swatch-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .swatch-option { display: none; }
+    .swatch-option + label {
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 14px; border: 1px solid var(--border);
+      border-radius: 20px; cursor: pointer; font-size: 0.75rem;
+      font-weight: 400; color: var(--muted);
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .swatch-option:checked + label { border-color: var(--green); color: var(--green-dark); background: var(--green-faint); font-weight: 500; }
+    .swatch-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+
+    /* PACKAGE CARDS */
+    .package-group { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 8px; }
+    .pkg-option { display: none; }
+    .pkg-option + label { display: block; padding: 14px 10px; text-align: center; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; transition: all 0.2s; }
+    .pkg-option:checked + label { border-color: var(--green); background: var(--green-faint); }
+    .pkg-name { font-size: 0.8rem; font-weight: 600; color: var(--ink); display: block; margin-bottom: 4px; }
+    .pkg-option:checked + label .pkg-name { color: var(--green-dark); }
+    .pkg-desc { font-size: 0.66rem; color: var(--muted); line-height: 1.4; }
+
+    /* SUBMIT */
+    .submit-wrap { margin-top: 36px; }
+    .btn-submit {
+      width: 100%; padding: 16px;
+      background: #25D366; color: #fff;
+      font-family: 'Inter', sans-serif; font-size: 0.85rem; font-weight: 600;
+      border: none; border-radius: 8px; cursor: pointer;
+      transition: background 0.2s; letter-spacing: 0.04em;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .btn-submit:hover { background: #1ebe5a; }
+    .submit-note { text-align: center; margin-top: 12px; font-size: 0.68rem; color: var(--muted); line-height: 1.7; }
+
+    /* SUCCESS STATE */
+    .success-card {
+      display: none; background: var(--white); border: 1px solid var(--border);
+      border-radius: 12px; padding: 64px 48px;
+      margin-top: -32px; position: relative; z-index: 2;
+      box-shadow: 0 4px 24px rgba(22,163,74,0.07); text-align: center;
+    }
+    .success-icon { width: 64px; height: 64px; border-radius: 50%; background: var(--green-light); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; }
+    .success-card h2 { font-size: 1.4rem; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
+    .success-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.8; max-width: 440px; margin: 0 auto; }
+
+    /* FOOTER */
+    .footer { text-align: center; padding: 32px 24px; font-size: 0.7rem; color: var(--muted); border-top: 1px solid var(--border); }
+    .footer a { color: var(--green); text-decoration: none; }
+
+    @media (max-width: 600px) {
+      .header { padding: 16px 20px; flex-direction: column; align-items: flex-start; gap: 4px; }
+      .hero { padding: 40px 20px 64px; }
+      .form-card, .success-card { padding: 32px 20px; margin-top: -20px; }
+      .form-row { grid-template-columns: 1fr; }
+      .package-group { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="https://ebukas-websites.netlify.app" class="header-logo">Ebuka's Websites</a>
+    <span class="header-tagline">Professional websites for Nigerian businesses</span>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="hero-label">Get Started</p>
+      <h1>Tell us about your business</h1>
+      <p>Fill in this short form and your details will be sent directly to us on WhatsApp. We will get back to you within 24 hours with a quote and next steps.</p>
+    </div>
+  </section>
+
+  <div class="form-wrap">
+
+    <div class="form-card" id="formCard">
+      <form id="intakeForm" novalidate>
+
+        <!-- SECTION 1: About You -->
+        <div class="form-section">
+          <p class="form-section-title">About You</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contact_name">Your Name <span class="req">*</span></label>
+              <input type="text" id="contact_name" name="contact_name" placeholder="Amaka Okonkwo" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">WhatsApp Number <span class="req">*</span></label>
+              <input type="tel" id="phone" name="phone" placeholder="+234 800 000 0000" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address <span class="req">*</span></label>
+            <input type="email" id="email" name="email" placeholder="amaka@example.com" required />
+          </div>
+        </div>
+
+        <!-- SECTION 2: About the Business -->
+        <div class="form-section">
+          <p class="form-section-title">About the Business</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="business_name">Business Name <span class="req">*</span></label>
+              <input type="text" id="business_name" name="business_name" placeholder="e.g. Amaka's Kitchen" required />
+            </div>
+            <div class="form-group">
+              <label for="business_type">Type of Business <span class="req">*</span></label>
+              <select id="business_type" name="business_type" required>
+                <option value="" disabled selected>Select your industry</option>
+                <option>Restaurant / Food</option>
+                <option>Salon / Beauty</option>
+                <option>Fashion / Clothing</option>
+                <option>Law Firm / Legal</option>
+                <option>Healthcare / Clinic</option>
+                <option>School / Education</option>
+                <option>Real Estate</option>
+                <option>Hotel / Hospitality</option>
+                <option>Church / Religious</option>
+                <option>NGO / Non-profit</option>
+                <option>E-commerce / Online Store</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="location">Business Location <span class="req">*</span></label>
+            <input type="text" id="location" name="location" placeholder="e.g. Victoria Island, Lagos" required />
+          </div>
+        </div>
+
+        <!-- SECTION 3: Style Preferences -->
+        <div class="form-section">
+          <p class="form-section-title">Style Preferences</p>
+          <div class="form-group">
+            <label>Preferred Colour Feel <span class="hint">(select all that apply)</span></label>
+            <div class="swatch-group">
+              <input type="checkbox" class="swatch-option" name="color_feel" id="c1" value="Dark & Elegant" />
+              <label for="c1"><span class="swatch-dot" style="background:#1a1a1a;border:1px solid #ccc;"></span>Dark &amp; Elegant</label>
+
+              <input type="checkbox" class="swatch-option" name="color_feel" id="c2" value="Light & Clean" />
+              <label for="c2"><span class="swatch-dot" style="background:#f9f9f7;border:1px solid #ccc;"></span>Light &amp; Clean</label>
+
+              <input type="checkbox" class="swatch-option" name="color_feel" id="c3" value="Bold & Colourful" />
+              <label for="c3"><span class="swatch-dot" style="background:#e63946;"></span>Bold &amp; Colourful</label>
+
+              <input type="checkbox" class="swatch-option" name="color_feel" id="c4" value="Gold & Luxury" />
+              <label for="c4"><span class="swatch-dot" style="background:#c9853a;"></span>Gold &amp; Luxury</label>
+
+              <input type="checkbox" class="swatch-option" name="color_feel" id="c5" value="Green & Natural" />
+              <label for="c5"><span class="swatch-dot" style="background:#16a34a;"></span>Green &amp; Natural</label>
+
+              <input type="checkbox" class="swatch-option" name="color_feel" id="c6" value="Blue & Professional" />
+              <label for="c6"><span class="swatch-dot" style="background:#2563eb;"></span>Blue &amp; Professional</label>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:20px;">
+            <label for="style_notes">Brand Colours or Style Notes <span class="hint">(optional)</span></label>
+            <input type="text" id="style_notes" name="style_notes" placeholder="e.g. our logo is navy blue and gold, we want something elegant" />
+          </div>
+        </div>
+
+        <!-- SECTION 4: Package -->
+        <div class="form-section">
+          <p class="form-section-title">Website Package</p>
+          <div class="form-group">
+            <label>Which package interests you? <span class="hint">(we can advise if unsure)</span></label>
+            <div class="package-group">
+              <input type="radio" class="pkg-option" name="package" id="pkg_budget" value="Budget" />
+              <label for="pkg_budget">
+                <span class="pkg-name">Budget</span>
+                <span class="pkg-desc">Single page, essentials only</span>
+              </label>
+              <input type="radio" class="pkg-option" name="package" id="pkg_starter" value="Starter" />
+              <label for="pkg_starter">
+                <span class="pkg-name">Starter</span>
+                <span class="pkg-desc">Multi-page, clean design</span>
+              </label>
+              <input type="radio" class="pkg-option" name="package" id="pkg_premium" value="Premium" />
+              <label for="pkg_premium">
+                <span class="pkg-name">Premium</span>
+                <span class="pkg-desc">More pages, more features</span>
+              </label>
+              <input type="radio" class="pkg-option" name="package" id="pkg_vip" value="VIP" />
+              <label for="pkg_vip">
+                <span class="pkg-name">VIP</span>
+                <span class="pkg-desc">Editorial, luxury design</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5: Assets & Notes -->
+        <div class="form-section">
+          <p class="form-section-title">Assets &amp; Extra Notes</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="has_logo">Do you have a logo?</label>
+              <select id="has_logo" name="has_logo">
+                <option value="" disabled selected>Select</option>
+                <option>Yes — I will send it</option>
+                <option>No — I need one designed</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="has_photos">Do you have photos?</label>
+              <select id="has_photos" name="has_photos">
+                <option value="" disabled selected>Select</option>
+                <option>Yes — professional photos</option>
+                <option>Yes — phone photos only</option>
+                <option>No — I need photos sourced</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="notes">Anything else we should know? <span class="hint">(optional)</span></label>
+            <textarea id="notes" name="notes" placeholder="e.g. we launch in August, we have a competitor site we like, we need it in Igbo and English..."></textarea>
+          </div>
+        </div>
+
+        <!-- SUBMIT -->
+        <div class="submit-wrap">
+          <button type="submit" class="btn-submit">
+            <svg xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;fill:white;flex-shrink:0;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Send via WhatsApp
+          </button>
+          <p class="submit-note">Clicking this button will open WhatsApp with your details pre-filled. Just hit send and we will reply within 24 hours.</p>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="success-card" id="successCard">
+      <div class="success-icon">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:64px;height:64px;">
+          <circle cx="32" cy="32" r="32" fill="#16a34a"/>
+          <path d="M18 33l10 10 18-18" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h2>WhatsApp is opening now</h2>
+      <p>Your details have been sent. If WhatsApp did not open automatically, tap the button below. We will get back to you within 24 hours.</p>
+      <div style="margin-top:28px;">
+        <a id="waFallback" href="#" target="_blank" rel="noopener"
+          style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:#25D366;color:#fff;border-radius:8px;font-size:0.82rem;font-weight:600;text-decoration:none;">
+          <svg xmlns="http://www.w3.org/2000/svg" style="width:18px;height:18px;fill:white;" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Open WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Ebuka's Websites &nbsp;&middot;&nbsp; <a href="https://ebukas-websites.netlify.app">View our demo templates</a></p>
+  </footer>
+
+  <script>
+    var WA_NUMBER = '2349079746882';
+
+    document.getElementById('intakeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      var required = ['contact_name', 'phone', 'email', 'business_name', 'business_type', 'location'];
+      var missing = required.filter(function(id) {
+        return !document.getElementById(id).value.trim();
+      });
+      if (missing.length) {
+        document.getElementById(missing[0]).focus();
+        return;
+      }
+
+      var colours = Array.from(document.querySelectorAll('input[name="color_feel"]:checked'))
+        .map(function(cb) { return cb.value; }).join(', ') || 'Not specified';
+
+      var pkg = document.querySelector('input[name="package"]:checked');
+
+      var msg = [
+        '*New Website Request — Ebuka\'s Websites*',
+        '',
+        '*--- Contact Details ---*',
+        'Name: ' + document.getElementById('contact_name').value.trim(),
+        'Phone: ' + document.getElementById('phone').value.trim(),
+        'Email: ' + document.getElementById('email').value.trim(),
+        '',
+        '*--- Business Details ---*',
+        'Business Name: ' + document.getElementById('business_name').value.trim(),
+        'Type: ' + document.getElementById('business_type').value,
+        'Location: ' + document.getElementById('location').value.trim(),
+        '',
+        '*--- Style & Package ---*',
+        'Colour Feel: ' + colours,
+        'Style Notes: ' + (document.getElementById('style_notes').value.trim() || 'None'),
+        'Package: ' + (pkg ? pkg.value : 'Not selected'),
+        '',
+        '*--- Assets ---*',
+        'Logo: ' + (document.getElementById('has_logo').value || 'Not answered'),
+        'Photos: ' + (document.getElementById('has_photos').value || 'Not answered'),
+        '',
+        '*--- Extra Notes ---*',
+        document.getElementById('notes').value.trim() || 'None'
+      ].join('\n');
+
+      var url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+
+      document.getElementById('waFallback').href = url;
+      document.getElementById('formCard').style.display = 'none';
+      document.getElementById('successCard').style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.open(url, '_blank');
+    });
+  </script>
+
+</body>
+</html>
